@@ -1,7 +1,8 @@
 <template>
 <div class="container">
 
-    <h2>Past Posts</h2>
+    <h2>Posts</h2>
+    <hr>
 
     <table class="table table-striped">
         <thead>

@@ -3,10 +3,12 @@
 
     <h2>About Us</h2>
 
-    <p> I couldn't figure out what to write here. Since I had plenty of time in my hand, I started imagining random scenarios
+    <hr>
+
+    <!-- <p> I couldn't figure out what to write here. Since I had plenty of time in my hand, I started imagining random scenarios
         in my head. One scenario in particular stands out from the rest. It describes a day when a lot of people have visited this site.
         Within that story line, below is how I imagine a conversation went between me and one the imaginary visitors 😃
-    </p>
+    </p> -->
 
     <div v-for="chat in chatList" :key="chat.question">
         <!-- question -->
