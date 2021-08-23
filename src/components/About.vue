@@ -13,7 +13,7 @@
     <div v-for="chat in chatList" :key="chat.question">
         <!-- question -->
         <div class="row">
-            <div class="col-sm-8 offset-sm-1 mb-2 align-self-start">
+            <div class="col-sm-8 offset-sm-1 mb-2">
                 <div class="card text-white bg-dark">
                     <div class="card-body">
                         <h5 class="card-title">Visitor</h5>
@@ -23,7 +23,7 @@
             </div>
 
             <!-- answer -->
-            <div class="col-sm-8 offset-sm-3 mb-3 align-self-end">
+            <div class="col-sm-8 offset-sm-3 mb-2">
                 <div class="card border-primary">
                     <div class="card-body">
                         <h5 class="card-title">Reinventing Wheel</h5>
