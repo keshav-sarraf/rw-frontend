@@ -4,7 +4,7 @@
     <h2>Posts</h2>
     <hr>
 
-    <table class="table table-striped">
+    <!-- <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -33,7 +33,36 @@
                 </td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
+
+    <div class="card" v-for="post in postsList" :key="post.title">
+        <div class="card-header">
+            <div class="row">
+                <div class="col align-self-start text-start">
+                    {{post.read_duration}}
+                </div>
+
+                <div class="col align-self-end text-end">
+                    {{post.date}}
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <router-link v-bind:to=post.router_link>{{post.title}}</router-link>
+            </h5>
+            <p class="card-text">
+                {{post.description}}
+            </p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+        <div class="card-footer text-muted">
+            <span v-for="label in post.labels" :key="label" class="badge bg-primary m-1">
+                {{label}}
+            </span>
+        </div>
+    </div>
+
 </div>
 </template>
 
