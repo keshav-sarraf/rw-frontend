@@ -28,6 +28,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Reinventing Wheel</h5>
                         <p class="card-text">{{chat.answer}}</p>
+                        <a v-if="chat.external_link_tag != null" v-bind:href=chat.external_link_url>{{chat.external_link_tag}}</a>
                     </div>
                 </div>
             </div>
