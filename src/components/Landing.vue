@@ -54,7 +54,6 @@
             <p class="card-text">
                 {{post.description}}
             </p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
         </div>
         <div class="card-footer text-muted">
             <span v-for="label in post.labels" :key="label" class="badge bg-primary m-1">
