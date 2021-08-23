@@ -16,7 +16,9 @@
         </thead>
         <tbody>
             <tr v-for="(post, index) in postsList" :key="post.title">
-                <th scope="row">{{index+1}}</th>
+                <th scope="row">
+                    {{index+1}}
+                </th>
                 <td>
                     <router-link v-bind:to=post.router_link>{{post.title}}</router-link>
                 </td>

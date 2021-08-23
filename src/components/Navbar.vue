@@ -12,7 +12,7 @@
                         <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link active" to="/about-us">About Us</router-link>
+                        <router-link class="nav-link active" to="/about-us">About</router-link>
                     </li>
                 </ul>
             </div>
