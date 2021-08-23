@@ -23,7 +23,7 @@
             </div>
 
             <!-- answer -->
-            <div class="col-sm-8 offset-sm-3 mb-2">
+            <div class="col-sm-8 offset-sm-3 mb-4">
                 <div class="card border-primary">
                     <div class="card-body">
                         <h5 class="card-title">Reinventing Wheel</h5>
