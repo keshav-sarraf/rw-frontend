@@ -1,5 +1,5 @@
 <template>
-<div class="container mb-5">
+<div class="container mb-3">
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid">
             <router-link to="/" class="navbar-brand">Reinventing Wheel</router-link>

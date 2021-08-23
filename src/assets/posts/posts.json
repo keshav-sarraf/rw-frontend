@@ -1,7 +1,8 @@
 {
     "posts" : [
         {
-            "title" : "How do computers generate random numbers ?",
+            "title" : "How random are random numbers ?",
+            "description" : "Computers were designed to be deterministic yet they are able to generate randomness. In this post we take a peek under the hood to see how random number generators function and how random they are in reality",
             "date" : "21st August 2021",
             "read_duration" : "3 minutes",
             "labels" : ["Maths", "Computers"],

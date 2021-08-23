@@ -9,7 +9,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
-                <th scope="col">Date</th>
+                <th scope="col">Description</th>
                 <th scope="col">Read Duration</th>
                 <th scope="col">Labels</th>
             </tr>
@@ -22,7 +22,9 @@
                 <td>
                     <router-link v-bind:to=post.router_link>{{post.title}}</router-link>
                 </td>
-                <td>{{post.date}}</td>
+                <td class="fst-italic fw-light">
+                    {{post.description}}
+                </td>
                 <td>{{post.read_duration}}</td>
                 <td>
                     <span v-for="label in post.labels" :key="label" class="badge bg-primary m-1">
