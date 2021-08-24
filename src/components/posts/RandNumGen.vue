@@ -17,7 +17,7 @@
 
         <a href="#" @click.stop.prevent data-bs-toggle="tooltip" title="" data-bs-html="true" data-bs-original-title="<i>Sometimes I feel it's the other way around, where I am an integral part of my smart phone's life and all my life's decisions revolve around keeping the little bugger charged and safe. We'll have the philosophical discussions on this topic some other day ...</i>">With time, they have become an integral part of our lives.</a>
 
-        They do a lot of heavy lifting. We let them fly aeroplanes, manage our bank accounts, help with communications, and a thousand other things. I don't think we trust any other human being as much as we trust the computers. None of which would have been possible if computers were unpredictable. This sheer predictibility of a computer's behaviour gives them all this power.
+        They do a lot of heavy lifting in management of our lives. We let them fly aeroplanes, manage our bank accounts, help with communications, and a thousand other things. I don't think we trust any other human being as much as we trust the computers. None of which would have been possible if computers were unpredictable. This sheer predictibility of a computer's behaviour gives them all this power.
     </p>
     <p>
         Now few days ago, when I asked the computer to give me a sequence of random numbers, it did ... it actually did and the results really seemed random. I checked multiple times by asking it the same question again and again... guess what ... the answer was different every time.
@@ -31,33 +31,37 @@
         With this new found curiosity, I started researching a bit more about this problem and turns out that a lot of people have worked very hard over the years so that we can make computers churn out random number ( or seemingly random numbers ... will delve into it shortly )
     </p>
 
-    <h4>How good are humans at the task ?</h4>
+    <h4>Story about the first Random Number Generator</h4>
 
     <p>
-        Before we go into the details about computers and algorithms, let's see Let's how good human beings are on the same subject. Quickly select a random number between 1-10 in the slider below. Just enter any number that comes to your head and press submit.
+        People used to generate random number much before computers were invented. There was this dude somewhere who filled pages and pages by rolling dice. Internet is divided on the question - "Are human beings good at generating random number ?" . There's a numberphile video on youtube which says probably not, while some folks in quora belive that we are better than we think. I'll try and do experiments on the topic in future ... But for now, I'll fast forward to the first computerised implementation of random number generators
     </p>
 
-    <div class="row border">
-        <div class="col-sm-8">
-            <label for="customRange" class="form-label">Select a number between 1 - 10</label>
-            <input v-model="userSelectedNumber" type="range" class="form-range" min="1" max="10" id="customRange">
+    <h4>Display example of calculations</h4>
+    <h4>Manually playable Widget</h4>
+
+    <div class="row border-top">
+        <div class="col-sm-10 m-auto">
+            <label for="customRange" class="form-label">Select a number between 1 - 999 to be used as a seed</label>
+            <input v-model="userSelectedSeed" type="range" class="form-range" min="1" max="999" id="customRange">
         </div>
 
         <div class="col text-center m-auto">
-            <label for="rangeResult" class="form-label">Selected Number</label>
-            <h3 id="rangeResult">{{userSelectedNumber}}</h3>
+            <label for="rangeResult" class="form-label">Selected Seed</label>
+            <h3 id="rangeResult">{{userSelectedSeed}}</h3>
         </div>
-
-        <div class="col text-center m-auto">
-            <button type="button" class="btn btn-primary" id="submitBtn">Submit</button>
+    </div>
+    <div class="row border-bottom">
+        <div class="col-sm-12 text-start m-auto">
+            <label for="generatedRandNums" class="form-label">Generated sequence</label>
+            <div id="generatedRandNums">
+                <span v-for="(num,index) in randArr" :key="index" class="badge m-1" :class="[num === duplicateEntry ? 'bg-danger' : 'bg-primary']">
+                    {{num}}
+                </span>
+            </div>
         </div>
     </div>
 
-    <p>
-        Show results of the survey
-    </p>
-
-    <h4>Story about the first Random Number Generator</h4>
     <h4>Statistics</h4>
     <h4>Generators that follow a specific distribution</h4>
     <h4>Tests</h4>
@@ -74,13 +78,33 @@ import {
 } from '@vue/runtime-core'
 
 import {
-    ref
+    ref,
+    watch
 } from 'vue';
+
+import * as prng from '../../utils/customRandNumGen.js'
+
+import _ from 'lodash'
 
 export default {
     setup() {
+        //for experiment
+        const userSelectedSeed = ref(318);
+        const numDigits = 3;
+        const result = prng.generateRandSequenceMiddleSquare(userSelectedSeed.value, numDigits);
 
-        const userSelectedNumber = ref(7);
+        const duplicateEntry = ref(result.loopVal);
+        const randArr = ref(result.arr);
+
+        const debouncedSequenceGenerator = _.debounce(() => {
+            const result = prng.generateRandSequenceMiddleSquare(userSelectedSeed.value, numDigits);
+            duplicateEntry.value = result.loopVal;
+            randArr.value = result.arr;
+        }, 70);
+
+        watch(userSelectedSeed, () => {
+            debouncedSequenceGenerator();
+        });
 
         onMounted(() => {
             //init tooltip
@@ -89,7 +113,9 @@ export default {
         });
 
         return {
-            userSelectedNumber
+            userSelectedSeed,
+            randArr,
+            duplicateEntry,
         };
     }
 }
