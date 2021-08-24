@@ -10,8 +10,8 @@ const generateNextRandNumMiddleSquare = (seed, numDigits) => {
     const padding = (strSquare.length - numDigits) / 2
 
     const nextNum = parseInt(strSquare.substring(padding, padding + numDigits));
-    //console.log([seed, square, strSquare, padding, nextNum]);
-    return nextNum;
+
+    return {seed, strSquare, padding, nextNum};
 };
 
 const generateRandSequenceMiddleSquare = (seed, numDigits) => {
@@ -24,7 +24,8 @@ const generateRandSequenceMiddleSquare = (seed, numDigits) => {
     let loopVal = null;
 
     while (loopVal === null) {
-        const nextRandNum = generateNextRandNumMiddleSquare(generatedRandNum, numDigits);
+        const nextRandNumObj = generateNextRandNumMiddleSquare(generatedRandNum, numDigits);
+        const nextRandNum = nextRandNumObj.nextNum;
 
         if (numbersSeen.has(nextRandNum) && loopVal === null) {
             loopVal = nextRandNum;
