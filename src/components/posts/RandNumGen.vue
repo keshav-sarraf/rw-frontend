@@ -65,7 +65,7 @@ import {
     onMounted
 } from '@vue/runtime-core'
 
-import MiddleSquareCalculation from './MiddleSquareCalculation.vue';
+import MiddleSquareCalculation from '../Interactive/MiddleSquareCalculation.vue';
 
 export default {
     components: {
