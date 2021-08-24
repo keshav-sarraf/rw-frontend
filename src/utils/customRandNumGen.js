@@ -10,6 +10,7 @@ const generateNextRandNumMiddleSquare = (seed, numDigits) => {
     const padding = (strSquare.length - numDigits) / 2
 
     const nextNum = parseInt(strSquare.substring(padding, padding + numDigits));
+    // console.log([seed, strSquare, padding, nextNum]);
 
     return {seed, strSquare, padding, nextNum};
 };

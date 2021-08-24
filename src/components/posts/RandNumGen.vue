@@ -81,7 +81,7 @@
 
         <div class="col text-center m-auto">
             <label for="selectedNumberCalculation" class="form-label">Calculation</label>
-            <h4 id="selectedNumberCalculation">{{calculationDetail.seed}} Squared = {{calculationDetail.prepad}} {{calculationDetail.num}} {{calculationDetail.postpad}}</h4>
+            <h4 id="selectedNumberCalculation" v-if="calculationDetail.seed">{{calculationDetail.seed}} Squared = {{calculationDetail.prepad}} {{calculationDetail.num}} {{calculationDetail.postpad}}</h4>
         </div>
 
     </div>
@@ -146,7 +146,8 @@ export default {
         //for styling
         const isSeed = (num) => num === parseInt(userSelectedSeed.value);
         const isDuplicate = (num) => num === duplicateEntry.value;
-
+        
+        //for showing details of the calculated number
         const setCalculationDetailIdx = function (idx) {
             if (idx === 0) {
                 calculationDetail.seed = "";
@@ -163,7 +164,7 @@ export default {
                 const padding = res.padding;
                 calculationDetail.prepad = res.strSquare.substring(0, padding);
                 calculationDetail.postpad = res.strSquare.substring(padding + numDigits, res.strSquare.length);
-                calculationDetail.num = res.nextNum;
+                calculationDetail.num = res.strSquare.substring(padding, padding + numDigits);
             }
             return;
         }
