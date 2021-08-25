@@ -25,22 +25,29 @@
         <a href="#" @click.stop.prevent data-bs-toggle="tooltip" title="" data-bs-html="true" data-bs-original-title="<i>Well my mind gets blown by a lot of things ... but still...</i>">My mind was blown. 😱 </a>
 
         In my head, this was analogous to opening the door of my refrigerator to see something other than the leftovers I shoved in yesterday.
-
     </p>
     <p>
         With this new found curiosity, I started researching a bit more about this problem and turns out that a lot of people have worked very hard over the years so that we can make computers churn out random number ( or seemingly random numbers ... will delve into it shortly )
     </p>
 
+    <h4>
+        What is a random number and why are you making such a big deal about it ?
+    </h4>
+
+    <p>
+        I have been using the term "Random Number"
+    </p>
+
     <h4>Story about the first Random Number Generator</h4>
 
     <p>
-        People used to generate random number much before computers were invented. There was this dude somewhere who filled pages and pages by rolling dice. Internet is divided on the question - "Are human beings good at generating random number ?" . There's a numberphile video on youtube which says probably not, while some folks in quora belive that we are better than we think. I'll try and do experiments on the topic in future ... But for now, I'll fast forward to the first computerised implementation of random number generators
+        People had uses of random numbers even before computers were invented. While researching for this article, I came across mention of a book from 1950s called <a href="https://www.rand.org/pubs/monograph_reports/MR1418.html">A Million Random Digits with 100,000 Normal Deviates</a> that has 400 pages filled with random numbers. If you are interested to flip through it, then a .pdf version is freely available on the publisher's website. That was a time unlike today where acquiring information took considerably lot more efforts so a market definitely existed for such texts. If someone had to do statistical experiments, then it'd be one less thing off the list for them. With correctness of the information solved for, speed still remained a bottleneck. I can only imagine how slow those experiments would have been if someone had to do everything manually.
     </p>
 
-    <h4>Display example of calculations</h4>
-    <h4>Manually playable Widget</h4>
-
-    <MiddleSquareCalculation/>
+    <p>
+        In today's world, That was a time unlike today at While the book provided I can imagine, Performing experiments would have been a slower process in those times. Surprisingly, this was released around the same time when the first algorithm to generate random numbers was created by Jhon von Neumann [hyperlink here]. [Tooltip he is quite an accomplished scientist of his time who also gave us ?] Algorithm is called "Middle Square Method". <a href="https://mcnp.lanl.gov/pdf_files/nbs_vonneumann.pdf">Here</a> is the paper that was published describing the algorithm
+    </p>
+    <MiddleSquareCalculation />
     <h4>Statistics</h4>
 
     <p>
@@ -65,14 +72,14 @@ import {
     onMounted
 } from '@vue/runtime-core'
 
-import MiddleSquareCalculation from '../Interactive/MiddleSquareCalculation.vue';
+import MiddleSquareCalculation from '../interactive/MiddleSquareCalculation.vue';
 
 export default {
     components: {
         MiddleSquareCalculation
     },
     setup() {
-        
+
         onMounted(() => {
             //init tooltip
             Array.from(document.querySelectorAll('a[data-bs-toggle="tooltip"]'))

@@ -1,48 +1,50 @@
 <template>
-<div class="row border-top">
-    <div class="col-sm-10 m-auto">
-        <label for="customRange" class="form-label">Select a number between 1 - 9999 to be used as a seed</label>
-        <input v-model="userSelectedSeed" type="range" class="form-range" min="1" max="9999" id="customRange">
-    </div>
+<div class="border my-2 p-2">
+    <div class="row">
+        <div class="col-sm-10 m-auto">
+            <label for="customRange" class="form-label">Select a number between 1 - 9999 to be used as a seed</label>
+            <input v-model="userSelectedSeed" type="range" class="form-range" min="1" max="9999" id="customRange">
+        </div>
 
-    <div class="col text-center m-auto">
-        <label for="selectedSeed" class="form-label">Selected Seed</label>
-        <h4 id="selectedSeed">{{userSelectedSeed}}</h4>
-    </div>
+        <div class="col text-center m-auto">
+            <label for="selectedSeed" class="form-label">Selected Seed</label>
+            <h4 id="selectedSeed">{{userSelectedSeed}}</h4>
+        </div>
 
-    <div class="col text-center m-auto">
-        <label for="lenChain" class="form-label">Length of the chain</label>
-        <h4 id="lenChain">{{randArr.length-1}}</h4>
-    </div>
+        <div class="col text-center m-auto">
+            <label for="lenChain" class="form-label">Length of the chain</label>
+            <h4 id="lenChain">{{randArr.length-1}}</h4>
+        </div>
 
-</div>
-<div class="row border-bottom">
-    <div class="col-sm-12 text-start m-auto">
-        <label for="generatedRandNums" class="form-label">Generated sequence</label>
-        <div id="generatedRandNums">
-            <span v-for="(num,index) in randArr" :key="index" class="badge m-1" :class="{ 'bg-success': isSeed(num), 'bg-danger': isDuplicate(num), 'bg-primary' : !isSeed(num) && !isDuplicate(num) }" @click="setCalculationDetailIdx(index)">
-                {{num}}
-            </span>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 text-start m-auto">
+            <label for="generatedRandNums" class="form-label">Generated sequence (Click on a number to see details)</label>
+            <div id="generatedRandNums">
+                <span v-for="(num,index) in randArr" :key="index" class="badge m-1" :class="{ 'bg-success': isSeed(num), 'bg-danger': isDuplicate(num), 'bg-primary' : !isSeed(num) && !isDuplicate(num) }" @click="setCalculationDetailIdx(index)">
+                    {{num}}
+                </span>
+            </div>
         </div>
     </div>
-</div>
-<div class="row border-bottom" v-if="calculationDetail.num">
+    <div class="row" v-if="calculationDetail.num">
 
-    <div class="col text-center m-auto">
-        <label for="selectedNumber" class="form-label">Selected random number</label>
-        <h4 id="selectedNumber">{{calculationDetail.num}}</h4>
+        <div class="col text-center m-auto">
+            <label for="selectedNumber" class="form-label">Selected random number</label>
+            <h4 id="selectedNumber">{{calculationDetail.num}}</h4>
+        </div>
+
+        <div class="col text-center m-auto">
+            <label for="seedForSelectedNumber" class="form-label">Seed for the random number</label>
+            <h4 id="seedForSelectedNumber">{{calculationDetail.seed}}</h4>
+        </div>
+
+        <div class="col text-center m-auto">
+            <label for="selectedNumberCalculation" class="form-label">Calculation</label>
+            <h4 id="selectedNumberCalculation" v-if="calculationDetail.seed">{{calculationDetail.seed}} Squared = {{calculationDetail.prepad}} {{calculationDetail.num}} {{calculationDetail.postpad}}</h4>
+        </div>
+
     </div>
-
-    <div class="col text-center m-auto">
-        <label for="seedForSelectedNumber" class="form-label">Seed for the random number</label>
-        <h4 id="seedForSelectedNumber">{{calculationDetail.seed}}</h4>
-    </div>
-
-    <div class="col text-center m-auto">
-        <label for="selectedNumberCalculation" class="form-label">Calculation</label>
-        <h4 id="selectedNumberCalculation" v-if="calculationDetail.seed">{{calculationDetail.seed}} Squared = {{calculationDetail.prepad}} {{calculationDetail.num}} {{calculationDetail.postpad}}</h4>
-    </div>
-
 </div>
 </template>
 
