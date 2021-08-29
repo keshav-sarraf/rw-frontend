@@ -41,7 +41,7 @@
 
         <div class="col text-center m-auto">
             <label for="selectedNumberCalculation" class="form-label">Calculation</label>
-            <h4 id="selectedNumberCalculation" v-if="calculationDetail.seed">{{calculationDetail.seed}} Squared = {{calculationDetail.prepad}} {{calculationDetail.num}} {{calculationDetail.postpad}}</h4>
+            <h4 id="selectedNumberCalculation" v-if="calculationDetail.seed">{{calculationDetail.seed}} Squared = {{calculationDetail.prepad}}<u>{{calculationDetail.num}}</u>{{calculationDetail.postpad}}</h4>
         </div>
 
     </div>
