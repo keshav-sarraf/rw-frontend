@@ -2,7 +2,7 @@
 <div class="border my-2 p-2">
     <div class="row">
         <div class="col-sm-10 m-auto">
-            <label for="customRange" class="form-label">Select a number between 1 - 9999 to be used as a seed</label>
+            <label for="customRange" class="form-label">A 4 digit PRNG. Select a number between 1 - 9999 to be used as a seed</label>
             <input v-model="userSelectedSeed" type="range" class="form-range" min="1" max="9999" id="customRange">
         </div>
 
