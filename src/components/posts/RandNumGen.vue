@@ -20,14 +20,14 @@
     <br />
     <br />
     <p class="muted">
-        Computers were designed to be deterministic in nature. 1 + 1 should always return 2 and nothing else. This is an important and non negotiable prerequisite for us to rely on computers.
+        Computers were designed to be deterministic in nature. If I ask what's 1 + 1, a computer should always return 2 and nothing else. This is an important and non negotiable prerequisite for us to rely on computers.
 
         <a href="#" @click.stop.prevent data-bs-toggle="tooltip" title="" data-bs-html="true" data-bs-original-title="<i>Sometimes I feel it's the other way around, where I am an integral part of my smart phone's life and all my life's decisions revolve around keeping the little bugger charged and safe. We'll have the philosophical discussions on this topic some other day ...</i>">With time, they have become an integral part of our lives.</a>
-
-        They do a lot of heavy lifting by managing important but monotonous activities in the background. We let them fly aeroplanes, manage our bank accounts, help with communications, and a thousand other things. I don't think we trust any other human being as much as we trust our computers and smartphones. None of which would have been possible if computers were unpredictable. This sheer predictibility of a computer's behaviour makes them such a powerful tool that today's generation can't even imagine a world without them.
+        <!-- They do a lot of heavy lifting by managing important but monotonous activities in the background. We let them fly aeroplanes, manage our bank accounts, help with communications, and a thousand other things. I don't think we trust any other human being as much as we trust our computers and smartphones. None of which would have been possible if computers were unpredictable. -->
+        This sheer predictibility of a computer's behaviour makes them such a powerful tool that today's generation can't even imagine a world without them.
     </p>
     <p>
-        On the other hand, random sequences are a starting point for a lot of financial and statistical analyses. Even for developing machine learning models, we generally start with random numbers and iteratively build from there. Mostly for those purposes, I have been asking computers to generate random numbers since quite sometime now. And as far as my human brain can comprehend, they appear to be doing a decent job of it, because everytime I ask it to give me a random number, it gives me a different number.
+        On the other hand, random sequences are a starting point for a lot of statistical analyses. Even for developing machine learning models, we generally start with random numbers and iteratively build from there. Mostly for those purposes, I have been asking computers to generate random numbers since quite sometime now. And as far as my human brain can comprehend, they appear to be doing a decent job of it, because everytime I ask it to give me a random number... well, it gives me a different number.
 
         <!-- Few days ago, when I asked the computer to give me a sequence of random numbers, it did ... it actually did and the results really seemed random. I checked multiple times by asking it the same question again and again... guess what ... the answer was different every time.
 
@@ -40,19 +40,21 @@
     </p>
 
     <h4>
-        Why are you making such a big deal about random numbers ?
+        Why are you making such a big deal about random numbers 🎲
     </h4>
 
     <p>
         Because it is one of those things which on surface appears to be so trivial that we don't even bother looking under the hood, but once we dive into the details, we can see the devil 😈 partying there. I love these sort of things and that's why.
     </p>
 
+    <h5>What is a random number exactly ?</h5>
+
     <p>
-        Let's start by understanding the concept of randomness. Randomness loosely means lack of certainity. The more certain we are about something, the less random it appears to be. As an example, Let's say I am sitting in a dark room without my phone, and suddenly I have an urge to find which direction North is. I can take a guess but I can never be certain about the answer, Any direction that I point to will have some probability of being North. It's a situation with large degree of randomness and almost zero certainity. On the other hand, if I am in a park and have the same urge, then it'd be a different ball game altogether. Based on the approximate time, ( if it's morning or evening ) and the knowledge that - sun rises in the east and sets in the west, I can point to a fixed direction and say that's north. There would still be some randomness in it because north may lie a bit to the left ( or to the right ) to where I pointed my finger at but in this situation, there is a lot more certainity and significantly less randomnes.
+        Let's start by understanding the concept of randomness. Randomness loosely means unpredictability. The more certain we are about something, the less random it appears to be. As an example, Let's say I am sitting in a dark room without my phone, and suddenly I have an urge to find which direction North is. I can take a guess but I can never be certain about the answer, Any direction that I point to will have some probability of being North. It's a situation with large degree of randomness and almost zero certainity. On the other hand, if I am in a park and have the same urge, then it'd be a different ball game altogether. Based on the approximate time, ( if it's morning or evening ) and the knowledge that - sun rises in the east and sets in the west, I can point to a fixed direction and say that's north. There would still be some randomness in it because north may lie a bit to the left ( or to the right ) to where I pointed my finger at but in this situation, there is a lot more certainity and significantly less randomnes.
 
     </p>
     <p>
-        Now coming to the case of numbers, a random number generator is meaningful only when we have to generate numbers repeatedly. For e.g. if we need to generate only one number and that too only once then 4 (or any other number) is a perfectly good an answer. It is only when we have to repeat the same task again and again, the concept of randomness comes into picture. If our random number generator is programmed to always give 4 as an answer, then it's not random anymore. I can always predict correctly what the next number would be. My experiments that end up using this random number generator would end up being biased.
+        Coming to the case of numbers, a number is truly random only when all the numbers have an equal probability of arrival ( i.e. we don't have any idea of what the next number would be exactly ). Also, the concept of random numbers is meaningful only when we have to generate numbers repeatedly. For e.g. if we need to generate only one number, then 4 (or any other number) is a perfectly good answer. It is only when we have to repeat the same task again and again, the concept of randomness comes into picture. If our random number generator is programmed to always give 4 as an answer, then it's not random anymore. I can always predict correctly what the next number would be. My experiments that use this random number generator would end up being biased, because the results will not have details about what'll happen when 6 comes ( or any other number ).
         <br>
         <b>For a random number generator to be perfect :
             <ol>
@@ -64,7 +66,7 @@
     </p>
 
     <h4>
-        How good are human beings at the job ?
+        How good are human beings at the job 🤷‍♀️?
     </h4>
 
     <p>
@@ -74,61 +76,66 @@
     <h4>How did the world do it before computers ?</h4>
 
     <p>
-        PS: <i>I'll start the clock around the time of WW-2 because that's when computers were invented and we are mostly interested in how computers do the job.</i>
+        PS: <i>I'll start my clock around the time of WW-2 because that's when computers were invented and we are primarily interested in how computers do the job.</i>
         <br>
         <br>
-        While researching for this article, I came across mention of a book from 1950s called <a href="https://www.rand.org/pubs/monograph_reports/MR1418.html">A Million Random Digits with 100,000 Normal Deviates</a> that has 400 pages filled with random numbers. If you are interested to flip through it, then a .pdf version is freely available on the publisher's website. That was a time unlike today where electronic computers were just being created in military facilities and internet hadn't been invented yet. Acquiring information took considerable amount of effort. If someone had to do statistical experiments, then this book was a lifesaver because then it'd be one less thing off the list for them. They'd already have an acceptable list of random numbers. With availability of the information solved for, speed still remained a bottleneck. I can only imagine how slow those experiments would have been if someone had to do type in / copy huge lists of these random numbers before starting an experiment.
+        While researching for this article, I came across mention of a book from 1950s called <a href="https://www.rand.org/pubs/monograph_reports/MR1418.html">A Million Random Digits with 100,000 Normal Deviates</a> that has 400 pages filled with random numbers. If you are interested to flip through it, then a .pdf version is freely available on the publisher's website(linked with the name). That was a time unlike today where electronic computers were just being created in military facilities and internet hadn't been invented yet. Acquiring information took considerable amount of effort. If someone had to do statistical experiments, then this book was a lifesaver because then it'd be one less thing off the list for them. They'd already have an acceptable list of random numbers. With availability of the information solved for, speed still remained a bottleneck. I can only imagine how slow those experiments would have been if someone had to do type in / copy huge lists of these random numbers before starting an experiment.
     </p>
 
-    <h4>An electronic computer appears</h4>
+    <h4>An electronic computer appears 👾</h4>
 
     <p>
-        A team of scientists were working on the Hydrogen bomb in late 1940s at Los Alamos National Laboratory. A portion of that research involved investigating neutron diffusion in fissionable materials. In simple terms, they were trying to estimate - Once a neutron entered a fissionable material, how will the subsequent chain reaction look like. A chain reaction consists of the following components:
+        A team of scientists who were working on the Hydrogen bomb in late 1940s at Los Alamos National Laboratory, came across an interesting problem. It was related to neutron diffusion in fissionable materials. In simple terms, they were trying to estimate - Once a neutron enters a fissionable material, how will the subsequent chain reaction look like. A self sustained chain reaction would mean an explosive release of energy in a short span of time, so understanding it was critical to the research. The involved calculation consisted of the following components:
 
         <ol>
             <li>Given a neutron with a certain postion and velocity, estimate how far will the neutron travel before colliding with an atomic nucleus.</li>
             <li>
-                Once a collission has taken place, how much energy will been released in the process.
+                Once a collission has taken place, how much energy will been released.
             </li>
             <li>
-                Sometimes, collisions are accompnied by fission ( the nucleus breaks and releases more neutrons ). So for the collision that just happened, determine if a nuclear fission took place.
+                Sometimes the collisions are accompnied by a fission ( the nucleus breaks and releases more neutrons ). So for the collision that just happened, determine if a nuclear fission took place or not.
             </li>
             <li>
-                If fission took place, then how many neutrons were released in the process.
+                If a fission took place, then how many neutrons were released in the process.
             </li>
             <li>
-                For each of the neutrons, determine its momentum.
+                For each of the resulting neutrons, determine the momentum.
             </li>
             <li>
-                Repeat the process again from step 1 using the current position and velocities of all the neutrons.
-            </li>
-            <li>
-                Continue the loop till for a fixed duration or till the collisions die down.
+                Repeat the process again from step 1 using the updated position and velocities of all the neutrons.
             </li>
         </ol>
 
         Originally the research used massive groups of people doing huge numbers of calculations, but during the course of the research, <a href="https://en.wikipedia.org/wiki/John_von_Neumann">John Von Neumann</a> and <a href="https://en.wikipedia.org/wiki/Stanislaw_Ulam">Stanislaw Ulam</a> realised that they could use <a href="https://en.wikipedia.org/wiki/ENIAC">ENIAC (Electronic Numerical Integrator and Computer)</a> to do these calculations much more quickly using a statistical approach (as compared to actually solving differential equations using human calculations).
 
+        <!-- In the said statistical approach, a computer model of the process was created and simulations were conducted to determine the chain reaction by providing the initial velocity and position of the triggering neutron. The experiment was then repeated thousands of times with slight modifications to the input. Ultimately all the results were then agregated to get a final sense. Hypothetically speaking, if only 5% of the chain reactions were self sustainable, then scientists would have concluded that the provided experimental setup needed major modifications, but if 90% of them were self sustainable, then they could have had a strong confidence in their design. -->
+
         <br>
         <br>
-        PS: <i>The following paragraphs explains what a monte carlo simulation is, if you know it already, then feel free to skip ahead.</i>
+        PS: <i>The following paragraph is an imagination of how the statistical calculation would have been performed, if you already know what monte carlo simulations are, then feel free to skip ahead.</i>
         <br>
         <br>
 
-        They experimentally figured out probabilities of various outcomes in the steps mentioned above and created a computer model of the whole process. The model took initial position and momentum of the neutrons along with properties of the material and provided the details of the chain reaction. For e.g. To achieve step 3 above, scientists experimentally figured out the probability of a fission happening on collision. Then they performed multiple computer simulations with slightly varying initial speed and position of neutrons. Whenever the program said that there was a collision, a <b>random number</b> between 0-1 was used to determine if fission took place or not. For e.g. hypothetically, the random number generated was 0.6 and the probability of fission after collision is 0.5, then the simulation assumes that fission has taken place (because 0.6 > 0.5). Based on all the outcomes of all these varying inputs, statistical analyses were performed. This experiment popularised what we now a days call monte carlo simulations.
+        Researchers experimentally figured out probabilities of various possible outcomes and created a computer model of the whole process. Model is just a fancy term to describe a set of calculations, thats it. In this case, the model performed all the calculations from step 1-6. It took initial position and momentum of a neutron and provided the details of the resulting chain reaction as an output. For e.g. To achieve step 3 above, scientists first figured out the probability of a fission happening on collision using real world experiments. Then they performed multiple computer simulations of the chain reaction with slightly varying initial speed and position of neutrons. Whenever the program said that there was a collision, a <b>random number</b> between 0-1 was used to determine if fission took place or not.
+        <!-- For e.g. if the random number generated was 0.6 and the probability of fission after collision was determined to be 0.5, then the simulation assumed that fission has taken place in that particular simulaton. Whereas maybe in the next iteration, the generated random number was 0.2 so the simulation said that there was no fission.  -->
+        Based on all the outcomes of multiple varying inputs, statistical analyses were performed. A statistical analysis could have been as simple as measuring the fraction of outcomes where acceptable number of fissions took place or measuring the average length of the chain reaction or something entirely different. This experiment popularised what we now a days call monte carlo simulations.
     </p>
+
+    <!-- <p>
+        Just imagine a scenario where the random number generator used in the experiment always provided a fixed number, then the realibility of the output would have been very questionable. The model would have always predicted that there would be a fission ( or no fission ) for all cases, i.e. in the model, probability of fission would have been either 0 or 1, while the real world experiments definitely suggested otherwise.
+    </p> -->
 
     <h5> Why the name "Monte Carlo" ?</h5>
 
     <p>
         Being a secret, this work required a code name. A colleague of von Neumann and Ulam, Nicholas Metropolis, suggested using the name Monte Carlo, which refers to the Monte Carlo Casino in Monaco where Ulam's uncle would borrow money from relatives to gamble.
     </p>
-    <h5> It was a nice story and all ... but how were random numbers calculated ? </h5>
+    <h5 id="middle_square_intro"> It was a nice story and all ... but didn't you skip over the part describing how the random numbers were calculated ? </h5>
     <p>
-        For performing these simulations, using precompiled lists of random numbers was extremely slow. A person would have to manually feed the list to the computer and at that point of time, people used punch cards to feed data, so feeding data was a slow and complicated process, It was then when von Neumann developed a way to calculate <b>pseudorandom numbers</b> ( I'll talk about it in the next section, loosely speaking it's a number which is not random in reality but gives an appearance of randomness ). He called the algorithm <b>middle-square method</b> (again coming below). Though this method has been criticized as crude, von Neumann was aware of this: he justified it as being faster than any other method at his disposal, and also noted that when it went off it did so in an obvious fashion, unlike methods that could be subtly incorrect. Later on, a <a href="https://mcnp.lanl.gov/pdf_files/nbs_vonneumann.pdf">paper</a> was published describing the algorithm. In that paper, von Neumann wrote the famous words - "Anyone who considers arithmetical methods of producing random digits is, of course, in a state of sin".
+        Ok coming back to the topic at hand. Using a precompiled lists of random numbers was extremely slow. A person would have to manually feed the list to the computer and at that point of time, people used punch cards to feed data, so feeding data was a slow and complicated process, It was then when von Neumann developed a way to calculate <b>pseudorandom numbers</b> ( I'll talk about it in the next section, loosely speaking it's a number which is not random in reality but gives the appearance of randomness ). He called the algorithm <b>middle-square method</b> (again coming below). Though this method has been criticized as crude, von Neumann was aware of this: he justified it as being faster than any other method at his disposal, and also noted that when it went off it did so in an obvious fashion, unlike methods that could be subtly incorrect. Later on, a <a href="https://mcnp.lanl.gov/pdf_files/nbs_vonneumann.pdf">paper</a> was published describing the algorithm. In that paper, von Neumann wrote the famous words - "Anyone who considers arithmetical methods of producing random digits is, of course, in a state of sin".
         <br>
         <br>
-        The above story has been picked from the below mentione sources. Some phrases have been blatantly copied over while others have been created by using my understanding of the story.
+        The above story has been picked from the below mentione sources. Some phrases have been blatantly copied over while others have been created by my understanding of the story.
         <ol>
             <li><a href="https://en.wikipedia.org/wiki/ENIAC#Role_in_the_hydrogen_bomb"> ENIAC</a></li>
             <li><a href="https://en.wikipedia.org/wiki/Monte_Carlo_method#History">Monte Carlo Method</a></li>
@@ -136,15 +143,40 @@
         </ol>
     </p>
 
-    <h4>
+    <h5>
         Wtf is a pseudorandom number (PRN)?
-    </h4>
+    </h5>
     <p>
-        Primary idea is to come up with an algorithm to which if we give a random input, it provides an output which solely depends on the input and to use this algorithm to generate a series of random numbers. If by some means we figure out the first number ( called seed ) and feed it to the algorithm, we can then use the algorithm's output as in input for the next number.
-        
-        in combination with this seemingly random input. We know that computers are deterministic in nature, but they have access to random information around them. For e.g time interval between key strokes or last few digits of time elapsed in milliseconds since 1970. So if we use the above algorithm and the random external input, computer's can generate a statistically random series. A natual question is then, humans are considerably slower than computers so won't the computers be 
+        I think by this time you would have realised that true random numbers cannot be generated by arithmatic algorithms, once we know the algorithm, we know exactly what the results would look like. Using tables of random numbers was effective but slow. Additionally the available tables at that time were of limited size thus becoming a bottleneck in scaling of the experiments, so von Neumann did the next best thing. He created an algorithm which facilitated 2 important points.
+        <ol>
+            <li>It was random enough, i.e. numbers generated were not random in the true sense of randomness but were random enough for him to use them in his experiments without sacrificing the quality of results.
+            </li>
+            <li>When performing experiments, it is important to have reproducibility, i.e. One should be able to reproduce the results by providing the same set of inputs to the experimental setup. If von Neumann used truely random generators then, he wouldn't have had the ability to reproduce results at all. PRNs provided a deterministic way to regenerate the sequences of random numbers when need arose.
+            </li>
+        </ol>
+        The sequence of random numbers which are generated using such algorithms are called PRN ( Pseudo Random Numbers). von Neumann named his algorithm as middle square method.
+    </p>
 
-        A set of values or elements that is statistically random, but it is derived from a known starting point and is typically repeated over and over. Pseudo-random numbers provide necessary values for processes that require randomness, such as creating test signals or for synchronizing sending and receiving devices in a spread spectrum transmission. It is called "pseudo" random, because the algorithm can repeat the sequence, and the numbers are thus not entirely random.
+    <h5> So how did this algorithm work ? </h5>
+    <p>
+        The algorithm used a simple mathematical operation to generate n digit random numbers.
+        <ol>
+            <li>
+                In the first step, a number with n digits was provided to the algorithm as an input, the algorithm then returned the middle n digits of the number obtained by squaring the provided input.
+            </li>
+            <li>
+                In subsequent steps, when the algorithm was asked for the next random number, it used the previous output as the new input and provided next number in the sequence.
+            </li>
+        </ol>
+        This created a chain of random numbers which could be deterministically calculated with only the knowledge of the starting point. This starting point is called "seed" in the terminology of PRNGs. The next challenge is to figure out this seed, but once we have a seed, we have the needed sequence of random numbers.
+        <br>
+        A common drawback of PRNGs is of getting stuck in cycles. It is entirely possible that the PRNG outputs a number which we have already seen before. And once we feed it back to the algorithm, the cycle keeps on repeating. Much of today's commonly used algorithms have very long (check the number --- 2^20) cycles, but cycles do exist.
+    </p>
+
+    <h5>How is the seed determined ?</h5>
+    
+    <p>
+        I couldn't figure out what numbers von Neumann used as seeds in his experiments but based on my experience, nowadays, we generally use either a fixed number from our whim ( for reproducibilty ) or something which is fluctuating ( if reproducibility is not necessary ). The most common fluctuating quantity is the number of elapsed milliseconds since 1970.
     </p>
 
     <h4>
@@ -152,7 +184,7 @@
     </h4>
 
     <p>
-
+        As mentioned <a href="#middle_square_intro">above</a> the algorithm was not too good. It got stuck in cycles too quickly and more than often the sequences decayed to 0. Below is a toy PRNG based on this algorithm for generating random numbers of 4 digits. You can move around the slider to adjust the seed, and you'll see how short the cycles are. For e.g. if you start with the seed as 3600, you'll see the sequence repeating just after 4 numbers, whereas if you select 1391 as your seed, then the cycle starts after 104 numbers.        
     </p>
 
     <MiddleSquareCalculation />
