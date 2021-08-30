@@ -20,14 +20,14 @@
     <br />
     <br />
     <p class="muted">
-        Computers were designed to be deterministic in nature. If I ask what's 1 + 1, a computer should always return 2 and nothing else. This is an important and non negotiable prerequisite for us to rely on computers.
-
-        <a href="#" @click.stop.prevent data-bs-toggle="tooltip" title="" data-bs-html="true" data-bs-original-title="<i>Sometimes I feel it's the other way around, where I am an integral part of my smart phone's life and all my life's decisions revolve around keeping the little bugger charged and safe. We'll have the philosophical discussions on this topic some other day ...</i>">With time, they have become an integral part of our lives.</a>
-        <!-- They do a lot of heavy lifting by managing important but monotonous activities in the background. We let them fly aeroplanes, manage our bank accounts, help with communications, and a thousand other things. I don't think we trust any other human being as much as we trust our computers and smartphones. None of which would have been possible if computers were unpredictable. -->
-        This sheer predictibility of a computer's behaviour makes them such a powerful tool that today's generation can't even imagine a world without them.
+        Computers were designed to be deterministic in nature. If I ask what's 1 + 1, a computer always returns 2 and nothing else. This is an important and non negotiable prerequisite for us to rely on computers.
+<!-- 
+        <a href="#" @click.stop.prevent data-bs-toggle="tooltip" title="" data-bs-html="true" data-bs-original-title="<i>Sometimes I feel it's the other way around, where I am an integral part of my smart phone's life and all my life's decisions revolve around keeping the little bugger charged and safe. We'll have the philosophical discussions on this topic some other day ...</i>">With time, they have become an integral part of our lives.</a> -->
+        <!-- They do a lot of heavy lifting by managing important but monotonous activities in the background. We let them fly airplanes, manage our bank accounts, help with communications, and a thousand other things. I don't think we trust any other human being as much as we trust our computers and smartphones. None of which would have been possible if computers were unpredictable. -->
+        This sheer predictability of a computer's behavior makes them such a powerful tool that today's generation can't even imagine a world without them.
     </p>
     <p>
-        On the other hand, random sequences are a starting point for a lot of statistical analyses. Even for developing machine learning models, we generally start with random numbers and iteratively build from there. Mostly for those purposes, I have been asking computers to generate random numbers since quite sometime now. And as far as my human brain can comprehend, they appear to be doing a decent job of it, because everytime I ask it to give me a random number... well, it gives me a different number.
+        On the other hand, random sequences are a starting point for a lot of statistical analyses. Even for developing machine learning models, we generally start with random numbers and iteratively build from there. Personally, I have been asking computers to generate random numbers since quite sometime now. And as far as my tiny brain can comprehend, they appear to be doing a decent job of it, because every-time I ask it to give me a random number... well, it gives me a different number and it appears random to me.
 
         <!-- Few days ago, when I asked the computer to give me a sequence of random numbers, it did ... it actually did and the results really seemed random. I checked multiple times by asking it the same question again and again... guess what ... the answer was different every time.
 
@@ -36,21 +36,21 @@
         In my head, this was analogous to opening the door of my refrigerator to see something other than the leftovers I shoved in yesterday. -->
     </p>
     <p>
-        The words deterministic and random are pure antonyms of each other, yet somehow deterministic computers are able to generate random numbers. This weird combination makes me curious about the inner workings of this seemingly banal but critical problem of today's computing world. With this new found curiosity, I started researching a bit more about this problem and turns out that a lot of people have worked very hard over the years so that we can make computers churn out random number ( or seemingly random numbers ... will delve into the details shortly )
+        The words deterministic and random are pure antonyms of each other, yet somehow deterministic computers are able to generate random numbers. This weird combination makes me curious about the inner workings of this seemingly banal but widespread problem of today's computing world. With this new found curiosity, I started researching a bit more about this problem and turns out that a lot of people have worked very hard over the years so that we can make computers churn out random numbers ( or seemingly random numbers ... will delve into the details shortly )
     </p>
 
-    <h4>
+    <!-- <h4>
         Why are you making such a big deal about random numbers 🎲
     </h4>
 
     <p>
         Because it is one of those things which on surface appears to be so trivial that we don't even bother looking under the hood, but once we dive into the details, we can see the devil 😈 partying there. I love these sort of things and that's why.
-    </p>
+    </p> -->
 
-    <h5>What is a random number exactly ?</h5>
+    <h4>What exactly is a random number ?</h4>
 
     <p>
-        Let's start by understanding the concept of randomness. Randomness loosely means unpredictability. The more certain we are about something, the less random it appears to be. As an example, Let's say I am sitting in a dark room without my phone, and suddenly I have an urge to find which direction North is. I can take a guess but I can never be certain about the answer, Any direction that I point to will have some probability of being North. It's a situation with large degree of randomness and almost zero certainity. On the other hand, if I am in a park and have the same urge, then it'd be a different ball game altogether. Based on the approximate time, ( if it's morning or evening ) and the knowledge that - sun rises in the east and sets in the west, I can point to a fixed direction and say that's north. There would still be some randomness in it because north may lie a bit to the left ( or to the right ) to where I pointed my finger at but in this situation, there is a lot more certainity and significantly less randomnes.
+        Let's start by understanding the concept of randomness. Randomness loosely means unpredictability. The more certain we are about something, the less random it appears to be. As an example, Let's say someone who I don't know asks me to guess his/her name. I can take a guess but I can never be certain about the answer. I can start with a list of most common names in my head but I can never be sure unless someone / something tells me the answer. It's a situation with large degree of randomness and almost zero certainty. Anything can be the correct answer and I have absolutely no idea about it. On the other hand, if I am in a park and have the urge to find which direction north is, then I'd be comparatively much more certain. Based on the approximate time, ( if it's morning or evening ) and the knowledge that - sun rises in the east and sets in the west, I can point to a fixed direction and say that's north. There would still be some randomness in it because north may lie a bit to the left ( or to the right ) but in this situation, there is a lot more certainty and significantly less randomness.
 
     </p>
     <p>
@@ -59,7 +59,7 @@
         <b>For a random number generator to be perfect :
             <ol>
                 <li>All numbers should have an equal probability of being the output each and every time we use it and</li>
-                <li>The next number that would be outputed should be independent of previous number that was outputed.</li>
+                <li>The next number that would be outputted should be independent of previous number that was outputted.</li>
             </ol>
         </b>
         First statement holds true only for a class of RNGs (Random Number Generators) called uniform random number generators. They are of importance because other class of RNGs can be derived from a uniform RNG.
@@ -88,12 +88,12 @@
         A team of scientists who were working on the Hydrogen bomb in late 1940s at Los Alamos National Laboratory, came across an interesting problem. It was related to neutron diffusion in fissionable materials. In simple terms, they were trying to estimate - Once a neutron enters a fissionable material, how will the subsequent chain reaction look like. A self sustained chain reaction would mean an explosive release of energy in a short span of time, so understanding it was critical to the research. The involved calculation consisted of the following components:
 
         <ol>
-            <li>Given a neutron with a certain postion and velocity, estimate how far will the neutron travel before colliding with an atomic nucleus.</li>
+            <li>Given a neutron with a certain position and velocity, estimate how far will the neutron travel before colliding with an atomic nucleus.</li>
             <li>
-                Once a collission has taken place, how much energy will been released.
+                Once a collision has taken place, how much energy will been released.
             </li>
             <li>
-                Sometimes the collisions are accompnied by a fission ( the nucleus breaks and releases more neutrons ). So for the collision that just happened, determine if a nuclear fission took place or not.
+                Sometimes the collisions are accompanied by a fission ( the nucleus breaks and releases more neutrons ). So for the collision that just happened, determine if a nuclear fission took place or not.
             </li>
             <li>
                 If a fission took place, then how many neutrons were released in the process.
@@ -106,7 +106,7 @@
             </li>
         </ol>
 
-        Originally the research used massive groups of people doing huge numbers of calculations, but during the course of the research, <a href="https://en.wikipedia.org/wiki/John_von_Neumann">John Von Neumann</a> and <a href="https://en.wikipedia.org/wiki/Stanislaw_Ulam">Stanislaw Ulam</a> realised that they could use <a href="https://en.wikipedia.org/wiki/ENIAC">ENIAC (Electronic Numerical Integrator and Computer)</a> to do these calculations much more quickly using a statistical approach (as compared to actually solving differential equations using human calculations).
+        Originally the research used massive groups of people doing huge numbers of calculations, but during the course of the research, <a href="https://en.wikipedia.org/wiki/John_von_Neumann">John Von Neumann</a> and <a href="https://en.wikipedia.org/wiki/Stanislaw_Ulam">Stanislaw Ulam</a> realized that they could use <a href="https://en.wikipedia.org/wiki/ENIAC">ENIAC (Electronic Numerical Integrator and Computer)</a> to do these calculations much more quickly using a statistical approach (as compared to actually solving differential equations using human calculations).
 
         <!-- In the said statistical approach, a computer model of the process was created and simulations were conducted to determine the chain reaction by providing the initial velocity and position of the triggering neutron. The experiment was then repeated thousands of times with slight modifications to the input. Ultimately all the results were then agregated to get a final sense. Hypothetically speaking, if only 5% of the chain reactions were self sustainable, then scientists would have concluded that the provided experimental setup needed major modifications, but if 90% of them were self sustainable, then they could have had a strong confidence in their design. -->
 
@@ -117,12 +117,12 @@
         <br>
 
         Researchers experimentally figured out probabilities of various possible outcomes and created a computer model of the whole process. Model is just a fancy term to describe a set of calculations, thats it. In this case, the model performed all the calculations from step 1-6. It took initial position and momentum of a neutron and provided the details of the resulting chain reaction as an output. For e.g. To achieve step 3 above, scientists first figured out the probability of a fission happening on collision using real world experiments. Then they performed multiple computer simulations of the chain reaction with slightly varying initial speed and position of neutrons. Whenever the program said that there was a collision, a <b>random number</b> between 0-1 was used to determine if fission took place or not.
-        <!-- For e.g. if the random number generated was 0.6 and the probability of fission after collision was determined to be 0.5, then the simulation assumed that fission has taken place in that particular simulaton. Whereas maybe in the next iteration, the generated random number was 0.2 so the simulation said that there was no fission.  -->
-        Based on all the outcomes of multiple varying inputs, statistical analyses were performed. A statistical analysis could have been as simple as measuring the fraction of outcomes where acceptable number of fissions took place or measuring the average length of the chain reaction or something entirely different. This experiment popularised what we now a days call monte carlo simulations.
+        <!-- For e.g. if the random number generated was 0.6 and the probability of fission after collision was determined to be 0.5, then the simulation assumed that fission has taken place in that particular simulation. Whereas maybe in the next iteration, the generated random number was 0.2 so the simulation said that there was no fission.  -->
+        Based on all the outcomes of multiple varying inputs, statistical analyses were performed. A statistical analysis could have been as simple as measuring the fraction of outcomes where acceptable number of fissions took place or measuring the average length of the chain reaction or something entirely different. This experiment popularized what we now a days call monte carlo simulations.
     </p>
 
     <!-- <p>
-        Just imagine a scenario where the random number generator used in the experiment always provided a fixed number, then the realibility of the output would have been very questionable. The model would have always predicted that there would be a fission ( or no fission ) for all cases, i.e. in the model, probability of fission would have been either 0 or 1, while the real world experiments definitely suggested otherwise.
+        Just imagine a scenario where the random number generator used in the experiment always provided a fixed number, then the reliability of the output would have been very questionable. The model would have always predicted that there would be a fission ( or no fission ) for all cases, i.e. in the model, probability of fission would have been either 0 or 1, while the real world experiments definitely suggested otherwise.
     </p> -->
 
     <h5> Why the name "Monte Carlo" ?</h5>
@@ -147,11 +147,11 @@
         Wtf is a pseudorandom number (PRN)?
     </h5>
     <p>
-        I think by this time you would have realised that true random numbers cannot be generated by arithmatic algorithms, once we know the algorithm, we know exactly what the results would look like. Using tables of random numbers was effective but slow. Additionally the available tables at that time were of limited size thus becoming a bottleneck in scaling of the experiments, so von Neumann did the next best thing. He created an algorithm which facilitated 2 important points.
+        I think by this time you would have realized that true random numbers cannot be generated by arithmetic algorithms, once we know the algorithm, we know exactly what the results would look like. Using tables of random numbers was effective but slow. Additionally the available tables at that time were of limited size thus becoming a bottleneck in scaling of the experiments, so von Neumann did the next best thing. He created an algorithm which facilitated 2 important points.
         <ol>
             <li>It was random enough, i.e. numbers generated were not random in the true sense of randomness but were random enough for him to use them in his experiments without sacrificing the quality of results.
             </li>
-            <li>When performing experiments, it is important to have reproducibility, i.e. One should be able to reproduce the results by providing the same set of inputs to the experimental setup. If von Neumann used truely random generators then, he wouldn't have had the ability to reproduce results at all. PRNs provided a deterministic way to regenerate the sequences of random numbers when need arose.
+            <li>When performing experiments, it is important to have reproducibility, i.e. One should be able to reproduce the results by providing the same set of inputs to the experimental setup. If von Neumann used truly random generators then, he wouldn't have had the ability to reproduce results at all. PRNs provided a deterministic way to regenerate the sequences of random numbers when need arose.
             </li>
         </ol>
         The sequence of random numbers which are generated using such algorithms are called PRN ( Pseudo Random Numbers). von Neumann named his algorithm as middle square method.
@@ -176,7 +176,7 @@
     <h5>How is the seed determined ?</h5>
     
     <p>
-        I couldn't figure out what numbers von Neumann used as seeds in his experiments but based on my experience, nowadays, we generally use either a fixed number from our whim ( for reproducibilty ) or something which is fluctuating ( if reproducibility is not necessary ). The most common fluctuating quantity is the number of elapsed milliseconds since 1970.
+        I couldn't figure out what numbers von Neumann used as seeds in his experiments but based on my experience, nowadays, we generally use either a fixed number from our whim ( for reproducibility ) or something which is fluctuating ( if reproducibility is not necessary ). The most common fluctuating quantity is the number of elapsed milliseconds since 1970.
     </p>
 
     <h4>
@@ -206,7 +206,7 @@
         tl;dr
     </h4>
     <p>
-        Computers cannot generate randomness, however they have access to signals which are generated from events around them ( elapsed milliseconds since 1971 , keyboard / mouse clicks, etc ). Using these signals, a pseudo random number generator outputs which are functions of these random signals only. There have been numerous algorithms over the years to perform this activity. First one was called Middle Square Method which was developed to while researching the hydrogen bomb. It did quite a bad job of creating random numbers but paved way for algorithm X which is now the base of all the modern algorithms.
+        Computers cannot generate randomness, however they have access to signals which are sort of random and are generated from events around them. Using these signals, a pseudo random number generator can produce random looking numbers. There have been numerous algorithms over the years to perform this activity. First one was called Middle Square Method which was developed to while researching the hydrogen bomb. Coincidently that project also led to popularizing monte carlo simulations ( which have a heavy use of random number generators). The algorithm did quite a bad job of creating random numbers but ultimately paved way for algorithm X which is now the base of all the modern algorithms.
     </p>
 </div>
 </template>

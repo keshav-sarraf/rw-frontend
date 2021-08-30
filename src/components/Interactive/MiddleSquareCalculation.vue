@@ -46,6 +46,11 @@
 
     </div>
 </div>
+
+<!-- Statistics -->
+
+<div>
+</div>
 </template>
 
 <script>
