@@ -1,0 +1,46 @@
+{
+    "stats" : [
+        {
+            "num_digits" : 2,
+            "min_chain_length" : {
+                "len" : 1,
+                "seed" : "10, 60"
+            },
+            "max_chain_length" : {
+                "len" : 15,
+                "seed" : "42, 69"
+            },
+            "avg_chain_length" : {
+                "len" : 6
+            }
+        },
+        {
+            "num_digits" : 4,
+            "min_chain_length" : {
+                "len" : 1,
+                "seed" : "2500, 3792"
+            },
+            "max_chain_length" : {
+                "len" : 111,
+                "seed" : "6239"
+            },
+            "avg_chain_length" : {
+                "len" : 44
+            }
+        },
+        {
+            "num_digits" : 6,
+            "min_chain_length" : {
+                "len" : 1,
+                "seed" : "495475"
+            },
+            "max_chain_length" : {
+                "len" : 943,
+                "seed" : "229339"
+            },
+            "avg_chain_length" : {
+                "len" : 327
+            }
+        }
+    ]
+}
