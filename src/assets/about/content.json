@@ -33,8 +33,10 @@
             "answer" : "As I mentioned above, we already have day jobs and this is more for our intellectual fulfillment rather than monetary gains. All the content is free and code is open source. You can check the github icon at the bottom"
         },
         {
-            "question" : "I think I get it … Can I contact you regarding any project that I have in my mind ?",
-            "answer" : "Sure, would love to hear from you. You can either reach out either via instagram - or email."
+            "question" : "I think I get it … How can I reach out ?",
+            "answer" : "We would love to hear from you. You can reach out either via email - hello@reinventingwheel.com",
+            "external_link_tag" : "💌 Click here to open your email application",
+            "external_link_url" : "mailto:hello@reinventingwheel.com"
         }
     ]
 }
