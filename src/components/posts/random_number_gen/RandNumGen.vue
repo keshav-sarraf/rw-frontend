@@ -222,8 +222,8 @@ import {
     onMounted
 } from '@vue/runtime-core'
 
-import MiddleSquareCalculation from '../interactive/MiddleSquareCalculation.vue';
-import MiddleSquareStatistics from '../interactive/MiddleSquareStatistics.vue';
+import MiddleSquareCalculation from './MiddleSquareCalculation.vue';
+import MiddleSquareStatistics from './MiddleSquareStatistics.vue';
 
 export default {
     components: {

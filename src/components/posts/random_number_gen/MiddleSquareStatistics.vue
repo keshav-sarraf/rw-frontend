@@ -42,7 +42,7 @@ import {
     ref,
 } from 'vue';
 
-import statsListJson from '../../assets/posts/middle_square_stats.json';
+import statsListJson from './middle_square_stats.json';
 
 export default {
     setup() {

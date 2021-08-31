@@ -60,7 +60,7 @@ import {
     reactive,
 } from 'vue';
 
-import * as prng from '../../utils/customRandNumGen.js';
+import * as prng from '../../../utils/customRandNumGen.js';
 
 import _ from 'lodash'
 
