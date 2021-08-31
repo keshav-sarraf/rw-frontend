@@ -2,8 +2,8 @@
 <div class="border my-2 p-2">
     <div class="row">
         <div class="col-sm-10 m-auto">
-            <label for="customRange" class="form-label">A 4 digit PRNG. Select a number between 1 - 9999 to be used as a seed</label>
-            <input v-model="userSelectedSeed" type="range" class="form-range" min="1" max="9999" id="customRange">
+            <label for="customRange" class="form-label">A {{numDigits}} digit PRNG. Select a number between 1 - {{sliderMaxVal}} to be used as a seed</label>
+            <input v-model="userSelectedSeed" type="range" class="form-range" min="1" v-bind:max="sliderMaxVal" id="customRange">
         </div>
 
         <div class="col text-center m-auto">
@@ -69,6 +69,7 @@ export default {
         //for experiment
         const userSelectedSeed = ref(318);
         const numDigits = 4;
+        const sliderMaxVal = Math.pow(10, numDigits)-1;
         const result = prng.generateRandSequenceMiddleSquare(userSelectedSeed.value, numDigits);
         const calculationDetail = reactive({});
 
@@ -114,6 +115,8 @@ export default {
         }
 
         return {
+            numDigits,
+            sliderMaxVal,
             userSelectedSeed,
             randArr,
             duplicateEntry,

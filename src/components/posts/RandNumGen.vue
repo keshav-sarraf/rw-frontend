@@ -4,7 +4,7 @@
 <template>
 <div class="container">
 
-    <h2>How random are random numbers ?</h2>
+    <h2>Computers vs Randomness</h2>
     <h6>Published on 21st August 2021</h6>
     <hr>
 
@@ -21,7 +21,7 @@
     <br />
     <p class="muted">
         Computers were designed to be deterministic in nature. If I ask what's 1 + 1, a computer always returns 2 and nothing else. This is an important and non negotiable prerequisite for us to rely on computers.
-<!-- 
+        <!-- 
         <a href="#" @click.stop.prevent data-bs-toggle="tooltip" title="" data-bs-html="true" data-bs-original-title="<i>Sometimes I feel it's the other way around, where I am an integral part of my smart phone's life and all my life's decisions revolve around keeping the little bugger charged and safe. We'll have the philosophical discussions on this topic some other day ...</i>">With time, they have become an integral part of our lives.</a> -->
         <!-- They do a lot of heavy lifting by managing important but monotonous activities in the background. We let them fly airplanes, manage our bank accounts, help with communications, and a thousand other things. I don't think we trust any other human being as much as we trust our computers and smartphones. None of which would have been possible if computers were unpredictable. -->
         This sheer predictability of a computer's behavior makes them such a powerful tool that today's generation can't even imagine a world without them.
@@ -132,7 +132,7 @@
     </p>
     <h5 id="middle_square_intro"> It was a nice story and all ... but didn't you skip over the part describing how the random numbers were calculated ? </h5>
     <p>
-        Ok coming back to the topic at hand. Using a precompiled lists of random numbers was extremely slow. A person would have to manually feed the list to the computer and at that point of time, people used punch cards to feed data, so feeding data was a slow and complicated process, It was then when von Neumann developed a way to calculate <b>pseudorandom numbers</b> ( I'll talk about it in the next section, loosely speaking it's a number which is not random in reality but gives the appearance of randomness ). He called the algorithm <b>middle-square method</b> (again coming below). Though this method has been criticized as crude, von Neumann was aware of this: he justified it as being faster than any other method at his disposal, and also noted that when it went off it did so in an obvious fashion, unlike methods that could be subtly incorrect. Later on, a <a href="https://mcnp.lanl.gov/pdf_files/nbs_vonneumann.pdf">paper</a> was published describing the algorithm. In that paper, von Neumann wrote the famous words - "Anyone who considers arithmetical methods of producing random digits is, of course, in a state of sin".
+        Ok coming back to the topic at hand. Using a precompiled lists of random numbers was extremely slow. A person would have to manually feed the list to the computer and at that point of time, people used punch cards to feed data, so feeding data was a slow and complicated process, It was then when von Neumann developed a way to calculate <b>pseudorandom numbers</b> ( I'll talk about it in the next section, loosely speaking it's a number which is not random in reality but gives the appearance of randomness ). He called the algorithm <b>middle-square method</b> (again coming below). <u>Though this method has been criticized as crude, von Neumann was aware of this: he justified it as being faster than any other method at his disposal, and also noted that when it went off it did so in an obvious fashion, unlike methods that could be subtly incorrect</u>. Later on, a <a href="https://mcnp.lanl.gov/pdf_files/nbs_vonneumann.pdf">paper</a> was published describing the algorithm. In that paper, von Neumann wrote the famous words - "Anyone who considers arithmetical methods of producing random digits is, of course, in a state of sin".
         <br>
         <br>
         The above story has been picked from the below mentione sources. Some phrases have been blatantly copied over while others have been created by my understanding of the story.
@@ -174,9 +174,9 @@
     </p>
 
     <h5>How is the seed determined ?</h5>
-    
+
     <p>
-        I couldn't figure out what numbers von Neumann used as seeds in his experiments but based on my experience, nowadays, we generally use either a fixed number from our whim ( for reproducibility ) or something which is fluctuating ( if reproducibility is not necessary ). The most common fluctuating quantity is the number of elapsed milliseconds since 1970.
+        I couldn't figure out what numbers von Neumann used as seeds in his experiments but based on my experience, nowadays, we generally use either a fixed number from our whim ( for reproducibility ) or something fluctuating ( if reproducibility is not necessary ). The most common fluctuating quantity used is time ( more specifically the number of milliseconds elapsed since 1970 ).
     </p>
 
     <h4>
@@ -184,29 +184,32 @@
     </h4>
 
     <p>
-        As mentioned <a href="#middle_square_intro">above</a> the algorithm was not too good. It got stuck in cycles too quickly and more than often the sequences decayed to 0. Below is a toy PRNG based on this algorithm for generating random numbers of 4 digits. You can move around the slider to adjust the seed, and you'll see how short the cycles are. For e.g. if you start with the seed as 3600, you'll see the sequence repeating just after 4 numbers, whereas if you select 1391 as your seed, then the cycle starts after 104 numbers.        
+        As mentioned <a href="#middle_square_intro">above</a> the algorithm was not too good. It got stuck in cycles too quickly and more than often the sequences decayed to 0. Below is a toy PRNG based on this algorithm for generating random numbers of 4 digits. You can move around the slider to adjust the seed, and you'll see how short the cycles are. For e.g. if you start with the seed as 3792, you'll see the sequence repeating immediately, i.e the chain is of length 1 ( which just the seed as an element), whereas if you select 6239 as your seed, then the cycle starts after 111 numbers.
     </p>
 
     <MiddleSquareCalculation />
+
     <h4>Statistics</h4>
 
     <p>
-        distribution of chain length
-        x -> seed, y -> length
-
-        distribution of end point
-        x -> seed, y -> ending point
+        Some statistics on how the chain lengths vary by increasing the number of digits.
     </p>
 
-    <h4>Generators that follow a specific distribution</h4>
-    <h4>Tests</h4>
-    <h4>Updates</h4>
+    <MiddleSquareStatistics />
+
+    <h4>
+        What Next ?
+    </h4>
+
+    <p>
+        Middle square method is now a relic of the past. There are new algorithms that have been developed since then. Wikipedia has a <a href="https://en.wikipedia.org/wiki/List_of_random_number_generators">list</a> with some description on each. Interestingly in 2017, A modification was suggested to the middle square algorithm which helps the algorithm get rid of its follies. <a href="https://arxiv.org/abs/1704.00358v5"> Here's a link</a> to the paper describing the modification.
+    </p>
 
     <h4 id="tldr">
         tl;dr
     </h4>
     <p>
-        Computers cannot generate randomness, however they have access to signals which are sort of random and are generated from events around them. Using these signals, a pseudo random number generator can produce random looking numbers. There have been numerous algorithms over the years to perform this activity. First one was called Middle Square Method which was developed to while researching the hydrogen bomb. Coincidently that project also led to popularizing monte carlo simulations ( which have a heavy use of random number generators). The algorithm did quite a bad job of creating random numbers but ultimately paved way for algorithm X which is now the base of all the modern algorithms.
+        Computers cannot generate randomness, however they have access to signals which are kind of random and are generated from events around them. Using these signals, a pseudo random number generator can produce random looking numbers. There have been numerous algorithms over the years to perform this activity. First one was called Middle Square Method which was developed to while researching the hydrogen bomb. Coincidently that project also led to popularizing monte carlo simulations ( which have a heavy use of random number generators ). The algorithm did quite a bad job of creating random numbers but ultimately paved way for research on computational PRNGs.
     </p>
 </div>
 </template>
@@ -220,10 +223,12 @@ import {
 } from '@vue/runtime-core'
 
 import MiddleSquareCalculation from '../interactive/MiddleSquareCalculation.vue';
+import MiddleSquareStatistics from '../interactive/MiddleSquareStatistics.vue';
 
 export default {
     components: {
-        MiddleSquareCalculation
+        MiddleSquareCalculation,
+        MiddleSquareStatistics,
     },
     setup() {
 
