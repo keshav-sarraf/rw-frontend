@@ -1,24 +1,3 @@
 # rw-frontend
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This is the frontend repository for [www.reinventingwheel.com](www.reinventingwheel.com). For more details on the website, please visit the website's [about page](https://www.reinventingwheel.com/about-us)
