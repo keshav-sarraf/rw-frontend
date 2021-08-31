@@ -1,40 +1,38 @@
 {
     "conversation" : [
         {
-            "question" : "So tell me … what is this website ?",
+            "question" : "So tell me … what's this?",
             "answer" : "It's kind of a blog."
         },
         {
-            "question" : "Okay ... I thought you were going to be vague about it ... wasn't this too specific 💁‍♂️",
-            "answer" : "No need for the sarcasm 😁 ... To be frank, even we haven't figured out the specifics yet. We are just starting out and are experimenting with what works and what doesn't. Presently, we are working on puzzles and stories related to maths and computers. In the future we'd love to delve into the world of art, music and photography as well."
+            "question" : "Okay ... I thought you were going to be vague about it ... 💁‍♂️",
+            "answer" : "No need for the sarcasm 😁 ... To be frank, even we haven't figured out the specifics yet. We are just starting out and are experimenting with what works and what doesn't. Presently, we are working on puzzles and stories related to maths and computers. In future, we'd love to delve into the world of art, music and photography as well."
         },
         {
             "question" : "Well that's way too broad. Isn't it ?",
             "answer" : "Yes it is, but the idea is to work on projects we want to and present some of them to the world through this website."
         },
         {
-            "question" : "Wouldn't the target audience get confused ? Do you even have a target audience ? This is giving me Wikipedia vibes ... and I can't imagine people visiting Wikipedia just for the fun of it. Mostly it is to look for something specific.",
+            "question" : "Wouldn't the target audience get confused ? This is giving me Wikipedia vibes ... and I can't imagine people visiting Wikipedia just for the fun of it. Mostly it is to look for something specific.",
             "answer" : "I get it. The plan is to get started and later on depending on how this is received, we can always break down the website into multiple mini websites. None of it would matter if the only audience we get is a subset of our friends and family 😅"
         },
         {
-            "question" : "Who's this \"we\" that you keep referring to ?",
-            "answer" : "So here's the thing … we have taken inspiration from The Economist's playbook here. We want the content presented here to be known for the content only and not for the people behind them. That's why we haven't explicitly provided credentials of people falling under the collective \"we\"."
+            "question" : "Who's this \"we\" that you keep referring to ? Why the anonymity ?",
+            "answer" : "So here's the thing … we have taken inspiration from The Economist's playbook. I read a really cool article about it somewhere... let me search for it and send it to you. Overall, idea is that we want the content presented here to be known for itself and not for it's association with the people creating them. That's why we haven't explicitly provided credentials and use the collective \"we\". If you really want to know more about us, you are always welcome to reach out.",
+            "external_link_tag" : "Why the authors are anonymous in The Economist",
+            "external_link_url" : "https://medium.com/severe-contest/we-are-anonymous-87a82714ee5"
         },
         {
-            "question" : "Why the anonymity ? Are you guys famous ? Or worse, are you hiding something ?",
-            "answer" : "Ha Ha .. Not at all. We are few normal people who are doing this alongside our day jobs. We just feel that quality of content matters more than the creator of the content. We aren't exactly anonymous as well. You are always welcome to reach out if you want to discuss something"
-        },
-        {
-            "question" : "Why such a weird name \"ReinventingWheel\" ? Isn't that supposed to be a bad thing ?",
-            "answer" : "Well … Yes and No … Reinventing the wheel is a phrase which essentially means wasting time in inventing something that already exists. In industrial context, it's bad because it is inefficient because it's basically wasting time. However in educational context, it's not. It actually represents our key motive here. We are not trying to invent anything new. We are a curious bunch who want to learn inner workings of various things which already exist in this world."
+            "question" : "Why such a weird name \"ReinventingWheel\" ? Isn't reinventing the wheel supposed to be a bad thing ?",
+            "answer" : "Well … Yes and No … the phrase essentially means wasting time by inventing something that already exists. In industrial context, it's bad because it is inefficient ... it's basically wasting time. However in educational context, it's not. It actually represents our key motive here. We are not trying to invent anything new. We are a curious bunch who want to learn about the inner workings of things which already exist in this world."
         },
         {
             "question" : "So what's your source of revenue ?",
-            "answer" : "As I mentioned above, we already have day jobs and this is more for our intellectual fulfillment rather than monetary gains. All the content is free and code is open source. You can check the github icon at the bottom"
+            "answer" : "All of us already have day jobs and this is more for our intellectual fulfillment rather than monetary gain. All the content is free and code is open source ... You can checkout our github repository. Additionally we promise to not put advertisements as well 😎"
         },
         {
-            "question" : "I think I get it … Can I contact you regarding any project that I have in my mind ?",
-            "answer" : "Sure, would love to hear from you. You can either reach out either via instagram - or email."
+            "question" : "I think I get it … How can I reach out ?",
+            "answer" : "We would love to hear from you. You can either reach out either via instagram - or email."
         }
     ]
 }

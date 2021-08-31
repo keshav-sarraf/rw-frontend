@@ -1,5 +1,5 @@
 <template>
-<div class="container mb-5">
+<div class="container mb-3">
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid">
             <router-link to="/" class="navbar-brand">Reinventing Wheel</router-link>
@@ -7,12 +7,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-1 mb-lg-0">
                     <li class="nav-item">
                         <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link active" to="/about-us">About Us</router-link>
+                        <router-link class="nav-link active" to="/about-us">About</router-link>
                     </li>
                 </ul>
             </div>
