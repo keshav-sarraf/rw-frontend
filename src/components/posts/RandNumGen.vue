@@ -4,7 +4,7 @@
 <template>
 <div class="container">
 
-    <h2>Computers vs Randomness</h2>
+    <h2>Computers & Randomness</h2>
     <h6>Published on 21st August 2021</h6>
     <hr>
 
