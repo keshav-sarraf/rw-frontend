@@ -5,7 +5,8 @@
 <div class="container">
 
     <h2>Computers & Randomness</h2>
-    <h6>Published on 21st August 2021</h6>
+    <h6>Published on 31st August 2021</h6>
+    <h6>10 minutes read</h6>
     <hr>
 
     <h5>
@@ -108,7 +109,7 @@
 
         Originally the research used massive groups of people doing huge numbers of calculations, but during the course of the research, <a href="https://en.wikipedia.org/wiki/John_von_Neumann">John Von Neumann</a> and <a href="https://en.wikipedia.org/wiki/Stanislaw_Ulam">Stanislaw Ulam</a> realized that they could use <a href="https://en.wikipedia.org/wiki/ENIAC">ENIAC (Electronic Numerical Integrator and Computer)</a> to do these calculations much more quickly using a statistical approach (as compared to actually solving differential equations using human calculations).
 
-        <!-- In the said statistical approach, a computer model of the process was created and simulations were conducted to determine the chain reaction by providing the initial velocity and position of the triggering neutron. The experiment was then repeated thousands of times with slight modifications to the input. Ultimately all the results were then agregated to get a final sense. Hypothetically speaking, if only 5% of the chain reactions were self sustainable, then scientists would have concluded that the provided experimental setup needed major modifications, but if 90% of them were self sustainable, then they could have had a strong confidence in their design. -->
+        <!-- In the said statistical approach, a computer model of the process was created and simulations were conducted to determine the chain reaction by providing the initial velocity and position of the triggering neutron. The experiment was then repeated thousands of times with slight modifications to the input. Ultimately all the results were then aggregated to get a final sense. Hypothetically speaking, if only 5% of the chain reactions were self sustainable, then scientists would have concluded that the provided experimental setup needed major modifications, but if 90% of them were self sustainable, then they could have had a strong confidence in their design. -->
 
         <br>
         <br>
@@ -135,7 +136,7 @@
         Ok coming back to the topic at hand. Using a precompiled lists of random numbers was extremely slow. A person would have to manually feed the list to the computer and at that point of time, people used punch cards to feed data, so feeding data was a slow and complicated process, It was then when von Neumann developed a way to calculate <b>pseudorandom numbers</b> ( I'll talk about it in the next section, loosely speaking it's a number which is not random in reality but gives the appearance of randomness ). He called the algorithm <b>middle-square method</b> (again coming below). <u>Though this method has been criticized as crude, von Neumann was aware of this: he justified it as being faster than any other method at his disposal, and also noted that when it went off it did so in an obvious fashion, unlike methods that could be subtly incorrect</u>. Later on, a <a href="https://mcnp.lanl.gov/pdf_files/nbs_vonneumann.pdf">paper</a> was published describing the algorithm. In that paper, von Neumann wrote the famous words - "Anyone who considers arithmetical methods of producing random digits is, of course, in a state of sin".
         <br>
         <br>
-        The above story has been picked from the below mentione sources. Some phrases have been blatantly copied over while others have been created by my understanding of the story.
+        The above story has been picked from the below mentioned sources. Some phrases have been blatantly copied over while others have been created by my understanding of the story.
         <ol>
             <li><a href="https://en.wikipedia.org/wiki/ENIAC#Role_in_the_hydrogen_bomb"> ENIAC</a></li>
             <li><a href="https://en.wikipedia.org/wiki/Monte_Carlo_method#History">Monte Carlo Method</a></li>
@@ -202,7 +203,7 @@
     </h4>
 
     <p>
-        Middle square method is now a relic of the past. There are new algorithms that have been developed since then. Wikipedia has a <a href="https://en.wikipedia.org/wiki/List_of_random_number_generators">list</a> with some description on each. Interestingly in 2017, A modification was suggested to the middle square algorithm which helps the algorithm get rid of its follies. <a href="https://arxiv.org/abs/1704.00358v5"> Here's a link</a> to the paper describing the modification.
+        Middle square method is now a relic of the past. There are new algorithms that have been developed since then. Wikipedia has a <a href="https://en.wikipedia.org/wiki/List_of_random_number_generators">list</a> with some description on each. Interestingly in 2017, a modification was suggested to the middle square algorithm which helps the algorithm get rid of its follies. <a href="https://arxiv.org/abs/1704.00358v5"> Here's a link</a> to the paper describing the modification.
     </p>
 
     <h4 id="tldr">
