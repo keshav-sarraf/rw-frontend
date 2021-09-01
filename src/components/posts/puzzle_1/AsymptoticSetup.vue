@@ -9,7 +9,8 @@
         <label for="loopSize" class="form-label">Number of repeatitions</label>
         <h4 id="loopSize">{{numExperimentLoop}}</h4>
     </div>
-
+</div>
+<div>
     <div v-if="processing" class="spinner-grow" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
