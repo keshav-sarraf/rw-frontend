@@ -17,7 +17,7 @@
                 <b>Sequence of draws :</b> {{drawSequence.join(",")}}
             </div>
             <div class="col text-end m-auto">
-                 {{numColorChanges}} <b>: # Color Changes</b>
+                <p class="text-primary">{{numColorChanges}} <b>: # Color Changes</b></p>
             </div>
         </div>
 
