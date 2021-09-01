@@ -206,12 +206,15 @@
         Middle square method is now a relic of the past. There are new algorithms that have been developed since then. Wikipedia has a <a href="https://en.wikipedia.org/wiki/List_of_random_number_generators">list</a> with some description on each. Interestingly in 2017, a modification was suggested to the middle square algorithm which helps the algorithm get rid of its follies. <a href="https://arxiv.org/abs/1704.00358v5"> Here's a link</a> to the paper describing the modification.
     </p>
 
-    <h4 id="tldr">
-        tl;dr
-    </h4>
-    <p>
-        Computers cannot generate randomness, however they have access to signals which are kind of random and are generated from events around them. Using these signals, a pseudo random number generator can produce random looking numbers. There have been numerous algorithms over the years to perform this activity. First one was called Middle Square Method which was developed to while researching the hydrogen bomb. Coincidently that project also led to popularizing monte carlo simulations ( which have a heavy use of random number generators ). The algorithm did quite a bad job of creating random numbers but ultimately paved way for research on computational PRNGs.
-    </p>
+    <div id="tldr">
+        <h4>
+            tl;dr
+        </h4>
+        <p>
+            Computers cannot generate randomness, however they have access to signals which appear random to us. Using these signals, a pseudo random number generator can produce numbers which look completely random. There have been numerous algorithms over the years to perform this activity. First one was called Middle Square Method which was developed while researching the hydrogen bomb. Coincidently that project also led to popularizing Monte Carlo simulations ( which in general relies on random number generators to function ). The algorithm was not very good because it kept on getting stuck in cycles, i.e it kept on generating same sequence of numbers after a while, but it ultimately paved way for research on computational PRNGs.
+        </p>
+    </div>
+
 </div>
 </template>
 
@@ -242,3 +245,18 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+#tldr:target {
+    /* background: rgb(204, 204, 204); */
+    padding: 5px;
+    border: solid 1px #aaa;
+    transition: all .8s; 
+}
+
+#middle_square_intro:target {
+    padding: 5px;
+    border: solid 1px #aaa;
+    transition: all .8s; 
+}
+</style>
