@@ -32,9 +32,7 @@
         },
         {
             "question" : "I think I get it … How can I reach out ?",
-            "answer" : "We would love to hear from you. You can reach out either via email - hello@reinventingwheel.com",
-            "external_link_tag" : "💌 Click here to open your email application",
-            "external_link_url" : "mailto:hello@reinventingwheel.com"
+            "answer" : "We would love to hear from you. You can reach out either via 💌 email - hello@reinventingwheel.com or instagram - @reinventingwheel"
         }
     ]
 }
