@@ -1,8 +1,8 @@
 import {createRouter, createWebHistory} from 'vue-router';
 import Landing from './components/Landing';
-import About from './components/About';
-import RandNumGen from './components/posts/random_number_gen/RandNumGen'
-import Puzzle1 from './components/posts/puzzle_1/Puzzle1'
+const About = () => import('./components/About.vue');
+const RandNumGen = () => import('./components/posts/random_number_gen/RandNumGen.vue');
+const Puzzle1 = () => import('./components/posts/puzzle_1/Puzzle1.vue');
 
 const routes = [
     { path: '/', component: Landing },
