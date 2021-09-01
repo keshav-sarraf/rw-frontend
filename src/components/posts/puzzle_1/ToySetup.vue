@@ -16,11 +16,8 @@
             <div class="col text-start m-auto">
                 <b>Sequence of draws :</b> {{drawSequence.join(",")}}
             </div>
-        </div>
-
-        <div class="row border-bottom mt-1">
-            <div class="col text-start m-auto">
-                <b># Color Changes :</b> {{numColorChanges}}
+            <div class="col text-end m-auto">
+                 {{numColorChanges}} <b>: # Color Changes</b>
             </div>
         </div>
 
@@ -28,17 +25,13 @@
             <div class="col">
                 <button type="button" v-if="numBlackBalls + numWhiteBalls > 0" class="btn-primary" @click="drawnNextBall()">Draw Next</button>
             </div>
+            <div class="col">
+                <button type="button" class="btn-danger" @click="reset()">Reset Experiment</button>
+            </div>
             <div class="col text-end m-auto">
                 {{latestDraw}} <b>: Last Drawn Ball</b>
             </div>
         </div>
-        
-        <div class="row p-1">
-            <div class="col">
-                <button type="button" class="btn-danger" @click="reset()">Reset Experiment</button>
-            </div>
-        </div>
-        
     </div>
 </template>
 
@@ -51,6 +44,8 @@ import {
 export default {
     setup() {
         const numBalls = 5;
+        const black = 'B';
+        const white = 'W';
 
         const numBlackBalls = ref(numBalls);
         const numWhiteBalls = ref(numBalls);
@@ -81,14 +76,14 @@ export default {
             let randomBallNum = Math.floor(Math.random() * (max - min + 1) + min);
 
             if (randomBallNum <= blackBalls) {
-                latestDraw.value = 'B';
+                latestDraw.value = black;
                 numBlackBalls.value -= 1;
             } else {
-                latestDraw.value = 'W';
+                latestDraw.value = white;
                 numWhiteBalls.value -= 1;
             }
 
-            if (latestDraw.value == 'W' || latestDraw.value == 'B')
+            if (latestDraw.value == white || latestDraw.value == black)
                 drawSequence.value.push(latestDraw.value);
         };
 
