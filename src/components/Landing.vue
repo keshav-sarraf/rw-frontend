@@ -35,7 +35,7 @@
         </tbody>
     </table> -->
 
-    <div class="card" v-for="post in postsList" :key="post.title">
+    <div class="card mb-1" v-for="post in postsList" :key="post.title">
         <div class="card-header">
             <div class="row">
                 <div class="col align-self-start text-start">

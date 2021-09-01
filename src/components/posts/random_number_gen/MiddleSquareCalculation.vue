@@ -62,7 +62,7 @@ import {
 
 import * as prng from '../../../utils/customRandNumGen.js';
 
-import _ from 'lodash'
+import debounce from 'lodash.debounce'
 
 export default {
     setup() {
@@ -76,7 +76,7 @@ export default {
         const duplicateEntry = ref(result.loopVal);
         const randArr = ref(result.arr);
 
-        const debouncedSequenceGenerator = _.debounce(() => {
+        const debouncedSequenceGenerator = debounce(() => {
             const result = prng.generateRandSequenceMiddleSquare(userSelectedSeed.value, numDigits);
             duplicateEntry.value = result.loopVal;
             randArr.value = result.arr;
