@@ -2,7 +2,10 @@
 <div class="container mb-3">
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid">
-            <router-link to="/" class="navbar-brand">Reinventing Wheel</router-link>
+            <router-link to="/" class="navbar-brand">
+            <img src="/Logo.png" alt="" width="40" height="40">
+            ReinventingWheel
+            </router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
