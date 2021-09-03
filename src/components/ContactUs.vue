@@ -34,7 +34,7 @@
         </div>
         <div class="col">
             <p>
-                <a href="https://www.instagram.com/reinventingwheel/">@reinventingwheel</a>
+                <a href="https://www.instagram.com/simple.explainations/">@simple.expainations</a>
             </p>
         </div>
     </div>
