@@ -10,7 +10,7 @@
         },
         {
             "title" : "Color Switches",
-            "description" : "Probability Puzzle",
+            "description" : "Puzzle: You are given an urn with 10 balls (5 black and 5 white). You pick balls from the urn one by one without replacement until all the balls are out. A black followed by a white or a white followed by a black is 'a colour change'. Calculate the expected number of colour changes if the balls are being picked randomly from the urn.",
             "date" : "2nd September 2021",
             "read_duration" : "3 minutes read",
             "labels" : ["Maths", "Probability", "Puzzle"],

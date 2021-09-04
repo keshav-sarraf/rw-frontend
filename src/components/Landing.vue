@@ -73,7 +73,8 @@ import postsListJson from '../assets/posts/posts.json';
 
 export default {
     setup() {
-        const postsList = ref(postsListJson.posts);
+        const postListFromJson = postsListJson.posts;
+        const postsList = ref(postListFromJson.reverse());
 
         return {
             postsList
