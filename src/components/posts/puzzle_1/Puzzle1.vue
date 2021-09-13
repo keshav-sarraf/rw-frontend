@@ -1,7 +1,7 @@
 <template>
 <div class="container">
 
-    <h2>Color Switches</h2>
+    <h2>🖍 Color Switches</h2>
     <h6>Published on 2nd September 2021</h6>
     <h6>3 minutes read</h6>
     <hr>

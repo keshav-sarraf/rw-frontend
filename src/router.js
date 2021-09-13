@@ -4,13 +4,22 @@ const About = () => import('./components/About.vue');
 const ContactUs = () => import('./components/ContactUs.vue');
 const RandNumGen = () => import('./components/posts/random_number_gen/RandNumGen.vue');
 const Puzzle1 = () => import('./components/posts/puzzle_1/Puzzle1.vue');
+const RegexPostIntro = () => import('./components/posts/regex/RegexPostIntro.vue');
+const RegexGameIntro = () => import('./components/posts/regex/RegexGameIntro.vue');
 
 const routes = [
     { path: '/', component: Landing },
     { path: '/about-us', component: About },
+    { path: '/contact-us', component: ContactUs},
+
+    //blog posts
+    //rand num generator
     { path: '/random-number-generator', component: RandNumGen },
+    //color switches
     { path: '/puzzle-1', component: Puzzle1},
-    { path: '/contact-us', component: ContactUs}
+    //regex
+    { path: '/regex-post-intro', component: RegexPostIntro},
+    { path: '/regex-game-intro', component: RegexGameIntro}
   ];
 
 const router = createRouter({
