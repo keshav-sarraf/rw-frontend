@@ -29,8 +29,8 @@
 import {
     ref,
     computed,
+    onBeforeUnmount,
 } from 'vue';
-import { onUnmounted } from '@vue/runtime-core';
 
 export default {
     props: {
@@ -54,7 +54,7 @@ export default {
             }
         }, 10);
 
-        onUnmounted(() => {
+        onBeforeUnmount(() => {
             console.log("Header Unmounted");
             clearInterval(refreshIntervalId);
         });
