@@ -25,7 +25,7 @@
 
     <hr>
 
-    <div>
+    <div class="border p-3">
         <p>
             Agent Brown,
         </p>
