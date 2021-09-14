@@ -1,6 +1,7 @@
 {
     "posts" : [
         {
+            "id" : 1,
             "title" : "🎲 Computers & Randomness",
             "description" : "Computers were designed to be deterministic, and yet they are able to generate randomness. In this post we go back in history and take a look at the first computational random number generator",
             "date" : "31st August 2021",
@@ -9,6 +10,7 @@
             "router_link" : "/random-number-generator"
         },
         {
+            "id" : 2,
             "title" : "Puzzle: 🖍 Color Switches",
             "description" : "Puzzle: You are given an urn with 10 balls (5 black and 5 white). You pick balls from the urn one by one without replacement until all the balls are out. A black followed by a white or a white followed by a black is 'a colour change'. Calculate the expected number of colour changes if the balls are being picked randomly from the urn.",
             "date" : "2nd September 2021",
@@ -17,6 +19,7 @@
             "router_link" : "/puzzle-1"
         },
         {
+            "id" : 3,
             "title" : "🕵🏽‍♂️ Expressions, Regular Expressions",
             "description" : "Regular Expressions (Regex) are a nifty tool for searching and manipulating tons of text. This post aims to teach regex by means of a game. See you on the other side",
             "date" : "15th September 2021",

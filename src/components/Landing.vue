@@ -74,7 +74,8 @@ import postsListJson from '../assets/posts/posts.json';
 export default {
     setup() {
         const postListFromJson = postsListJson.posts;
-        const postsList = ref(postListFromJson.reverse());
+        const postsList = ref(postListFromJson);
+        postsList.value.sort((l, r) => l.id > r.id ? -1 : 1);
 
         return {
             postsList
