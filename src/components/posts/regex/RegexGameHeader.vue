@@ -46,9 +46,10 @@ export default {
         timeLimit: Number,
         finishedProgressPercent: Number,
         currentProgressPercent: Number,
-        startTimer: Boolean
+        startTimer: Boolean,
+        resetTimer: Boolean,
     },
-    emits: ['timeElapsed'],
+    emits: ['timeElapsed', 'timerRestarted'],
     setup(props, context) {
         const timeLeft = ref(props.timeLimit);
         const percentTimeLeft = computed(() => Math.floor(100.0 * timeLeft.value / props.timeLimit));
@@ -78,7 +79,15 @@ export default {
                 stopTimer();
         });
 
-        if (props.startTimer === true)
+        watch(() => props.resetTimer, () => {
+            console.log("reset timer called : " + props.resetTimer);
+            if (props.resetTimer === true){
+                timeLeft.value = props.timeLimit;
+                context.emit('timerRestarted');
+            }  
+        });
+
+        if (props.startTimer === true || props.resetTimer === true)
             startTimer();
 
         onBeforeUnmount(() => {

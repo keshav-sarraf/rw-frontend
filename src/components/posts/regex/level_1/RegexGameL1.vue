@@ -1,7 +1,7 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="👀 Simple Search" :timeLimit=120 :finishedProgressPercent=0 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="timeElapsedAction" />
+    <regex-game-header title="👀 Simple Search" :timeLimit=90 :finishedProgressPercent=0 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="timeElapsedAction" @timer-restarted="timerRestartedAction" :resetTimer="resetTimer" />
 
     <div v-if="!levelStarted">
         <h4>Tutorial</h4>
@@ -34,14 +34,14 @@
         </p>
 
         <p class="border p-3">
-            <em>I have what looking for. Meet me near the lake in 3 days <br>- Lily</em>
+            <em>I have what you are looking for. Meet me near the lake in 3 days <br>- Lily</em>
         </p>
 
         <p>
             This is one of the biggest breakthroughs for us in quite sometime. There is a mention of a lake in the message, unfortunately we don't know which lake they are reffering to. Within the laptop, we have recovered a list of locations. Your task is to find out all the lakes in this list using RegEx.
         </p>
 
-        <div class="row mb-4 border">
+        <div class="row mb-4 border-top border-bottom">
             <div class="col-sm-6" v-for="(location, idx) in locationList" :key="location">
                 {{idx+1}}. {{location}}
             </div>
@@ -65,7 +65,7 @@
         <div>
             <h6>Matched Locations</h6>
 
-            <div v-if="matchedLocationList.length > 0" class="row mb-4 border">
+            <div v-if="matchedLocationList.length > 0" class="row mb-4 border-top border-bottom">
                 <div class="col-sm-6" v-for="(location, idx) in matchedLocationList" :key="location">
                     {{idx+1}}. <span v-html="location.formattedString"></span>
                 </div>
@@ -106,6 +106,7 @@ export default {
         RegexGameHeader,
     },
     setup() {
+        const resetTimer = ref(false);
         const levelStarted = ref(false);
         const levelFinished = ref(false);
         const locationList = ref(locationListJson["locations"]);
@@ -155,19 +156,30 @@ export default {
             //console.log(checkAnswer());
         }
 
+        const timerRestartedAction = () => resetTimer.value = false;
+
         const timeElapsedAction = function () {
-            alert('time elapsed');
+            alert('Time elapsed!! :X, Restarting Level');
+            resetTimer.value = true;
+            levelStarted.value = false;
+            levelFinished.value = false;
+            locationList.value = locationListJson["locations"];
+            matchedLocationList.value = [];
+            regex.value = "";
+            regexErrorMessage.value = "";
         };
 
         return {
             regex,
             regexErrorMessage,
             timeElapsedAction,
+            timerRestartedAction,
             executeRegex,
             levelStarted,
             locationList,
             matchedLocationList,
-            levelFinished
+            levelFinished,
+            resetTimer
         };
     },
 }
