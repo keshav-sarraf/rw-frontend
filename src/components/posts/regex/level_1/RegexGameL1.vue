@@ -38,13 +38,13 @@
         </p>
 
         <p>
-            This is one of the biggest breakthroughs for us in quite sometime. There is a mention of a lake in the message, unfortunately we don't know which lake they are referring to. Inside the laptop, we have recovered a list of locations. Your task is to find out all the locations withing the list that have the word lake in their name. Enter a suitable regular expression and press "Execute Regex".
+            This is one of the biggest breakthroughs for us in quite sometime. There is a mention of a lake in the message, unfortunately we don't know which it is referring to. Insise the laptop, we have found a file containing a list of locations. Your task is to find out all the locations withing the list that have the word lake in their name. Enter a suitable regular expression and press "Execute Regex".
         </p>
 
         <div class="row">
             <div class="col-sm-4">
                 <div class="input-group mb-3">
-                    <input type="text" v-model="regex" class="form-control" placeholder="Enter regex" aria-label="Input Regex" aria-describedby="basic-addon2">
+                    <input type="text" v-model="regex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button" @click="executeRegex">Execute RegEx</button>
                     </div>
@@ -60,7 +60,7 @@
             <h6>Results matching the Regex</h6>
 
             <div v-if="matchedLocationList.length > 0" class="row mb-4 border-top border-bottom">
-                <div class="col-sm-6" v-for="(location, idx) in matchedLocationList" :key="location">
+                <div class="col-sm-4" v-for="(location, idx) in matchedLocationList" :key="location">
                     {{idx+1}}. <span v-html="location.formattedString"></span>
                 </div>
             </div>
@@ -77,7 +77,7 @@
 
         <h6>List of locations found in the laptop</h6>
         <div class="row my-2 border-top">
-            <div class="col-sm-6" v-for="(location, idx) in locationList" :key="location">
+            <div class="col-sm-4" v-for="(location, idx) in locationList" :key="location">
                 {{idx+1}}. {{location}}
             </div>
         </div>
@@ -189,5 +189,6 @@ export default {
 .mark {
     margin: 0px;
     padding: 0px;
+    background-color:gold
 }
 </style>
