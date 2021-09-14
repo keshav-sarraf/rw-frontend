@@ -10,9 +10,12 @@ const matchRegexAndFormatInput = (inputString, re) => {
         //console.log(leftSubStr);
         //console.log(matchedSubStr);
         //console.log(rightSubStr);
-        let formattedString = leftSubStr + "<mark><b>" + matchedSubStr + "</b></mark>" + rightSubStr;
+        let formattedString = leftSubStr + "<mark><u>" + matchedSubStr + "</u></mark>" + rightSubStr;
 
-        return formattedString;
+        return {
+            "originalString" : inputString,
+            "formattedString" :  formattedString
+        };
     }
 
     return null;

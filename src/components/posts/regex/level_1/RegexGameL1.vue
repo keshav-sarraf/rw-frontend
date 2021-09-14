@@ -1,9 +1,9 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="👀 Simple Search" :timeLimit=600 :finishedProgressPercent=0 :currentProgressPercent=100*1/15 :startTimer="startLevel" @time-elapsed="timeElapsedAction" />
+    <regex-game-header title="👀 Simple Search" :timeLimit=120 :finishedProgressPercent=0 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="timeElapsedAction" />
 
-    <div v-if="!startLevel">
+    <div v-if="!levelStarted">
         <h4>Tutorial</h4>
 
         <p>
@@ -26,7 +26,7 @@
         </p>
     </div>
 
-    <div v-if="startLevel">
+    <div v-if="levelStarted">
         <h4>Mission 1</h4>
 
         <p>
@@ -34,11 +34,11 @@
         </p>
 
         <p class="border p-3">
-            <em>I have the old magazines that you were looking for. Meet me at our factory near the lake. You know the time <br>- Lily</em>
+            <em>I have what looking for. Meet me at our factory near the lake. You know the time <br>- Lily</em>
         </p>
 
         <p>
-            This is one of the biggest breakthroughs that we have had in quite sometime. There is a mention of a factory near a lake, unfortunately we don't know anything about the factory or the lake mentioned in there. Within the laptop, we have recovered a list of locations. Your task is to figure out mentions of all the "lakes" in that list.
+            This is one of the biggest breakthroughs that we have had in quite sometime. There is a mention of a factory near a lake, unfortunately we don't know anything about the factory or the lake mentioned in there. Within the laptop, we have recovered a list of locations. Your task is to find out all the "lakes" in this list using RegEx.
         </p>
 
         <div class="row mb-4 border">
@@ -58,24 +58,34 @@
             </div>
         </div>
 
+        <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
+            {{regexErrorMessage}}
+        </div>
+
         <div v-if="matchedLocationList.length > 0">
             <h6>Matched Locations</h6>
 
             <div class="row mb-4 border">
                 <div class="col-sm-6" v-for="(location, idx) in matchedLocationList" :key="location">
-                    {{idx+1}}. <span v-html="location"></span>
+                    {{idx+1}}. <span v-html="location.formattedString"></span>
                 </div>
             </div>
         </div>
+
+        <div v-if="levelFinished" class="alert alert-success" role="alert">
+            Thank You Agent Brown, this was helpful. We'll send a recon team to these locations and get back to you with their findings.
+        </div>
+
+        <button v-if="levelStarted && levelFinished" type="button" class="btn btn-success mb-3">Next Level</button>
+        <br>
+
+        <div class="footer border-top">
+            <h6>Credits:</h6>
+            <p>List of locations is taken from <a href="https://edition.cnn.com/travel/article/natural-wonder-bucket-list/index.html">CNN's Natural Wonder Bucket List</a>. Head over there to view more information about each location.</p>
+        </div>
     </div>
 
-    <button type="button" @click="startLevel = !startLevel" class="btn mb-3" :class="{ 'btn-danger': startLevel, 'btn-primary' : !startLevel}">{{startLevel ? "Pause Level" : "Start Level"}}</button>
-
-    <div class="footer border-top">
-        <h6>Credits:</h6>
-        <p>List of locations is taken from <a href="https://edition.cnn.com/travel/article/natural-wonder-bucket-list/index.html">CNN's Natural Wonder Bucket List</a>. Head over there to view more information about each location.</p>
-    </div>
-
+    <button v-if="!levelFinished" type="button" @click="levelStarted = !levelStarted" class="btn mb-3" :class="{ 'btn-danger': levelStarted, 'btn-primary' : !levelStarted}">{{levelStarted ? "Pause Level" : "Start Level"}}</button>
 </div>
 </template>
 
@@ -93,30 +103,51 @@ export default {
         RegexGameHeader,
     },
     setup() {
-        const startLevel = ref(false);
+        const levelStarted = ref(false);
+        const levelFinished = ref(false);
         const locationList = ref(locationListJson["locations"]);
         const matchedLocationList = ref([]);
         const regex = ref("");
+        const regexErrorMessage = ref("");
+        const target = ["Pangong Tso Lake, India-China",
+            "Lake Nakuru, Kenya",
+            "Moraine Lake, Banff National Park, Alberta, Canada",
+            "Lake Titicaca, Bolivia/Peru",
+            "Plitvice Lakes, Croatia",
+            "Lake Baikal, Russia"
+        ];
 
-        const executeRegex = function(){
+        const checkAnswer = function () {
+            return target.length == matchedLocationList.value.length && matchedLocationList.value.every(v => target.includes(v.originalString));
+        }
+
+        const executeRegex = function () {
             matchedLocationList.value = [];
             let re;
 
             try {
                 re = new RegExp(regex.value);
-            } catch(e) {
-                console.log(e);
+            } catch (e) {
+                //console.log(e);
+                regexErrorMessage.value = e;
+                console.log(regexErrorMessage);
                 return;
             }
 
-            for(let i=0; i < locationList.value.length; i++){
+            regexErrorMessage.value = "";
+
+            for (let i = 0; i < locationList.value.length; i++) {
                 let loc = locationList.value[i];
                 let regexResult = regExUtil.matchRegexAndFormatInput(loc, re);
-                if(regexResult)
+                if (regexResult)
                     matchedLocationList.value.push(regexResult);
             }
 
+            if (checkAnswer())
+                levelFinished.value = true;
+
             console.log(matchedLocationList.value);
+            console.log(checkAnswer());
         }
 
         const timeElapsedAction = function () {
@@ -125,11 +156,13 @@ export default {
 
         return {
             regex,
+            regexErrorMessage,
             timeElapsedAction,
             executeRegex,
-            startLevel,
+            levelStarted,
             locationList,
-            matchedLocationList
+            matchedLocationList,
+            levelFinished
         };
     },
 }
