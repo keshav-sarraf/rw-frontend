@@ -34,11 +34,11 @@
         </p>
 
         <p class="border p-3">
-            <em>I have what looking for. Meet me at our factory near the lake. You know the time <br>- Lily</em>
+            <em>I have what looking for. Meet me near the lake in 3 days <br>- Lily</em>
         </p>
 
         <p>
-            This is one of the biggest breakthroughs that we have had in quite sometime. There is a mention of a factory near a lake, unfortunately we don't know anything about the factory or the lake mentioned in there. Within the laptop, we have recovered a list of locations. Your task is to find out all the "lakes" in this list using RegEx.
+            This is one of the biggest breakthroughs for us in quite sometime. There is a mention of a lake in the message, unfortunately we don't know which lake they are reffering to. Within the laptop, we have recovered a list of locations. Your task is to find out all the lakes in this list using RegEx.
         </p>
 
         <div class="row mb-4 border">
@@ -62,18 +62,21 @@
             {{regexErrorMessage}}
         </div>
 
-        <div v-if="matchedLocationList.length > 0">
+        <div>
             <h6>Matched Locations</h6>
 
-            <div class="row mb-4 border">
+            <div v-if="matchedLocationList.length > 0" class="row mb-4 border">
                 <div class="col-sm-6" v-for="(location, idx) in matchedLocationList" :key="location">
                     {{idx+1}}. <span v-html="location.formattedString"></span>
                 </div>
             </div>
+            <div v-else>
+                0 results to show
+            </div>
         </div>
 
         <div v-if="levelFinished" class="alert alert-success" role="alert">
-            Thank You Agent Brown, this was helpful. We'll send a recon team to these locations and get back to you with their findings.
+            Thank You Agent Brown, this was helpful. We'll send a recon team to these lakes and get back to you with the findings. Feel free to play around with regex till then.
         </div>
 
         <button v-if="levelStarted && levelFinished" type="button" class="btn btn-success mb-3">Next Level</button>
@@ -109,7 +112,8 @@ export default {
         const matchedLocationList = ref([]);
         const regex = ref("");
         const regexErrorMessage = ref("");
-        const target = ["Pangong Tso Lake, India-China",
+        const target = [
+            "Pangong Tso Lake, India-China",
             "Lake Nakuru, Kenya",
             "Moraine Lake, Banff National Park, Alberta, Canada",
             "Lake Titicaca, Bolivia/Peru",
@@ -118,7 +122,8 @@ export default {
         ];
 
         const checkAnswer = function () {
-            return target.length == matchedLocationList.value.length && matchedLocationList.value.every(v => target.includes(v.originalString));
+            return target.length == matchedLocationList.value.length &&
+                matchedLocationList.value.every(v => target.includes(v.originalString));
         }
 
         const executeRegex = function () {
@@ -130,7 +135,7 @@ export default {
             } catch (e) {
                 //console.log(e);
                 regexErrorMessage.value = e;
-                console.log(regexErrorMessage);
+                //console.log(regexErrorMessage);
                 return;
             }
 
@@ -146,8 +151,8 @@ export default {
             if (checkAnswer())
                 levelFinished.value = true;
 
-            console.log(matchedLocationList.value);
-            console.log(checkAnswer());
+            //console.log(matchedLocationList.value);
+            //console.log(checkAnswer());
         }
 
         const timeElapsedAction = function () {
@@ -167,3 +172,10 @@ export default {
     },
 }
 </script>
+
+<style>
+.mark {
+    margin: 0px;
+    padding: 0px;
+}
+</style>
