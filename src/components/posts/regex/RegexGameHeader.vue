@@ -71,7 +71,7 @@ export default {
         }
 
         watch(() => props.startTimer, () => {
-            console.log(props.startTimer);
+            // console.log(props.startTimer);
             if (props.startTimer === true)
                 startTimer();
             else if (props.startTimer === false)

@@ -6,7 +6,7 @@ const RandNumGen = () => import('./components/posts/random_number_gen/RandNumGen
 const Puzzle1 = () => import('./components/posts/puzzle_1/Puzzle1.vue');
 const RegexPostIntro = () => import('./components/posts/regex/RegexPostIntro.vue');
 const RegexGameIntro = () => import('./components/posts/regex/RegexGameIntro.vue');
-const RegexGameL1 = () => import('./components/posts/regex/RegexGameL1.vue');
+const RegexGameL1 = () => import('./components/posts/regex/level_1/RegexGameL1.vue');
 
 const routes = [
     { path: '/', component: Landing },
