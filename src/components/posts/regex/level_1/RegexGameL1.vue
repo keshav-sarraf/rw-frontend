@@ -34,14 +34,14 @@
         </p>
 
         <p class="border p-3">
-            <em>I have the plans that you are looking for. Meet me at the # lake in 3 days <br>- Lily</em>
+            <em>I have the plans that you are looking for. Meet me at the ?/#4*$ lake in 3 days <br>- Lily</em>
         </p>
 
         <p>
             There is mention of a lake in the message, unfortunately we don't know which one it is referring to. Inside the laptop, we have found a file containing a list of locations. Your task is to find out all the locations within the list that have the word "lake" in their name. Enter a suitable regular expression and press "Execute Regex".
         </p>
 
-        <div class="row">
+        <div class="row" v-if="!levelFinished">
             <div class="col-sm-4">
                 <div class="input-group mb-3">
                     <input type="text" v-model="regex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex" aria-describedby="basic-addon2">
@@ -71,7 +71,7 @@
 
         <div v-if="levelFinished">
             <div class="alert alert-success" role="alert">
-                Thank You Agent Brown, this was helpful. We'll send recon teams to these lakes immediately. Feel free to play around with regex till then.
+                Thank You Agent Brown, this was helpful. We'll send recon teams to these lakes immediately.
             </div>
 
             <button type="button" class="btn btn-success mb-3">Next Level</button>
