@@ -4,7 +4,7 @@
 <template>
 <div class="container">
 
-    <h2>Computers & Randomness</h2>
+    <h2>🎲 Computers & Randomness</h2>
     <h6>Published on 31st August 2021</h6>
     <h6>10 minutes read</h6>
     <hr>

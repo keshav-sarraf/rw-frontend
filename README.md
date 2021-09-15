@@ -1,3 +1,3 @@
 # rw-frontend
 
-This is the frontend repository for [www.reinventingwheel.com](www.reinventingwheel.com). For more details on the website, please visit the website's [about page](https://www.reinventingwheel.com/about-us)
+This is the frontend repository for [www.reinventingwheel.com](www.reinventingwheel.com). In simple terms it is a blog which is in turn inspired by another blog - [Explorable Explainations](https://explorabl.es/). Primary idea being sharing reading material accompanied by interactive content to get a deeper understanding of the subject in a slightly fun way. For more details, please visit the [about us](https://www.reinventingwheel.com/about-us) page.
