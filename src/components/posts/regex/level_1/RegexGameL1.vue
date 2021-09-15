@@ -1,7 +1,7 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="👀 Simple Search" :timeLimit=120 :finishedProgressPercent=0 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="timeElapsedAction" @timer-restarted="timerRestartedAction" :resetTimer="resetTimer" />
+    <regex-game-header title="👀 Simple Search" :timeLimit=300 :finishedProgressPercent=0 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="timeElapsedAction" @timer-restarted="timerRestartedAction" :resetTimer="resetTimer" />
 
     <div v-if="!levelStarted">
         <h4>Objective</h4>
@@ -38,15 +38,15 @@
         </p>
 
         <p>
-            There is mention of a lake in the message, unfortunately we don't know which one it is referring to. Inside the laptop, we have found a file containing a list of locations. Your task is to find out all the locations within the list that have the word "lake" in their name. Enter a suitable regular expression and press "Execute Regex".
+            There is mention of a lake in the message, unfortunately we don't know which one. Inside the laptop, we have found a file containing a list of locations. Your task is to find out all locations within the list that have the word "lake" in their name. Enter a suitable regular expression and press "Execute Regex".
         </p>
 
         <div class="row" v-if="!levelFinished">
             <div class="col-sm-4">
                 <div class="input-group mb-3">
-                    <input type="text" v-model="regex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex" aria-describedby="basic-addon2">
+                    <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" @click="executeRegex">Execute RegEx</button>
+                        <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
                     </div>
                 </div>
             </div>
@@ -84,6 +84,8 @@
             </div>
         </div>
 
+        <user-help btnText="hint" helpText="Regular Expressions are case sensitive, see how the word 'lake' looks like in the list" />
+
         <div class="footer border-top">
             <h6>Credits:</h6>
             <p>List of locations is taken from <a href="https://edition.cnn.com/travel/article/natural-wonder-bucket-list/index.html">CNN's Natural Wonder Bucket List</a>. Head over there to view more information about each location.</p>
@@ -96,6 +98,7 @@
 
 <script>
 import RegexGameHeader from '../RegexGameHeader.vue';
+import UserHelp from '../UserHelp.vue';
 import locationListJson from './locations.json';
 import * as regExUtil from '../regexUtils.js';
 
@@ -106,6 +109,7 @@ import {
 export default {
     components: {
         RegexGameHeader,
+        UserHelp,
     },
     setup() {
         const resetTimer = ref(false);
@@ -113,7 +117,7 @@ export default {
         const levelFinished = ref(false);
         const locationList = ref(locationListJson["locations"]);
         const matchedLocationList = ref([]);
-        const regex = ref("");
+        const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
         const target = [
             "Pangong Tso Lake, India-China",
@@ -130,11 +134,15 @@ export default {
         }
 
         const executeRegex = function () {
+
+            if (userProvidedRegex.value === "")
+                return;
+
             matchedLocationList.value = [];
             let re;
 
             try {
-                re = new RegExp(regex.value);
+                re = new RegExp(userProvidedRegex.value);
             } catch (e) {
                 //console.log(e);
                 regexErrorMessage.value = e;
@@ -167,12 +175,12 @@ export default {
             levelFinished.value = false;
             locationList.value = locationListJson["locations"];
             matchedLocationList.value = [];
-            regex.value = "";
+            userProvidedRegex.value = "";
             regexErrorMessage.value = "";
         };
 
         return {
-            regex,
+            userProvidedRegex,
             regexErrorMessage,
             timeElapsedAction,
             timerRestartedAction,

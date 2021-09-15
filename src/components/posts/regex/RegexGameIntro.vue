@@ -36,10 +36,10 @@
             Agent Brown,
         </p>
         <p>
-            The agency is in dire need of your help. We are working on bringing down a secret organization called "The Group". They want to take down the internet and bring chaos to the world. Your old partner - Agent White was successful in infiltrating The Group's inner circle, but before she could extract meaningful information, her cover was blown. She was successful in escaping but her current whereabouts are unknown and we have lost all contact.
+            The agency is in dire need of your help. We are working on capturing a secret organization called "The Group". They want to take down the internet and bring chaos to the world. Your old partner - Agent White was successful in infiltrating The Group's inner circle, but before she could extract meaningful information, her cover was blown. She was successful in escaping but her current whereabouts are unknown and we have lost all contact.
         </p>
         <p>
-            Her last message has led us to a laptop. The moment we turn on the laptop, it starts a self destruct sequence and we don't have enough time to analyze it completely. Our engineers have figured out a way to reset the self destruct timer but it'll only work for a limited number of attempts. That's why we are reaching out to you. With your experience in RegEx, we may just be able to extract critical pieces of information in limited amount of time and simulataneously save the world and Agent White's life.
+            Her last message has led us to a laptop. The moment we turn on the laptop, it starts a self destruct sequence and we don't have enough time to analyze it completely. Our engineers have figured out a way to reset the self destruct timer but it'll only work for a limited number of attempts. That's why we are reaching out to you. With your experience in RegEx, we may just be able to extract critical pieces of information in limited amount of time.
         </p>
         <p>
             Your mission, should you choose to accept it would be to analyze the documents present in the laptop and figure out The Group's next plan. Beware that time is of the essence.
