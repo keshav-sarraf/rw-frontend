@@ -1,13 +1,13 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="👀 Simple Search" :timeLimit=90 :finishedProgressPercent=0 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="timeElapsedAction" @timer-restarted="timerRestartedAction" :resetTimer="resetTimer" />
+    <regex-game-header title="👀 Simple Search" :timeLimit=120 :finishedProgressPercent=0 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="timeElapsedAction" @timer-restarted="timerRestartedAction" :resetTimer="resetTimer" />
 
     <div v-if="!levelStarted">
-        <h4>Tutorial</h4>
+        <h4>Objective</h4>
 
         <p>
-            You'd be given a block of text and a corresponding problem to find something in it. Your task is to to provide a regular expression that finds the text we are looking for. Remember the laptop is rigged to self destruct after sometime, so beware Agent Brown. Goodluck and godspeed 🏁.
+            You'd be given a block of text and a corresponding target to find something in it. Your task is to to provide a regular expression that provides the information that we are looking for. Remember the laptop is rigged to self destruct after sometime, so beware Agent Brown. Goodluck and godspeed 🏁.
         </p>
 
         <h4>Lesson</h4>
@@ -30,15 +30,15 @@
         <h4>Mission 1</h4>
 
         <p>
-            Agent Brown, we have intercepted the following message.
+            Agent Brown, we have intercepted the following message from an operative of The Group.
         </p>
 
         <p class="border p-3">
-            <em>I have the plans that you are looking for. Meet me near the lake in 3 days <br>- Lily</em>
+            <em>I have the plans that you are looking for. Meet me at the # lake in 3 days <br>- Lily</em>
         </p>
 
         <p>
-            This is one of the biggest breakthroughs for us in quite sometime. There is a mention of a lake in the message, unfortunately we don't know which it is referring to. Insise the laptop, we have found a file containing a list of locations. Your task is to find out all the locations withing the list that have the word lake in their name. Enter a suitable regular expression and press "Execute Regex".
+            There is mention of a lake in the message, unfortunately we don't know which one it is referring to. Inside the laptop, we have found a file containing a list of locations. Your task is to find out all the locations within the list that have the word "lake" in their name. Enter a suitable regular expression and press "Execute Regex".
         </p>
 
         <div class="row">
@@ -69,11 +69,13 @@
             </div>
         </div>
 
-        <div v-if="levelFinished" class="alert alert-success" role="alert">
-            Thank You Agent Brown, this was helpful. We'll send recon teams to these lakes immediately. Feel free to play around with regex till then.
-        </div>
+        <div v-if="levelFinished">
+            <div class="alert alert-success" role="alert">
+                Thank You Agent Brown, this was helpful. We'll send recon teams to these lakes immediately. Feel free to play around with regex till then.
+            </div>
 
-        <button v-if="levelStarted && levelFinished" type="button" class="btn btn-success mb-3">Next Level</button>
+            <button type="button" class="btn btn-success mb-3">Next Level</button>
+        </div>
 
         <h6>List of locations found in the laptop</h6>
         <div class="row my-2 border-top">
@@ -189,6 +191,6 @@ export default {
 .mark {
     margin: 0px;
     padding: 0px;
-    background-color:gold
+    background-color: gold
 }
 </style>
