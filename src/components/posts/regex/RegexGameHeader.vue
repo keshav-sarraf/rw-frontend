@@ -1,7 +1,7 @@
 <template>
 <div class="row">
     <div class="col-sm-4 text-start">
-        Level 1 of 15
+        Progress
         <div class="progress">
             <div class="progress-bar" role="progressbar" :style="{width : finishedProgressPercent + '%'}" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
             <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" :style="{width : currentProgressPercent + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
