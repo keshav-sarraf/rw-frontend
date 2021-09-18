@@ -11,8 +11,8 @@
         <button type="button" @click="$router.push('regex-game-l2')" class="btn btn-success mb-3">Next Level</button>
     </div>
 
-    <regex-game-l-1-lesson v-if="!levelStarted"/>    
-    <regex-game-l-1-mission v-if="levelStarted" @level-finished="onLevelFinished" />
+    <regex-game-l-2-lesson v-if="!levelStarted"/>    
+    <regex-game-l-2-mission v-if="levelStarted" @level-finished="onLevelFinished" />
     
     <button v-if="!levelFinished" type="button" @click="levelStarted = !levelStarted" class="btn mb-3" :class="{ 'btn-danger': levelStarted, 'btn-primary' : !levelStarted}">{{levelStarted ? "Pause Level" : "Start Level"}}</button>
 </div>
@@ -20,8 +20,8 @@
 
 <script>
 import RegexGameHeader from '../RegexGameHeader.vue';
-import RegexGameL1Lesson from './RegexGameL1Lesson.vue';
-import RegexGameL1Mission from './RegexGameL1Mission.vue';
+import RegexGameL2Lesson from './RegexGameL2Lesson.vue';
+import RegexGameL2Mission from './RegexGameL2Mission.vue';
 
 import {
     ref
@@ -30,8 +30,8 @@ import {
 export default {
     components: {
         RegexGameHeader,
-        RegexGameL1Lesson,
-        RegexGameL1Mission
+        RegexGameL2Lesson,
+        RegexGameL2Mission
     },
     setup() {
         const resetTimer = ref(false);

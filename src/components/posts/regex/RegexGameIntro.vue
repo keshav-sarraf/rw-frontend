@@ -28,7 +28,7 @@
     <div class="mb-3">
         <p v-if="isEmailUnread">You have 1 new email</p>
 
-        <button type="button" @click="showEmailFn()" class="btn mb-2" :class="{ 'btn-primary': !showSolution, 'btn-danger' : showSolution}">{{showEmailBtnText}}</button>
+        <button type="button" @click="showEmailFn()" class="btn mb-2" :class="{ 'btn-primary': !shouldShowEmail, 'btn-danger' : shouldShowEmail}">{{showEmailBtnText}}</button>
     </div>
 
     <div v-if="shouldShowEmail" class="border p-3">
