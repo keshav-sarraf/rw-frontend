@@ -99,7 +99,7 @@ export default {
             let re;
 
             try {
-                re = new RegExp(userProvidedRegex.value);
+                re = new RegExp(userProvidedRegex.value, "g");
             } catch (e) {
                 //console.log(e);
                 regexErrorMessage.value = e;
