@@ -3,19 +3,11 @@
     <h4>Mission</h4>
 
     <p>
-        Agent Brown, the retrieved laptop is password protected. In her last message, Agent White gave us a clue.
-    </p>
-
-    <p class="border p-3">
-        <em>These people are on to me. I have hidden a laptop it in the library. Look for the book : 0833030477 <br>- W
-            <br>
-            <br>
-            PS: Password is name of a place and contains the letters "St"
-        </em>
+        Agent Brown, Whoever the laptop belonged to was a cautious person. Most of the documents and emails were already deleted. After trying very hard, our technical team was able to extract fragments of information.
     </p>
 
     <p>
-        We have compiled a list of possible locations for you. Your task is to find out all locations within the list that have the letters "St" in their name. Enter a suitable regular expression and press "Execute Regex".
+        Our sources have informed us that The Group has named their plan to disrupt the internet as Project Blackout. We have a list of partial email subjects from the laptop, As you can see that certain characters are a bit jumbled up. Can you help us search the ones which could be potentially referring to "Project Blackout".
     </p>
 
     <div class="row" v-if="!levelFinished">
@@ -36,8 +28,8 @@
     <div class="mb-3">
         <h6>Results matching the Regex</h6>
 
-        <div v-if="matchedLocationList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-4" v-for="(location, idx) in matchedLocationList" :key="location">
+        <div v-if="matchedEmailList.length > 0" class="row mb-4 border-top border-bottom">
+            <div class="col-sm-4" v-for="(location, idx) in matchedEmailList" :key="location">
                 {{idx+1}}. <span v-html="location.formattedString"></span>
             </div>
         </div>
@@ -46,19 +38,19 @@
         </div>
     </div>
 
-    <h6>List of locations found in the laptop</h6>
+    <h6>List of Emails found in the laptop</h6>
     <div class="row my-2 border-top">
-        <div class="col-sm-4" v-for="(location, idx) in locationList" :key="location">
+        <div class="col-sm-4" v-for="(location, idx) in emailList" :key="location">
             {{idx+1}}. {{location}}
         </div>
     </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="Regular Expressions are case sensitive, see how the word 'lake' looks like in the list" />
+    <user-help v-if="!levelFinished" btnText="hint" helpText="Look for the subjects that could potentially resemble 'Project Blackout' and create a regular expression using . metacharacter to select the necessary ones" />
 
-    <div class="footer border-top">
+    <!-- <div class="footer border-top">
         <h6>Credits:</h6>
         <p>List of locations is taken from <a href="https://edition.cnn.com/travel/article/natural-wonder-bucket-list/index.html">CNN's natural wonder bucket list</a> and <a href="https://www.planetware.com/world/top-rated-tourist-attractions-in-the-world-cam-1-40.htm">Planet Ware's 20 top rated tourist attractions in the world list</a>. Head over there to view more information about each location.</p>
-    </div>
+    </div> -->
 </div>
 </template>
 
@@ -68,7 +60,7 @@ import {
 } from 'vue';
 
 import * as regExUtil from '../regexUtils.js';
-import locationListJson from './locations.json';
+import emailListJson from './emails.json';
 import UserHelp from '../UserHelp.vue';
 
 export default {
@@ -78,16 +70,16 @@ export default {
     emits: ["levelFinished"],
     setup(props, context) {
         const levelFinished = ref(false);
-        const locationList = ref(locationListJson["locations"]);
-        const matchedLocationList = ref([]);
+        const emailList = ref(emailListJson["emails"]);
+        const matchedEmailList = ref([]);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
-        const targetRegex = new RegExp("St");
-        const target = locationList.value.filter(loc => targetRegex.exec(loc) != null);
+        const targetRegex = new RegExp("..oject .lackout");
+        const target = emailList.value.filter(loc => targetRegex.exec(loc) != null);
 
         const checkAnswer = function () {
-            return target.length == matchedLocationList.value.length &&
-                matchedLocationList.value.every(v => target.includes(v.originalString));
+            return target.length == matchedEmailList.value.length &&
+                matchedEmailList.value.every(v => target.includes(v.originalString));
         }
 
         const executeRegex = function () {
@@ -95,7 +87,7 @@ export default {
             if (userProvidedRegex.value === "")
                 return;
 
-            matchedLocationList.value = [];
+            matchedEmailList.value = [];
             let re;
 
             try {
@@ -109,11 +101,11 @@ export default {
 
             regexErrorMessage.value = "";
 
-            for (let i = 0; i < locationList.value.length; i++) {
-                let loc = locationList.value[i];
+            for (let i = 0; i < emailList.value.length; i++) {
+                let loc = emailList.value[i];
                 let regexResult = regExUtil.matchRegexAndFormatInput(loc, re);
                 if (regexResult)
-                    matchedLocationList.value.push(regexResult);
+                    matchedEmailList.value.push(regexResult);
             }
 
             if (checkAnswer()){
@@ -121,7 +113,7 @@ export default {
                 context.emit('levelFinished');
             }
 
-            //console.log(matchedLocationList.value);
+            //console.log(matchedEmailList.value);
             //console.log(checkAnswer());
         }
 
@@ -129,8 +121,8 @@ export default {
             levelFinished,
             userProvidedRegex,
             regexErrorMessage,
-            locationList,
-            matchedLocationList,
+            emailList,
+            matchedEmailList,
             executeRegex,
         };
     },

@@ -1,14 +1,14 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="👀 Simple Search" :timeLimit=300 :finishedProgressPercent=100*1/15 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
+    <regex-game-header title=". The Full Stop" :timeLimit=300 :finishedProgressPercent=100*1/15 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
 
     <div v-if="levelFinished">
         <div class="alert alert-success" role="alert">
-            Thank You Agent Brown, this was helpful. We'll contact you soon.
+            Thank You Agent Brown, We'll try and decipher these emails first.
         </div>
 
-        <button type="button" @click="$router.push('regex-game-l2')" class="btn btn-success mb-3">Next Level</button>
+        <button type="button" @click="$router.push('regex-game-l3')" class="btn btn-success mb-3">Next Level</button>
     </div>
 
     <regex-game-l-2-lesson v-if="!levelStarted"/>    

@@ -10,7 +10,7 @@
         <h5>The Full Stop</h5>
 
         <p>
-            The full stop <code>.</code> is the simplest example of a meta character. The meta character <code>.</code> matches any single character. It will <b>not</b> match "return" or "newline characters(\n)". For example, the regular expression <code>.ar</code> means: <code>*any single character*</code>, followed by the letter <code>a</code>, followed by the letter <code>r</code>.
+            The full stop <code>.</code> is the simplest example of a meta character. This meta character <code>.</code> matches any single character. It will <b>not</b> match "return" or "newline characters(\n)". For example, the regular expression <code>.ar</code> means: <code>*any single character*</code>, followed by the letter <code>a</code>, followed by the letter <code>r</code>.
         </p>
         <p>
             <code>
