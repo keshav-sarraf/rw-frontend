@@ -75,7 +75,7 @@ export default {
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
         const targetRegex = new RegExp("..oject .lackout");
-        const target = emailList.value.filter(loc => targetRegex.exec(loc) != null);
+        const target = emailList.value.filter(email => targetRegex.exec(email) != null);
 
         const checkAnswer = function () {
             return target.length == matchedEmailList.value.length &&
@@ -88,6 +88,7 @@ export default {
                 return;
 
             matchedEmailList.value = [];
+            regexErrorMessage.value = "";
             let re;
 
             try {
@@ -99,11 +100,9 @@ export default {
                 return;
             }
 
-            regexErrorMessage.value = "";
-
             for (let i = 0; i < emailList.value.length; i++) {
-                let loc = emailList.value[i];
-                let regexResult = regExUtil.matchRegexAndFormatInput(loc, re);
+                let email = emailList.value[i];
+                let regexResult = regExUtil.matchRegexAndFormatInput(email, re);
                 if (regexResult)
                     matchedEmailList.value.push(regexResult);
             }

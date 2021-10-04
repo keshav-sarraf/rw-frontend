@@ -1,11 +1,12 @@
 const matchRegexAndFormatInput = (inputString, re) => {
 
-    let formattedMatch = matchAndFormatRegexRecursive(inputString, re);
+    let encodedString = encodeURI(inputString);
+    let formattedMatch = matchAndFormatRegexRecursive(encodedString, re);
 
     if(formattedMatch){
         return {
-            "originalString" : inputString,
-            "formattedString" :  formattedMatch,
+            "originalString" : decodeURI(inputString),
+            "formattedString" :  decodeURI(formattedMatch),
         }
     } else {
         return(null);
@@ -14,12 +15,16 @@ const matchRegexAndFormatInput = (inputString, re) => {
 }
 
 const matchAndFormatRegexRecursive = (inputString, re) => {
+    
     let regexResult = re.exec(inputString);
+    //console.log(re);
+    //console.log("input");
+    //console.log(inputString);
+    //console.log(regexResult);
 
     if (regexResult === null)
         return(null);
 
-    
     let match = regexResult[0];
     let matchStartIdx = regexResult.index;
     let leftSubStr = inputString.substring(0, matchStartIdx);
@@ -28,9 +33,14 @@ const matchAndFormatRegexRecursive = (inputString, re) => {
 
     let rightSubStrMatch = null;
 
-    if(re.global)
+    if(re.global){
+        re.lastIndex = 0;
         rightSubStrMatch = matchAndFormatRegexRecursive(rightSubStr, re);
+    }
     
+    //console.log("right");
+    //console.log(rightSubStrMatch);
+
     let formattedString = "";
 
     if(rightSubStrMatch){

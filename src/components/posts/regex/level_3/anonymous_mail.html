@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Operation Blackout</title>
+</head>
+<body>
+    <div class="post-view">
+    <div class="source" style="font-size: px; line-height: px;">
+    <ul class="text"><li class="li1"><div class="de1">-----------------------------------------------------------------------
+    </div></li><li class="li1"><div class="de1">01001111 01110000 01100101 01110010 01100001 01110100 01101001 01101111 
+    </div></li><li class="li1"><div class="de1">01101110  01000111 01101100 01101111 01100010 01100001 01101100 
+    </div></li><li class="li1"><div class="de1">01000010 01101100 01100001 01100011 01101011 01101111 01110101 01110100 
+    </div></li><li class="li1"><div class="de1">-----------------------------------------------------------------------
+    </div></li><li class="li1"><div class="de1">Operation Global Blackout
+    </div></li><li class="li1"><div class="de1">-----------------------------------------------------------------------
+    </div></li><li class="li1"><div class="de1">01001111 01110000 01100101 01110010 01100001 01110100 01101001 01101111 
+    </div></li><li class="li1"><div class="de1">01101110  01000111 01101100 01101111 01100010 01100001 01101100 
+    </div></li><li class="li1"><div class="de1">01000010 01101100 01100001 01100011 01101011 01101111 01110101 01110100 
+    </div></li><li class="li1"><div class="de1">-----------------------------------------------------------------------
+    </div></li><li class="li1"><div class="de1">		"The greatest enemy of freedom is a happy slave."
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">To protest SOPA, Wallstreet, our irresponsible leaders and the beloved 
+    </div></li><li class="li1"><div class="de1">bankers who are starving the world for their own selfish needs out of 
+    </div></li><li class="li1"><div class="de1">sheer sadistic fun, On March 31, anonymous will shut the Internet down.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">-----------------------------------------------------------------------
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">In order to shut the Internet down, one thing is to be done. Down the
+    </div></li><li class="li1"><div class="de1">13 root DNS servers of the Internet. Those servers are as follow:
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">A	198.41.0.4
+    </div></li><li class="li1"><div class="de1">B	192.228.79.201
+    </div></li><li class="li1"><div class="de1">C	192.33.4.12
+    </div></li><li class="li1"><div class="de1">D	128.8.10.90
+    </div></li><li class="li1"><div class="de1">E	192.203.230.10
+    </div></li><li class="li1"><div class="de1">F	192.5.5.241
+    </div></li><li class="li1"><div class="de1">G	192.112.36.4
+    </div></li><li class="li1"><div class="de1">H	128.63.2.53
+    </div></li><li class="li1"><div class="de1">I	192.36.148.17
+    </div></li><li class="li1"><div class="de1">J	192.58.128.30
+    </div></li><li class="li1"><div class="de1">K	193.0.14.129
+    </div></li><li class="li1"><div class="de1">L	199.7.83.42
+    </div></li><li class="li1"><div class="de1">M	202.12.27.33
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">By cutting these off the Internet, nobody will be able to perform a 
+    </div></li><li class="li1"><div class="de1">domain name lookup, thus, disabling the HTTP Internet, which is,
+    </div></li><li class="li1"><div class="de1">after all, the most widely used function of the Web. Anybody entering
+    </div></li><li class="li1"><div class="de1">"http://www.google.com" or ANY other url, will get an error page,
+    </div></li><li class="li1"><div class="de1">thus, they will think the Internet is down, which is, close enough.
+    </div></li><li class="li1"><div class="de1">Remember, this is a protest, we are not trying to 'kill' the Internet,
+    </div></li><li class="li1"><div class="de1">we are only temporarily shutting it down where it hurts the most.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">While some ISPs uses DNS caching, most are configured to use a low 
+    </div></li><li class="li1"><div class="de1">expire time for the cache, thus not being a valid failover solution 
+    </div></li><li class="li1"><div class="de1">in the case the root servers are down. It is mostly used for speed,
+    </div></li><li class="li1"><div class="de1">not redundancy.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">We have compiled a Reflective DNS Amplification DDoS tool to be used for
+    </div></li><li class="li1"><div class="de1">this attack. It is based on AntiSec's DHN, contains a few bugfix, a
+    </div></li><li class="li1"><div class="de1">different dns list/target support and is a bit stripped down for speed.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">The principle is simple; a flaw that uses forged UDP packets is to be
+    </div></li><li class="li1"><div class="de1">used to trigger a rush of DNS queries all redirected and reflected to
+    </div></li><li class="li1"><div class="de1">those 13 IPs. The flaw is as follow; since the UDP protocol allows it,
+    </div></li><li class="li1"><div class="de1">we can change the source IP of the sender to our target, thus spoofing 
+    </div></li><li class="li1"><div class="de1">the source of the DNS query. 
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">The DNS server will then respond to that query by sending the answer to 
+    </div></li><li class="li1"><div class="de1">the spoofed IP. Since the answer is always bigger than the query, the 
+    </div></li><li class="li1"><div class="de1">DNS answers will then flood the target ip. It is called an amplified
+    </div></li><li class="li1"><div class="de1">because we can use small packets to generate large traffic. It is called
+    </div></li><li class="li1"><div class="de1">reflective because we will not send the queries to the root name servers,
+    </div></li><li class="li1"><div class="de1">instead, we will use a list of known vulnerable DNS servers which will
+    </div></li><li class="li1"><div class="de1">attack the root servers for us.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">DDoS request ---&gt;	[Vulnerable DNS Server	]	&lt;---&gt; Normal client requests
+    </div></li><li class="li1"><div class="de1">							\
+    </div></li><li class="li1"><div class="de1">							 | ( Spoofed UDP requests 
+    </div></li><li class="li1"><div class="de1">							 |   will redirect the answers
+    </div></li><li class="li1"><div class="de1">							 |   to the root name server )
+    </div></li><li class="li1"><div class="de1">							 |
+    </div></li><li class="li1"><div class="de1">					[	13 root servers		] * BAM
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">Since the attack will be using static IP addresses, it will not rely
+    </div></li><li class="li1"><div class="de1">on name server resolution, thus enabling us to keep the attack up even
+    </div></li><li class="li1"><div class="de1">while the Internet is down. The very fact that nobody will be able to
+    </div></li><li class="li1"><div class="de1">make new requests to use the Internet will slow down those who will try
+    </div></li><li class="li1"><div class="de1">to stop the attack. It may only lasts one hour, maybe more, maybe even 
+    </div></li><li class="li1"><div class="de1">a few days. No matter what, it will be global. It will be known.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">-----------------------------------------------------------------------
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">		download link in #opGlobalBlackout
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">-----------------------------------------------------------------------
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">The tool is named "RAMP" and stands for Reflective Amplification. It is
+    </div></li><li class="li1"><div class="de1">located in the \ramp\ folder. 
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">----------&gt; Windows users
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">In order to run "RAMP", you will need to download and install these two
+    </div></li><li class="li1"><div class="de1">applications;
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">	WINPCAP DRIVER 	- http://www.winpcap.org/install/default.htm
+    </div></li><li class="li1"><div class="de1"> 	TOR				- http://www.torproject.org/dist/vidalia-bundles/
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">The Winpcap driver is a standard library and the TOR client is used as 
+    </div></li><li class="li1"><div class="de1">a proxy client for using the TOR network.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">It is also recommended to use a VPN, feel free to choose your own flavor
+    </div></li><li class="li1"><div class="de1">of this.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">To launch the tool, just execute "\ramp\launch.bat" and wait. The attack 
+    </div></li><li class="li1"><div class="de1">will start by itself.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">----------&gt; Linux users
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">The "RAMP" linux client is located under the \ramp\linux\ folder and
+    </div></li><li class="li1"><div class="de1">needs a working installation of python and scapy.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">-----------------------------------------------------------------------
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">	"He who sacrifices freedom for security deserves neither."
+    </div></li><li class="li1"><div class="de1">								Benjamin Franklin
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">We know you wont' listen. We know you won't change. We know it's because
+    </div></li><li class="li1"><div class="de1">you don't want to. We know it's because you like it how it is. You bullied
+    </div></li><li class="li1"><div class="de1">us into your delusion. We have seen you brutalize harmless old womans who were 
+    </div></li><li class="li1"><div class="de1">protesting for peace. We do not forget because we know you will only use that
+    </div></li><li class="li1"><div class="de1">to start again. We know your true face. We know you will never stop. Neither
+    </div></li><li class="li1"><div class="de1">are we. We know.
+    </div></li><li class="li1"><div class="de1">&nbsp;</div></li><li class="li1"><div class="de1">We are Anonymous.
+    </div></li><li class="li1"><div class="de1">We are Legion.
+    </div></li><li class="li1"><div class="de1">We do not Forgive.
+    </div></li><li class="li1"><div class="de1">We do not Forget.
+    </div></li><li class="li1"><div class="de1">You know who you are, Expect us.</div></li></ol>        </div>
+    </div>    
+</div>
+
+</body>
+</html>
