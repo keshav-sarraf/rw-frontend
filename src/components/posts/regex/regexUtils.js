@@ -1,12 +1,13 @@
 const matchRegexAndFormatInput = (inputString, re) => {
 
     let encodedString = inputString;
-    let formattedMatch = matchAndFormatRegexRecursive(encodedString, re);
+    let match = matchAndFormatRegexRecursive(encodedString, re);
 
-    if(formattedMatch){
+    if(match){
         return {
             "originalString" : inputString,
-            "formattedString" :  formattedMatch,
+            "formattedString" :  match.formattedString,
+            "groups" : match.groups,
         }
     } else {
         return(null);
@@ -24,6 +25,11 @@ const matchAndFormatRegexRecursive = (inputString, re) => {
 
     if (regexResult === null)
         return(null);
+
+    let groups = [];
+    for(let i=1; i<regexResult.length;i++){
+        groups.push(regexResult[i]);
+    }
 
     let match = regexResult[0];
     let matchStartIdx = regexResult.index;
@@ -44,12 +50,17 @@ const matchAndFormatRegexRecursive = (inputString, re) => {
     let formattedString = "";
 
     if(rightSubStrMatch){
-        formattedString = leftSubStr + '<mark class="mark"><u>' + matchedSubStr + '</u></mark>' + rightSubStrMatch;
+        formattedString = leftSubStr + '<mark class="mark"><u>' + matchedSubStr + '</u></mark>' + rightSubStrMatch.formattedString;
     } else {
         formattedString = leftSubStr + '<mark class="mark"><u>' + matchedSubStr + '</u></mark>' + rightSubStr;
     }
 
-    return(formattedString);
+    let result = {
+        "formattedString" : formattedString,
+        "groups" : groups,
+    };
+
+    return(result);
 }
 
 export {matchRegexAndFormatInput};

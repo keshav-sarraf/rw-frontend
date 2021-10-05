@@ -3,11 +3,11 @@
     <h4>Mission</h4>
 
     <p>
-        We still don't know what The Group's next plans are. Previous set of links were a dead end. They seemed to be meme websites and had no connection with The Group. This time we have a list of numbers for you. We don't see any pattern yet but we suspect that some of them may be geographical coordinates to a number
+        Those coordinates belonged to couple of office buildings and few touristy places around the globe. Details of the office building were not readily available so we are looking into it. Meanwhile, we have a list of recovered file names. Our tech team has informed us that to begin with, they'd only be able to recover the pdf documents from the hard drive.
     </p>
 
     <p>
-        From the list below, figure out the geographical coordinates. A geographical coordinate is defined as an optional - sign followed by 1-3 digit number followed by a decimal point followed by a 14 digit number. As a suggestion, you can use a regex shorthand \d in place of [0-9] character set. It represents all the numeric characters
+        Given a list of files, figure out which ones are .pdf documents and extract their name without extension.
     </p>
 
     <div class="row" v-if="!levelFinished">
@@ -28,9 +28,10 @@
     <div class="mb-3">
         <h6>Results matching the Regex</h6>
 
-        <div v-if="matchedNumberList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-12" v-for="(number, idx) in matchedNumberList" :key="number">
+        <div v-if="matchedFileList.length > 0" class="row mb-4 border-top border-bottom">
+            <div class="col-sm-4" v-for="(number, idx) in matchedFileList" :key="number">
                 {{idx+1}}. <span v-html="number.formattedString"></span>
+                <span> --> subgroups : </span> {{number.groups}}
             </div>
         </div>
         <div v-else>
@@ -40,12 +41,12 @@
 
     <h6>List of Websites</h6>
     <div class="row my-2 border-top">
-        <div class="col-sm-12" v-for="(number, idx) in numberList" :key="number">
+        <div class="col-sm-2" v-for="(number, idx) in fileList" :key="number">
             {{idx+1}}. {{number}}
         </div>
     </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="questionmark ? can used for optional characters, backslash and a fullstop \. can be used to select the fullstop. Can you combine these with curly braces {} to get the final results" />
+    <user-help v-if="!levelFinished" btnText="hint" helpText="We have to achieve 2 things here, finding all pdf documents and capture the name of the document. Searching for pdf documents should be easy, the new challenge is capturing just the name of the file" />
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
@@ -60,7 +61,7 @@ import {
 } from 'vue';
 
 import * as regExUtil from '../regexUtils.js';
-import numbersListJson from './numbers.json';
+import numbersListJson from './files.json';
 import UserHelp from '../UserHelp.vue';
 
 export default {
@@ -70,16 +71,19 @@ export default {
     emits: ["levelFinished"],
     setup(props, context) {
         const levelFinished = ref(false);
-        const numberList = ref(numbersListJson["numbers"]);
-        const matchedNumberList = ref([]);
+        const fileList = ref(numbersListJson["files"]);
+        const matchedFileList = ref([]);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
-        const targetRegex = new RegExp("[-]?[0-9]{1,3}.[0-9]{14}", "g");
-        const target = numberList.value.filter(n => regExUtil.matchRegexAndFormatInput(n, targetRegex) != null);
+        const targetRegex = new RegExp("(.*)[.]pdf", "g");
+        const targetMatches = fileList.value.filter(n => regExUtil.matchRegexAndFormatInput(n, targetRegex) != null);
+        let targetGroups = targetMatches.map(n => regExUtil.matchRegexAndFormatInput(n, targetRegex).groups);
+        targetGroups = targetGroups.flat();
 
         const checkAnswer = function () {
-            return target.length == matchedNumberList.value.length &&
-                matchedNumberList.value.every(v => target.includes(v.originalString));
+            return targetMatches.length == matchedFileList.value.length
+                && matchedFileList.value.every(v => targetMatches.includes(v.originalString))
+                && matchedFileList.value.every(v => v.groups.some(w => targetGroups.includes(w)));
         }
 
         const executeRegex = function () {
@@ -87,7 +91,7 @@ export default {
             if (userProvidedRegex.value === "")
                 return;
 
-            matchedNumberList.value = [];
+            matchedFileList.value = [];
             regexErrorMessage.value = "";
             let re;
 
@@ -100,11 +104,11 @@ export default {
                 return;
             }
 
-            for (let i = 0; i < numberList.value.length; i++) {
-                let website = numberList.value[i];
+            for (let i = 0; i < fileList.value.length; i++) {
+                let website = fileList.value[i];
                 let regexResult = regExUtil.matchRegexAndFormatInput(website, re);
                 if (regexResult)
-                    matchedNumberList.value.push(regexResult);
+                    matchedFileList.value.push(regexResult);
             }
 
             if (checkAnswer()){
@@ -112,7 +116,7 @@ export default {
                 context.emit('levelFinished');
             }
 
-            //console.log(matchedNumberList.value);
+            //console.log(matchedFileList.value);
             //console.log(checkAnswer());
         }
 
@@ -120,8 +124,8 @@ export default {
             levelFinished,
             userProvidedRegex,
             regexErrorMessage,
-            numberList,
-            matchedNumberList,
+            fileList,
+            matchedFileList,
             executeRegex,
         };
     },
