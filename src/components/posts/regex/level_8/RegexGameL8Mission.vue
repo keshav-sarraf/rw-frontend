@@ -3,15 +3,15 @@
     <h4>Mission</h4>
 
     <p>
-        We have received an encoded message from Agent White.
+        Our target now is to find The Group's next plan. We have recovered multiple items from the laptop. All of these would need separate treatment. First one for you is a series of websites.
     </p>
 
     <p>
-        Agent white has hidden the message between random words. It is hard to read the received message. The words that are meant for us to read, have one or more copies of 'x' or 'z' before them. Your task is to provide a regex which filters the necessary words and highlights the prefix characters so that we can read the exact message
+        Can you find the valid websites among the recovered list of websites. A valid website would be one which starts with 'http:' or 'https:'
     </p>
 
     <div class="row" v-if="!levelFinished">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="input-group mb-3">
                 <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
                 <div class="input-group-append">
@@ -28,9 +28,9 @@
     <div class="mb-3">
         <h6>Results matching the Regex</h6>
 
-        <div v-if="matchedWordList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-2" v-for="location in matchedWordList" :key="location">
-                <span v-html="location.formattedString"></span>
+        <div v-if="matchedWebsiteList.length > 0" class="row mb-4 border-top border-bottom">
+            <div class="col-sm-12" v-for="(location, idx) in matchedWebsiteList" :key="location">
+                {{idx+1}}. <a v-bind:href="location.originalString"><span v-html="location.formattedString"></span></a>
             </div>
         </div>
         <div v-else>
@@ -38,14 +38,14 @@
         </div>
     </div>
 
-    <h6>Message from agent White:</h6>
+    <h6>List of Websites</h6>
     <div class="row my-2 border-top">
-        <div class="col-sm-2" v-for="location in wordList" :key="location">
-            {{location}}
+        <div class="col-sm-12" v-for="(location, idx) in websiteList" :key="location">
+            {{idx+1}}. <a v-bind:href="location">{{location}}</a>
         </div>
     </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="can you use [] and + to select all the words needed in the message" />
+    <user-help v-if="!levelFinished" btnText="hint" helpText="try to match the pattern .1x8 where x is any character except '2'" />
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
@@ -60,7 +60,7 @@ import {
 } from 'vue';
 
 import * as regExUtil from '../regexUtils.js';
-import encryptedMessage from 'raw-loader!./encrypted_message.txt'
+import websiteListJson from './websites.json';
 import UserHelp from '../UserHelp.vue';
 
 export default {
@@ -70,21 +70,16 @@ export default {
     emits: ["levelFinished"],
     setup(props, context) {
         const levelFinished = ref(false);
-        const wordList = ref(encryptedMessage.split(" "));
-        //console.log(wordList.value);
-        const matchedWordList = ref([]);
+        const websiteList = ref(websiteListJson["web_links"]);
+        const matchedWebsiteList = ref([]);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
-        const targetRegex = new RegExp("[xz]+", "g");
-        const target = wordList.value.filter(loc => regExUtil.matchRegexAndFormatInput(loc, targetRegex) != null);
+        const targetRegex = new RegExp("https?:", "g");
+        const target = websiteList.value.filter(w => regExUtil.matchRegexAndFormatInput(w, targetRegex) != null);
 
         const checkAnswer = function () {
-            console.log(target);
-            console.log(matchedWordList.value);
-
-
-            return target.length == matchedWordList.value.length &&
-                matchedWordList.value.every(v => target.includes(v.originalString));
+            return target.length == matchedWebsiteList.value.length &&
+                matchedWebsiteList.value.every(v => target.includes(v.originalString));
         }
 
         const executeRegex = function () {
@@ -92,7 +87,8 @@ export default {
             if (userProvidedRegex.value === "")
                 return;
 
-            matchedWordList.value = [];
+            matchedWebsiteList.value = [];
+            regexErrorMessage.value = "";
             let re;
 
             try {
@@ -104,21 +100,19 @@ export default {
                 return;
             }
 
-            regexErrorMessage.value = "";
-
-            for (let i = 0; i < wordList.value.length; i++) {
-                let loc = wordList.value[i];
-                let regexResult = regExUtil.matchRegexAndFormatInput(loc, re);
+            for (let i = 0; i < websiteList.value.length; i++) {
+                let website = websiteList.value[i];
+                let regexResult = regExUtil.matchRegexAndFormatInput(website, re);
                 if (regexResult)
-                    matchedWordList.value.push(regexResult);
+                    matchedWebsiteList.value.push(regexResult);
             }
 
-            if (checkAnswer()) {
+            if (checkAnswer()){
                 levelFinished.value = true;
                 context.emit('levelFinished');
             }
 
-            //console.log(matchedWordList.value);
+            //console.log(matchedWebsiteList.value);
             //console.log(checkAnswer());
         }
 
@@ -126,8 +120,8 @@ export default {
             levelFinished,
             userProvidedRegex,
             regexErrorMessage,
-            wordList,
-            matchedWordList,
+            websiteList,
+            matchedWebsiteList,
             executeRegex,
         };
     },

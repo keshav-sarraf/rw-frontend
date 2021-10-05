@@ -13,6 +13,15 @@ const RegexGameL4 = () => import('./components/posts/regex/level_4/RegexGameL4.v
 const RegexGameL5 = () => import('./components/posts/regex/level_5/RegexGameL5.vue');
 const RegexGameL6 = () => import('./components/posts/regex/level_6/RegexGameL6.vue');
 const RegexGameL7 = () => import('./components/posts/regex/level_7/RegexGameL7.vue');
+const RegexGameL8 = () => import('./components/posts/regex/level_8/RegexGameL8.vue');
+// const RegexGameL9 = () => import('./components/posts/regex/level_9/RegexGameL9.vue');
+// const RegexGameL10 = () => import('./components/posts/regex/level_10/RegexGameL10.vue');
+// const RegexGameL11 = () => import('./components/posts/regex/level_11/RegexGameL11.vue');
+// const RegexGameL12 = () => import('./components/posts/regex/level_12/RegexGameL12.vue');
+// const RegexGameL13 = () => import('./components/posts/regex/level_13/RegexGameL13.vue');
+// const RegexGameL14 = () => import('./components/posts/regex/level_14/RegexGameL14.vue');
+// const RegexGameL15 = () => import('./components/posts/regex/level_15/RegexGameL15.vue');
+// const RegexGameL16 = () => import('./components/posts/regex/level_16/RegexGameL16.vue');
 
 const routes = [
     { path: '/', component: Landing },
@@ -34,6 +43,15 @@ const routes = [
     { path: '/regex-game-l5', component: RegexGameL5},
     { path: '/regex-game-l6', component: RegexGameL6},
     { path: '/regex-game-l7', component: RegexGameL7},
+    { path: '/regex-game-l8', component: RegexGameL8},
+    // { path: '/regex-game-l9', component: RegexGameL9},
+    // { path: '/regex-game-l10', component: RegexGameL10},
+    // { path: '/regex-game-l11', component: RegexGameL11},
+    // { path: '/regex-game-l12', component: RegexGameL12},
+    // { path: '/regex-game-l13', component: RegexGameL13},
+    // { path: '/regex-game-l14', component: RegexGameL14},
+    // { path: '/regex-game-l15', component: RegexGameL15},
+    // { path: '/regex-game-l16', component: RegexGameL16},
   ];
 
 const router = createRouter({
