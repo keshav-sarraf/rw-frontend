@@ -1,12 +1,12 @@
 const matchRegexAndFormatInput = (inputString, re) => {
 
-    let encodedString = encodeURI(inputString);
+    let encodedString = inputString;
     let formattedMatch = matchAndFormatRegexRecursive(encodedString, re);
 
     if(formattedMatch){
         return {
-            "originalString" : decodeURI(inputString),
-            "formattedString" :  decodeURI(formattedMatch),
+            "originalString" : inputString,
+            "formattedString" :  formattedMatch,
         }
     } else {
         return(null);

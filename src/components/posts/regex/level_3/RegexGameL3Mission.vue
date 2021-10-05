@@ -29,16 +29,11 @@
         <h6>Results matching the Regex</h6>
 
         <div v-if="matchedEmailMessageLines.length > 0" class="row mb-4 border-top border-bottom">
-            <!-- <div class="col-sm-4" v-for="(emailMessageLine, idx) in matchedEmailMessageLines" :key="emailMessageLine">
-                {{idx+1}}. <span v-html="emailMessageLine.formattedString"></span>
-            </div> -->
-
             <ul>
                 <li v-for="(emailMessageLine, idx) in matchedEmailMessageLines" :key="emailMessageLine">
                     {{idx+1}}. <span v-html="emailMessageLine.formattedString"></span>
                 </li>
             </ul>
-
         </div>
         <div v-else>
             0 results to show

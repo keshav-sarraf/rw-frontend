@@ -3,11 +3,11 @@
     <h4>Mission</h4>
 
     <p>
-        DNS infrastructure functions like a chain. In simple terms, whenever our computers asks a computer in the DNS network about IP address of a website, that computer in turn asks another one and the chain goes on till the answer is found. Within this chain the below mentioned 13 IP addresses play an important role. These IP addresses belong to something called root servers. These servers are present in almost all the chain of queries that are formed when a computer makes a DNS query. Although there are only 13 IP addresses, they are hosted by hundreds of computers spread over the world. In order for the Group to bring the whole DNS system down, they'd have to take down majority of these servers.
+        We are in touch with all the 12 organizations that maintain these 13 root servers. They are working on a security patch to prevent the attack, in the meanwhile if we know which servers would be attacked first, then we can monitor those more closely and hold off the attackers.
     </p>
 
     <p>
-        We have received information that the attack would happen in batches and the first wave would hit all the servers which have  ".1" in their addresses.
+        We have more information on the first wave of the attack, within the 8 servers which have ".1" in their address, we believe that the ones which have the sequence ".1x8" have more probability of being hit first. In ".1x8", x can be any character except 2
     </p>
 
     <div class="row" v-if="!levelFinished">
@@ -29,7 +29,7 @@
         <h6>Results matching the Regex</h6>
 
         <div v-if="matchedrootServerList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-4" v-for="(location, idx) in matchedrootServerList" :key="location">
+            <div class="col-sm-12" v-for="(location, idx) in matchedrootServerList" :key="location">
                 {{idx+1}}. <span v-html="location.formattedString"></span>
             </div>
         </div>
@@ -40,12 +40,12 @@
 
     <h6>List of Root Servers</h6>
     <div class="row my-2 border-top">
-        <div class="col-sm-4" v-for="(location, idx) in rootServerList" :key="location">
+        <div class="col-sm-12" v-for="(location, idx) in rootServerList" :key="location">
             {{idx+1}}. {{location}}
         </div>
     </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="a literal . can be represented using /. or [.]" />
+    <user-help v-if="!levelFinished" btnText="hint" helpText="try to match the pattern .1x8 where x is any character except '2'" />
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
@@ -74,7 +74,7 @@ export default {
         const matchedrootServerList = ref([]);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
-        const targetRegex = new RegExp("[.]1");
+        const targetRegex = new RegExp("[.]1[^2]8");
         const target = rootServerList.value.filter(email => targetRegex.exec(email) != null);
 
         const checkAnswer = function () {
