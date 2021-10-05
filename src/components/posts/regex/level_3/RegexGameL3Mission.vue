@@ -26,19 +26,35 @@
     </div>
 
     <div class="mb-3">
-        <h6>Retrieved Email:</h6>
+        <h6>Results matching the Regex</h6>
 
-        <div v-if="searchedEmailMessage != null" class="row mb-4 border-top border-bottom">
-            <div v-html="searchedEmailMessage">
-            </div>
+        <div v-if="matchedEmailMessageLines.length > 0" class="row mb-4 border-top border-bottom">
+            <!-- <div class="col-sm-4" v-for="(emailMessageLine, idx) in matchedEmailMessageLines" :key="emailMessageLine">
+                {{idx+1}}. <span v-html="emailMessageLine.formattedString"></span>
+            </div> -->
+
+            <ul>
+                <li v-for="(emailMessageLine, idx) in matchedEmailMessageLines" :key="emailMessageLine">
+                    {{idx+1}}. <span v-html="emailMessageLine.formattedString"></span>
+                </li>
+            </ul>
+
         </div>
         <div v-else>
-            <div class="row my-2 border-top" v-html="emailMessage">
-            </div>
+            0 results to show
         </div>
     </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="Can you use character sets '[]' to search for both words 'RAMP' and 'ramp'. [Rr] will look for both characters R and r"/>
+    <h6>Retrieved Email Message:</h6>
+    <div class="my-2 border-top">
+        <ul>
+            <li v-for="emailMessageLine in emailMessageLines" :key="emailMessageLine">
+                {{emailMessageLine}}
+            </li>
+        </ul>
+    </div>
+
+    <user-help v-if="!levelFinished" btnText="hint" helpText="Can you use character sets '[]' to search for both words 'RAMP' and 'ramp'. [Rr] will look for both characters R and r" />
 
     <div class="footer border-top">
         <h6>Credits:</h6>
@@ -53,7 +69,7 @@ import {
 } from 'vue';
 
 import UserHelp from '../UserHelp.vue';
-import emailMessageRaw from 'raw-loader!./anonymous_mail.html'
+import emailMessageRaw from 'raw-loader!./anonymous_mail.txt'
 import * as regExUtil from '../regexUtils.js';
 
 export default {
@@ -63,21 +79,24 @@ export default {
     emits: ["levelFinished"],
     setup(props, context) {
         const levelFinished = ref(false);
-        const emailMessage = ref(emailMessageRaw);
-        const searchedEmailMessage = ref(null);
+        const emailMessageLines = ref(emailMessageRaw.split("\n"));
+        const matchedEmailMessageLines = ref([]);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
-        const targetRegex = new RegExp("[Rr][Aa][Mm][Pp]", "g");
-        const target = regExUtil.matchRegexAndFormatInput(emailMessage.value, targetRegex);
+        const targetRegex = new RegExp("[Rr][Aa][Mm][Pp]");
+        const target = emailMessageLines.value.filter(email => targetRegex.exec(email) != null);
+
+        const checkAnswer = function () {
+            return target.length == matchedEmailMessageLines.value.length &&
+                matchedEmailMessageLines.value.every(v => target.includes(v.originalString));
+        }
 
         const executeRegex = function () {
-
-            console.log("execute regex called");
 
             if (userProvidedRegex.value === "")
                 return;
 
-            searchedEmailMessage.value = null;
+            matchedEmailMessageLines.value = [];
             regexErrorMessage.value = "";
             let re;
 
@@ -90,24 +109,28 @@ export default {
                 return;
             }
 
-            let regexResult = regExUtil.matchRegexAndFormatInput(emailMessage.value, re);
-            if (regexResult != null)
-                searchedEmailMessage.value = regexResult.formattedString;
-            
-            if(regexResult.formattedString == target.formattedString){
+            for (let i = 0; i < emailMessageLines.value.length; i++) {
+                let email = emailMessageLines.value[i];
+                let regexResult = regExUtil.matchRegexAndFormatInput(email, re);
+                if (regexResult)
+                    matchedEmailMessageLines.value.push(regexResult);
+            }
+
+            if (checkAnswer()) {
                 levelFinished.value = true;
                 context.emit('levelFinished');
-            } else {
-                console.log("Don't Match");
             }
+
+            //console.log(matchedEmailMessageLines.value);
+            //console.log(checkAnswer());
         }
 
         return {
             levelFinished,
             userProvidedRegex,
             regexErrorMessage,
-            emailMessage,
-            searchedEmailMessage,
+            emailMessageLines,
+            matchedEmailMessageLines,
             executeRegex,
         };
     },

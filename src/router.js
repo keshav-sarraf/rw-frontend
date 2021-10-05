@@ -9,7 +9,7 @@ const RegexGameIntro = () => import('./components/posts/regex/RegexGameIntro.vue
 const RegexGameL1 = () => import('./components/posts/regex/level_1/RegexGameL1.vue');
 const RegexGameL2 = () => import('./components/posts/regex/level_2/RegexGameL2.vue');
 const RegexGameL3 = () => import('./components/posts/regex/level_3/RegexGameL3.vue');
-//const RegexGameL4 = () => import('./components/posts/regex/level_4/RegexGameL4.vue');
+const RegexGameL4 = () => import('./components/posts/regex/level_4/RegexGameL4.vue');
 
 const routes = [
     { path: '/', component: Landing },
@@ -26,8 +26,8 @@ const routes = [
     { path: '/regex-game-intro', component: RegexGameIntro},
     { path: '/regex-game-l1', component: RegexGameL1},
     { path: '/regex-game-l2', component: RegexGameL2},
-    { path: '/regex-game-l3', component: RegexGameL3}
-    //{ path: '/regex-game-l4', component: RegexGameL4},
+    { path: '/regex-game-l3', component: RegexGameL3},
+    { path: '/regex-game-l4', component: RegexGameL4},
   ];
 
 const router = createRouter({

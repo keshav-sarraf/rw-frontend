@@ -1,0 +1,130 @@
+-----------------------------------------------------------------------
+01001111 01110000 01100101 01110010 01100001 01110100 01101001 01101111
+01101110 01000111 01101100 01101111 01100010 01100001 01101100
+01000010 01101100 01100001 01100011 01101011 01101111 01110101 01110100
+-----------------------------------------------------------------------
+Operation Global Blackout 
+-----------------------------------------------------------------------
+01001111 01110000 01100101 01110010 01100001 01110100 01101001 01101111
+01101110 01000111 01101100 01101111 01100010 01100001 01101100
+01000010 01101100 01100001 01100011 01101011 01101111 01110101 01110100
+-----------------------------------------------------------------------
+"The greatest enemy of freedom is a happy slave."
+ 
+To protest SOPA, Wallstreet, our irresponsible leaders and the beloved
+bankers who are starving the world for their own selfish needs out of
+sheer sadistic fun, On March 31, anonymous will shut the Internet down.
+ 
+-----------------------------------------------------------------------
+ 
+In order to shut the Internet down, one thing is to be done. Down the
+13 root DNS servers of the Internet. Those servers are as follow:
+ 
+A 198.41.0.4
+B 192.228.79.201
+C 192.33.4.12
+D 128.8.10.90
+E 192.203.230.10
+F 192.5.5.241
+G 192.112.36.4
+H 128.63.2.53
+I 192.36.148.17
+J 192.58.128.30
+K 193.0.14.129
+L 199.7.83.42
+M 202.12.27.33
+ 
+By cutting these off the Internet, nobody will be able to perform a
+domain name lookup, thus, disabling the HTTP Internet, which is,
+after all, the most widely used function of the Web. Anybody entering
+"http://www.google.com" or ANY other url, will get an error page,
+thus, they will think the Internet is down, which is, close enough.
+Remember, this is a protest, we are not trying to 'kill' the Internet,
+we are only temporarily shutting it down where it hurts the most.
+ 
+While some ISPs uses DNS caching, most are configured to use a low
+expire time for the cache, thus not being a valid failover solution
+in the case the root servers are down. It is mostly used for speed,
+not redundancy.
+ 
+We have compiled a Reflective DNS Amplification DDoS tool to be used for
+this attack. It is based on AntiSec's DHN, contains a few bugfix, a
+different dns list/target support and is a bit stripped down for speed.
+ 
+The principle is simple; a flaw that uses forged UDP packets is to be
+used to trigger a rush of DNS queries all redirected and reflected to
+those 13 IPs. The flaw is as follow; since the UDP protocol allows it,
+we can change the source IP of the sender to our target, thus spoofing
+the source of the DNS query.
+ 
+The DNS server will then respond to that query by sending the answer to
+the spoofed IP. Since the answer is always bigger than the query, the
+DNS answers will then flood the target ip. It is called an amplified
+because we can use small packets to generate large traffic. It is called
+reflective because we will not send the queries to the root name servers,
+instead, we will use a list of known vulnerable DNS servers which will
+attack the root servers for us.
+ 
+DDoS request ---> [Vulnerable DNS Server ] <---> Normal client requests
+\
+| ( Spoofed UDP requests
+| will redirect the answers
+| to the root name server )
+|
+[ 13 root servers ] * BAM
+ 
+Since the attack will be using static IP addresses, it will not rely
+on name server resolution, thus enabling us to keep the attack up even
+while the Internet is down. The very fact that nobody will be able to
+make new requests to use the Internet will slow down those who will try
+to stop the attack. It may only lasts one hour, maybe more, maybe even
+a few days. No matter what, it will be global. It will be known.
+ 
+-----------------------------------------------------------------------
+ 
+download link in #opGlobalBlackout
+ 
+-----------------------------------------------------------------------
+ 
+The tool is named "RAMP" and stands for Reflective Amplification. It is
+located in the \ramp\ folder.
+ 
+----------> Windows users
+ 
+In order to run "RAMP", you will need to download and install these two
+applications;
+ 
+WINPCAP DRIVER
+TOR
+ 
+The Winpcap driver is a standard library and the TOR client is used as
+a proxy client for using the TOR network.
+ 
+It is also recommended to use a VPN, feel free to choose your own flavor
+of this.
+ 
+To launch the tool, just execute "\ramp\launch.bat" and wait. The attack
+will start by itself.
+ 
+----------> Linux users
+ 
+The "RAMP" linux client is located under the \ramp\linux\ folder and
+needs a working installation of python and scapy.
+ 
+-----------------------------------------------------------------------
+ 
+"He who sacrifices freedom for security deserves neither."
+Benjamin Franklin
+ 
+We know you wont' listen. We know you won't change. We know it's because
+you don't want to. We know it's because you like it how it is. You bullied
+us into your delusion. We have seen you brutalize harmless old womans who were
+protesting for peace. We do not forget because we know you will only use that
+to start again. We know your true face. We know you will never stop. Neither
+are we. We know.
+ 
+We are Anonymous.
+We are Legion.
+We do not Forgive.
+We do not Forget.
+You know who you are, Expect us.
