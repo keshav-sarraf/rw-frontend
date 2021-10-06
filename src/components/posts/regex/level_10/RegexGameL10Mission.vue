@@ -3,7 +3,7 @@
     <h4>Mission</h4>
 
     <p>
-        Those coordinates belonged to couple of office buildings and few touristy places around the globe. Details of the office building were not readily available so we are looking into it. Meanwhile, we have a list of recovered file names. Our tech team has informed us that to begin with, they'd only be able to recover the pdf documents from the hard drive.
+        Those coordinates belonged to couple of office buildings and few touristy places around the globe. Details of the office building were not readily available so we are looking into it. Next, we have a list of recovered file names. Our forensic tech team has informed us that it'd be quicker for them to recover pdf documents from the hard drive.
     </p>
 
     <p>

@@ -3,11 +3,11 @@
     <h4>Mission</h4>
 
     <p>
-        We are getting closer, we have one last fragment of information for you. 
+        We are getting closer, we need more help with the same list of files. 
     </p>
 
     <p>
-        in the previous file list can you provide all .jpg and .jpeg. Ensure that file names are captured
+        in the previous list, can you provide all .jpg and .jpeg files. Please ensure that the file names are captured
     </p>
 
     <div class="row" v-if="!levelFinished">

@@ -3,7 +3,7 @@
     <h4>Mission</h4>
 
     <p>
-        We still don't know what The Group's next plans are. Previous set of links were a dead end. They seemed to be meme websites and had no connection with The Group. This time we have a list of numbers for you. We don't see any pattern yet but we suspect that some of them may be geographical coordinates to a number
+        We still don't know what The Group's next plans are. Previous set of links were a dead end. They seemed to be meme websites and had no connection with The Group. Next in line is a list of numbers. We don't see any pattern yet but we suspect that some of them may be geographical coordinates to a number
     </p>
 
     <p>
