@@ -1,18 +1,18 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="Begin and End" :timeLimit=300 :finishedProgressPercent=100*11/16 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
+    <regex-game-header title="ShortHand" :timeLimit=300 :finishedProgressPercent=100*12/16 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
 
     <div v-if="levelFinished">
         <div class="alert alert-success" role="alert">
-            This time we have chosen not to inform ICANN directly about the Group's plans in order to avoid panic. But we know for sure that there is another hiccup in The Groups plan, they need 5 out of 6 keys to open the safe. We are trying to ensure safety of the keys and the security experts who hold them. We will be working in the shadows on this one.
+            Thanks for the help. We'll see what details we can get on these vehicles.
         </div>
 
         <button type="button" @click="$router.push('regex-game-l13')" class="btn btn-success mb-3">Next Level</button>
     </div>
 
-    <regex-game-l-12-lesson v-if="!levelStarted"/>    
-    <regex-game-l-12-mission v-if="levelStarted" @level-finished="onLevelFinished" />
+    <regex-game-l-13-lesson v-if="!levelStarted"/>    
+    <regex-game-l-13-mission v-if="levelStarted" @level-finished="onLevelFinished" />
     
     <button v-if="!levelFinished" type="button" @click="levelStarted = !levelStarted" class="btn mb-3" :class="{ 'btn-danger': levelStarted, 'btn-primary' : !levelStarted}">{{levelStarted ? "Pause Level" : "Start Level"}}</button>
 </div>
@@ -20,8 +20,8 @@
 
 <script>
 import RegexGameHeader from '../RegexGameHeader.vue';
-import RegexGameL12Lesson from './RegexGameL12Lesson.vue';
-import RegexGameL12Mission from './RegexGameL12Mission.vue';
+import RegexGameL13Lesson from './RegexGameL13Lesson.vue';
+import RegexGameL13Mission from './RegexGameL13Mission.vue';
 
 import {
     ref
@@ -30,8 +30,8 @@ import {
 export default {
     components: {
         RegexGameHeader,
-        RegexGameL12Lesson,
-        RegexGameL12Mission
+        RegexGameL13Lesson,
+        RegexGameL13Mission
     },
     setup() {
         const resetTimer = ref(false);

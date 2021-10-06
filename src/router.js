@@ -18,7 +18,7 @@ const RegexGameL9 = () => import('./components/posts/regex/level_9/RegexGameL9.v
 const RegexGameL10 = () => import('./components/posts/regex/level_10/RegexGameL10.vue');
 const RegexGameL11 = () => import('./components/posts/regex/level_11/RegexGameL11.vue');
 const RegexGameL12 = () => import('./components/posts/regex/level_12/RegexGameL12.vue');
-// const RegexGameL13 = () => import('./components/posts/regex/level_13/RegexGameL13.vue');
+const RegexGameL13 = () => import('./components/posts/regex/level_13/RegexGameL13.vue');
 // const RegexGameL14 = () => import('./components/posts/regex/level_14/RegexGameL14.vue');
 // const RegexGameL15 = () => import('./components/posts/regex/level_15/RegexGameL15.vue');
 // const RegexGameL16 = () => import('./components/posts/regex/level_16/RegexGameL16.vue');
@@ -48,7 +48,7 @@ const routes = [
     { path: '/regex-game-l10', component: RegexGameL10},
      { path: '/regex-game-l11', component: RegexGameL11},
     { path: '/regex-game-l12', component: RegexGameL12},
-    // { path: '/regex-game-l13', component: RegexGameL13},
+    { path: '/regex-game-l13', component: RegexGameL13},
     // { path: '/regex-game-l14', component: RegexGameL14},
     // { path: '/regex-game-l15', component: RegexGameL15},
     // { path: '/regex-game-l16', component: RegexGameL16},
