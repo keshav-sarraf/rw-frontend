@@ -5,7 +5,7 @@
     <h5>Matching the meta characters themselves</h5>
 
     <p>
-        Meta characters are special characters that help with our searches in regex. Whenever the regex interpreter sees a meta character, it automatically thinks that it has to do a special operation. But what if we have to search for the metacharacter itself?
+        Meta characters are special characters that help with our searches in regex. Whenever the regex interpreter sees a meta character, it automatically thinks that it has to do a special operation. But what if we have to search for the meta character itself?
         <br>
         Well, in that case, a backslash <code>\</code> comes to rescue. <code>\.</code> will search for literal full stop <code>.</code>, similarly <code>\[</code> will search for literal left square bracket <code>[</code> in the text.
     </p>
