@@ -36,13 +36,7 @@
             Agent Brown,
         </p>
         <p>
-            The agency is in dire need of your help. We are working on capturing a secret organization called "The Group". They want to take down the internet and bring chaos to the world. Your old partner - Agent White was successful in infiltrating The Group's inner circle as an undercover agent, but before she could extract meaningful information, her cover was blown. She was successful in escaping but her current whereabouts are unknown and we have lost all contact.
-        </p>
-        <p>
-            Her last message has led us to a laptop. But we don't have the experts to help us comb through the data. Time is of the essence. With your experience in RegEx, we may just be able to extract critical pieces of information in limited amount of time.
-        </p>
-        <p>
-            Your mission, should you choose to accept it would be to analyze the documents present in the laptop and figure out The Group's next plan.
+            It's been some days since our last conversation. The Group was keeping us busy. We were able to intercept an attack in Singapore. Soon after that, agent White helped us in gathering legal evidence and we were able to capture few key members of The Group as well. With this we conclude the mission. We thank you for your help.
         </p>
 
         <div class="row">

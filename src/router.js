@@ -21,7 +21,8 @@ const RegexGameL12 = () => import('./components/posts/regex/level_12/RegexGameL1
 const RegexGameL13 = () => import('./components/posts/regex/level_13/RegexGameL13.vue');
 const RegexGameL14 = () => import('./components/posts/regex/level_14/RegexGameL14.vue');
 const RegexGameL15 = () => import('./components/posts/regex/level_15/RegexGameL15.vue');
-// const RegexGameL16 = () => import('./components/posts/regex/level_16/RegexGameL16.vue');
+const RegexGameL16 = () => import('./components/posts/regex/level_16/RegexGameL16.vue');
+const RegexGameOutro = () => import('./components/posts/regex/RegexGameOutro.vue');
 
 const routes = [
     { path: '/', component: Landing },
@@ -51,7 +52,8 @@ const routes = [
     { path: '/regex-game-l13', component: RegexGameL13},
     { path: '/regex-game-l14', component: RegexGameL14},
     { path: '/regex-game-l15', component: RegexGameL15},
-    // { path: '/regex-game-l16', component: RegexGameL16},
+    { path: '/regex-game-l16', component: RegexGameL16},
+    { path: '/regex-game-outro', component: RegexGameOutro},
   ];
 
 const router = createRouter({
