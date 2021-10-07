@@ -3,49 +3,51 @@
     <h4>Mission</h4>
 
     <p>
-        DNS infrastructure functions like a chain. In simple terms, whenever our computers asks a computer in the DNS network about IP address of a website, that computer in turn asks another one and the chain goes on till the answer is found. Within this chain the below mentioned 13 IP addresses play an important role. These IP addresses belong to something called root servers. These servers are present in almost all the chain of queries that are formed when a computer makes a DNS query. Although there are only 13 IP addresses, they are hosted by hundreds of computers spread over the world. In order for the Group to bring the whole DNS system down, they'd have to take down majority of these servers.
+        DNS infrastructure functions like a chain. In simple terms, whenever our computers asks the DNS network about IP address of a website, a computer in that DNS network checks if it knows the answer, if it knows, then it replies back immediately, otherwise it asks another computer in the chain and the sequence goes on till the answer is found. Within this chain the below mentioned 13 IP addresses play an important role. These IP addresses belong to something called root servers. Almost all the chain of queries in the DNS network end up encountering one of these 13 root servers. Although there are only 13 IP addresses, they are hosted by hundreds of computers spread over the world. In order for the Group to bring the whole DNS system down, they'd have to take down majority of these servers.
     </p>
 
     <p>
-        We have received information that the attack would happen in batches and the first wave would hit all the servers which have  ".1" in their addresses.
+        We have received information that the attack would happen in batches and the first wave would hit all the servers which have ".1" in their addresses.
     </p>
 
-    <div class="row" v-if="!levelFinished">
-        <div class="col-sm-4">
-            <div class="input-group mb-3">
-                <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+    <div class="border border-3 p-2 rounded">
+        <div class="row" v-if="!levelFinished">
+            <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
-        {{regexErrorMessage}}
-    </div>
+        <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
+            {{regexErrorMessage}}
+        </div>
 
-    <div class="mb-3">
-        <h6>Results matching the Regex</h6>
+        <div class="mb-3">
+            <h6>Results matching the Regex</h6>
 
-        <div v-if="matchedrootServerList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-4" v-for="(location, idx) in matchedrootServerList" :key="location">
-                {{idx+1}}. <span v-html="location.formattedString"></span>
+            <div v-if="matchedrootServerList.length > 0" class="row mb-4 border-top border-bottom">
+                <div class="col-sm-4" v-for="(location, idx) in matchedrootServerList" :key="location">
+                    {{idx+1}}. <span v-html="location.formattedString"></span>
+                </div>
+            </div>
+            <div v-else>
+                0 results to show
             </div>
         </div>
-        <div v-else>
-            0 results to show
-        </div>
-    </div>
 
-    <h6>List of Root Servers</h6>
-    <div class="row my-2 border-top">
-        <div class="col-sm-4" v-for="(location, idx) in rootServerList" :key="location">
-            {{idx+1}}. {{location}}
+        <h6>List of Root Servers</h6>
+        <div class="row my-2 border-top">
+            <div class="col-sm-4" v-for="(location, idx) in rootServerList" :key="location">
+                {{idx+1}}. {{location}}
+            </div>
         </div>
-    </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="a literal . can be represented using /. or [.]" />
+        <user-help v-if="!levelFinished" btnText="hint" helpText="a literal . can be represented using /. or [.]" />
+    </div>
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
@@ -107,7 +109,7 @@ export default {
                     matchedrootServerList.value.push(regexResult);
             }
 
-            if (checkAnswer()){
+            if (checkAnswer()) {
                 levelFinished.value = true;
                 context.emit('levelFinished');
             }

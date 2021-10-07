@@ -2,7 +2,7 @@
 <div>
         <h4>Lesson</h4>
 
-        <h5>Meta Charaters</h5>
+        <h5>Meta Characters</h5>
         <p>
             Meta characters are the building blocks of regular expressions. Meta characters do not stand for themselves but instead are interpreted in special ways
         </p>
