@@ -1,7 +1,7 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="[ ] Character Sets" :timeLimit=10*60 :finishedProgressPercent=100*2/16 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
+    <regex-game-header title="[ ] Character Sets" :timeLimit=20*60 :finishedProgressPercent=100*2/16 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
 
     <div v-if="levelFinished">
         <div class="alert alert-success" role="alert">
@@ -38,7 +38,15 @@ export default {
         const levelStarted = ref(false);
         const levelFinished = ref(false);
 
-        const onLevelFinished = () => levelFinished.value = true;
+        const onLevelFinished = () => {
+            levelFinished.value = true;
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        };
+
         const onTimerRestart = () => resetTimer.value = false;
 
         const onTimeElapse = function () {
