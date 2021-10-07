@@ -3,49 +3,53 @@
     <h4>Mission</h4>
 
     <p>
-        Agent Brown, Whoever the laptop belonged to was a cautious person. Most of the documents and emails were already deleted. After trying very hard, our technical team was able to extract fragments of information.
+        Agent Brown,
+        <br>
+        Whoever the laptop belonged to was a cautious person. Most of the documents and emails were already deleted. After trying very hard, our technical team was able to extract fragments of information.
     </p>
 
     <p>
         Our sources have informed us that The Group has named their plan to disrupt the internet as Project Blackout. We have a list of partial email subjects from the laptop, As you can see that certain characters are a bit jumbled up. Can you help us search the ones which could be potentially referring to "Project Blackout".
     </p>
 
-    <div class="row" v-if="!levelFinished">
-        <div class="col-sm-4">
-            <div class="input-group mb-3">
-                <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+    <div class="border border-3 p-2 rounded">
+        <div class="row" v-if="!levelFinished">
+            <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
-        {{regexErrorMessage}}
-    </div>
+        <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
+            {{regexErrorMessage}}
+        </div>
 
-    <div class="mb-3">
-        <h6>Results matching the Regex</h6>
+        <div class="mb-3">
+            <h6>Results matching the Regex</h6>
 
-        <div v-if="matchedEmailList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-4" v-for="(location, idx) in matchedEmailList" :key="location">
-                {{idx+1}}. <span v-html="location.formattedString"></span>
+            <div v-if="matchedEmailList.length > 0" class="row mb-4 border-top border-bottom">
+                <div class="col-sm-4" v-for="(location, idx) in matchedEmailList" :key="location">
+                    {{idx+1}}. <span v-html="location.formattedString"></span>
+                </div>
+            </div>
+            <div v-else>
+                0 results to show
             </div>
         </div>
-        <div v-else>
-            0 results to show
-        </div>
-    </div>
 
-    <h6>List of Emails found in the laptop</h6>
-    <div class="row my-2 border-top">
-        <div class="col-sm-4" v-for="(location, idx) in emailList" :key="location">
-            {{idx+1}}. {{location}}
+        <h6>List of Emails found in the laptop</h6>
+        <div class="row my-2 border-top">
+            <div class="col-sm-4" v-for="(location, idx) in emailList" :key="location">
+                {{idx+1}}. {{location}}
+            </div>
         </div>
-    </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="Look for the subjects that could potentially resemble 'Project Blackout' and create a regular expression using . metacharacter to select the necessary ones" />
+        <user-help v-if="!levelFinished" btnText="hint" helpText="Look for the subjects that could potentially resemble the words 'Project Blackout' and create a regular expression using . metacharacter to select the necessary emails" />
+    </div>
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
@@ -107,7 +111,7 @@ export default {
                     matchedEmailList.value.push(regexResult);
             }
 
-            if (checkAnswer()){
+            if (checkAnswer()) {
                 levelFinished.value = true;
                 context.emit('levelFinished');
             }

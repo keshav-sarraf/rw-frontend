@@ -45,7 +45,8 @@ export default {
                 left: 0,
                 behavior: 'smooth'
             });
-        }
+        };
+        
         const onTimerRestart = () => resetTimer.value = false;
 
         const onTimeElapse = function () {

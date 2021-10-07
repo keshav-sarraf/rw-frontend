@@ -4,7 +4,7 @@
 
         <h5>Meta Charaters</h5>
         <p>
-            Meta characters are the building blocks of regular expressions. Meta characters do not stand for themselves but instead are interpreted in some special way
+            Meta characters are the building blocks of regular expressions. Meta characters do not stand for themselves but instead are interpreted in special ways
         </p>
 
         <h5>The Full Stop</h5>
