@@ -10,42 +10,44 @@
         Can you find the valid websites among the recovered list of websites. A valid website would be one which starts with 'http:' or 'https:'
     </p>
 
-    <div class="row" v-if="!levelFinished">
-        <div class="col-sm-4">
-            <div class="input-group mb-3">
-                <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+    <div class="border border-3 p-2 rounded">
+        <div class="row" v-if="!levelFinished">
+            <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
-        {{regexErrorMessage}}
-    </div>
+        <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
+            {{regexErrorMessage}}
+        </div>
 
-    <div class="mb-3">
-        <h6>Results matching the Regex</h6>
+        <div class="mb-3">
+            <h6>Results matching the Regex</h6>
 
-        <div v-if="matchedWebsiteList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-12" v-for="(location, idx) in matchedWebsiteList" :key="location">
-                {{idx+1}}. <a v-bind:href="location.originalString"><span v-html="location.formattedString"></span></a>
+            <div v-if="matchedWebsiteList.length > 0" class="row mb-4 border-top border-bottom">
+                <div class="col-sm-12" v-for="(location, idx) in matchedWebsiteList" :key="location">
+                    {{idx+1}}. <a v-bind:href="location.originalString"><span v-html="location.formattedString"></span></a>
+                </div>
+            </div>
+            <div v-else>
+                0 results to show
             </div>
         </div>
-        <div v-else>
-            0 results to show
-        </div>
-    </div>
 
-    <h6>List of Websites</h6>
-    <div class="row my-2 border-top">
-        <div class="col-sm-12" v-for="(location, idx) in websiteList" :key="location">
-            {{idx+1}}. <a v-bind:href="location">{{location}}</a>
+        <h6>List of Websites</h6>
+        <div class="row my-2 border-top">
+            <div class="col-sm-12" v-for="(location, idx) in websiteList" :key="location">
+                {{idx+1}}. <a v-bind:href="location">{{location}}</a>
+            </div>
         </div>
-    </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="try to match the pattern .1x8 where x is any character except '2'" />
+        <user-help v-if="!levelFinished" btnText="hint" helpText="look for the character that's different between http: and https:" />
+    </div>
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
@@ -70,7 +72,7 @@ export default {
     emits: ["levelFinished"],
     setup(props, context) {
         const levelFinished = ref(false);
-        const websiteList = ref(websiteListJson["web_links"]);
+        const websiteList = ref(websiteListJson["web_links"].sort(() => Math.random() - 0.5));
         const matchedWebsiteList = ref([]);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
@@ -107,7 +109,7 @@ export default {
                     matchedWebsiteList.value.push(regexResult);
             }
 
-            if (checkAnswer()){
+            if (checkAnswer()) {
                 levelFinished.value = true;
                 context.emit('levelFinished');
             }

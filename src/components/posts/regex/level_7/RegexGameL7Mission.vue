@@ -7,45 +7,47 @@
     </p>
 
     <p>
-        Agent white has hidden the message between random words. It is hard to read the received message. The words that are meant for us to read, have one or more copies of 'x' or 'z' before them. Your task is to provide a regex which filters the necessary words and highlights the prefix characters so that we can read the exact message
+        She has hidden the message between random words. It is hard to comprehend the received message. The words that are meant for us to read, have one or more copies of 'x' or 'z' before them. Your task is to provide a regex which filters the necessary words and highlights the prefix characters so that we can read the exact message. The regex you provide would be matched with each word of the message to obtain the result.
     </p>
 
-    <div class="row" v-if="!levelFinished">
-        <div class="col-sm-3">
-            <div class="input-group mb-3">
-                <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+    <div class="border border-3 p-2 rounded">
+        <div class="row" v-if="!levelFinished">
+            <div class="col-sm-3">
+                <div class="input-group mb-3">
+                    <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
-        {{regexErrorMessage}}
-    </div>
+        <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
+            {{regexErrorMessage}}
+        </div>
 
-    <div class="mb-3">
-        <h6>Results matching the Regex</h6>
+        <div class="mb-3">
+            <h6>Results matching the Regex</h6>
 
-        <div v-if="matchedWordList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-2" v-for="location in matchedWordList" :key="location">
-                <span v-html="location.formattedString"></span>
+            <div v-if="matchedWordList.length > 0" class="row mb-4 border-top border-bottom">
+                <div class="col-sm-2" v-for="location in matchedWordList" :key="location">
+                    <span v-html="location.formattedString"></span>
+                </div>
+            </div>
+            <div v-else>
+                0 results to show
             </div>
         </div>
-        <div v-else>
-            0 results to show
-        </div>
-    </div>
 
-    <h6>Message from agent White:</h6>
-    <div class="row my-2 border-top">
-        <div class="col-sm-2" v-for="location in wordList" :key="location">
-            {{location}}
+        <h6>Message from agent White:</h6>
+        <div class="row my-2 border-top">
+            <div class="col-sm-2" v-for="location in wordList" :key="location">
+                {{location}}
+            </div>
         </div>
-    </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="can you use [] and + to select all the words needed in the message" />
+        <user-help v-if="!levelFinished" btnText="hint" helpText="can you use [] and + to select all the words needed in the message" />
+    </div>
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
@@ -81,7 +83,6 @@ export default {
         const checkAnswer = function () {
             console.log(target);
             console.log(matchedWordList.value);
-
 
             return target.length == matchedWordList.value.length &&
                 matchedWordList.value.every(v => target.includes(v.originalString));

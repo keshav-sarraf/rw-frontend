@@ -80,7 +80,7 @@ export default {
     emits: ["levelFinished"],
     setup(props, context) {
         const levelFinished = ref(false);
-        const locationList = ref(locationListJson["locations"]);
+        const locationList = ref(locationListJson["locations"].sort(() => Math.random() - 0.5));
         const matchedLocationList = ref([]);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");

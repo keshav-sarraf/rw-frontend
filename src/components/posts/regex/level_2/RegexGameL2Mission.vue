@@ -74,7 +74,7 @@ export default {
     emits: ["levelFinished"],
     setup(props, context) {
         const levelFinished = ref(false);
-        const emailList = ref(emailListJson["emails"]);
+        const emailList = ref(emailListJson["emails"].sort(() => Math.random() - 0.5));
         const matchedEmailList = ref([]);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
