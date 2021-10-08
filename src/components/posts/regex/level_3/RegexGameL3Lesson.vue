@@ -5,7 +5,7 @@
     <h5>Character Sets</h5>
 
     <p>
-        Character sets are also called character classes. They are represented by Square brackets <code>[]</code>. They represent collection of characters. A <code>.</code> can be used to match any character whereas in case of character sets, a match is found only if the character matches <code>any letter inside the collection</code>. The order of the characters inside the square brackets doesn't matter. For example, the regular expression <code>[Tt]he</code> means: an uppercase <code>T</code> or lowercase <code>t</code>, followed by the letter <code>h</code>, followed by the letter <code>e</code>.
+        Character sets are represented by square brackets <code>[]</code> to denote a collection of characters. In the previous lesson we saw that, a <code>.</code> can be used to match any character whereas in case of character sets, a match is found only if the character matches <code>any letter inside the defined set</code>. As the story generally goes with sets, order of the characters inside the square brackets doesn't matter. For example, the regular expression <code>[Tt]he</code> means: an uppercase <code>T</code> or lowercase <code>t</code>, followed by the letter <code>h</code>, followed by the letter <code>e</code>.
     </p>
     <p>
         <code>

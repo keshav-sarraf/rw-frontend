@@ -13,7 +13,7 @@
 
     <regex-game-l-6-lesson v-if="!levelStarted"/>    
     <regex-game-l-6-mission v-if="levelStarted" @level-finished="onLevelFinished" />
-    
+    <br>
     <button v-if="!levelFinished" type="button" @click="levelStarted = !levelStarted" class="btn mb-3" :class="{ 'btn-danger': levelStarted, 'btn-primary' : !levelStarted}">{{levelStarted ? "Pause Level" : "Start Level"}}</button>
 </div>
 </template>
@@ -38,7 +38,15 @@ export default {
         const levelStarted = ref(false);
         const levelFinished = ref(false);
 
-        const onLevelFinished = () => levelFinished.value = true;
+        const onLevelFinished = () => {
+            levelFinished.value = true;
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        };
+
         const onTimerRestart = () => resetTimer.value = false;
 
         const onTimeElapse = function () {

@@ -10,42 +10,44 @@
         We have a partially recovered email for you to analyze. They talk about multiple versions of Project Blackout. Provide a regex which returns all the versions, i.e. "Project Blackout", "Project Blackout1", "Project Blackout2", etc
     </p>
 
-    <div class="row" v-if="!levelFinished">
-        <div class="col-sm-4">
-            <div class="input-group mb-3">
-                <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+    <div class="border border-3 p-2 rounded">
+        <div class="row" v-if="!levelFinished">
+            <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
-        {{regexErrorMessage}}
-    </div>
+        <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
+            {{regexErrorMessage}}
+        </div>
 
-    <div class="mb-3">
-        <h6>Results matching the Regex</h6>
+        <div class="mb-3">
+            <h6>Results matching the Regex</h6>
 
-        <div v-if="matchedEmailLineList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-12" v-for="(line, idx) in matchedEmailLineList" :key="line">
-                {{idx+1}}. <span v-html="line.formattedString"></span>
+            <div v-if="matchedEmailLineList.length > 0" class="row mb-4 border-top border-bottom">
+                <div class="col-sm-12" v-for="(line, idx) in matchedEmailLineList" :key="line">
+                    {{idx+1}}. <span v-html="line.formattedString"></span>
+                </div>
+            </div>
+            <div v-else>
+                0 results to show
             </div>
         </div>
-        <div v-else>
-            0 results to show
-        </div>
-    </div>
 
-    <h6>Partially recovered email</h6>
-    <div class="row my-2 border-top">
-        <div class="col-sm-12" v-for="line in emailLineList" :key="line">
-            {{line}}
+        <h6>Partially recovered email</h6>
+        <div class="row my-2 border-top">
+            <div class="col-sm-12" v-for="line in emailLineList" :key="line">
+                {{line}}
+            </div>
         </div>
-    </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="Can you use [] alongside * to get all mentions of project blackout" />
+        <user-help v-if="!levelFinished" btnText="hint" helpText="Can you use [] alongside * to get all mentions of project blackout" />
+    </div>
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
@@ -75,7 +77,7 @@ export default {
         //console.log(emailLineList.value);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
-        
+
         const targetRegex = new RegExp("Project Blackout[123]*", "g");
         let target = [];
         for (let i = 0; i < emailLineList.value.length; i++) {
