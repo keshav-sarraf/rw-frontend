@@ -3,7 +3,7 @@
     <h4>Mission</h4>
 
     <p>
-        We still don't know what The Group's next plans are. Previous set of links were a dead end. They seemed to be mostly meme websites. Next in line is a list of numbers. We don't see any pattern yet but we suspect that some of them may be geographical coordinates to a number
+        We still don't know what The Group's next plans are. Previous set of links were a dead end. They seemed to be mostly meme websites. Next in line is a list of numbers. We don't see any pattern yet but we suspect that some of them may be geographical coordinates to a location.
     </p>
 
     <p>
@@ -78,10 +78,11 @@ export default {
         const regexErrorMessage = ref("");
         const targetRegex = new RegExp("[-]?[0-9]{1,3}.[0-9]{14}", "g");
         const target = numberList.value.filter(n => regExUtil.matchRegexAndFormatInput(n, targetRegex) != null);
+        const formattedTarget = target.map(n => regExUtil.matchRegexAndFormatInput(n, targetRegex).formattedString);
 
         const checkAnswer = function () {
             return target.length == matchedNumberList.value.length &&
-                matchedNumberList.value.every(v => target.includes(v.originalString));
+                matchedNumberList.value.every(v => formattedTarget.includes(v.formattedString));
         }
 
         const executeRegex = function () {
