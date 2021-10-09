@@ -1,0 +1,17 @@
+{
+    "root_servers" : [
+        "hostname : a.root-servers.net || ip addresses : 198.41.0.4, 2001:503:ba3e::2:30 || operator : Verisign, Inc.",
+        "hostname : b.root-servers.net || ip addresses : 199.9.14.201, 2001:500:200::b || operator : University of Southern California, Information Sciences Institut",
+        "hostname : c.root-servers.net || ip addresses : 192.33.4.12, 2001:500:2::c || operator : Cogent Communications",
+        "hostname : d.root-servers.net || ip addresses : 199.7.91.13, 2001:500:2d::d || operator : University of Maryland",
+        "hostname : e.root-servers.net || ip addresses : 192.203.230.10, 2001:500:a8::e || operator : NASA (Ames Research Center)",
+        "hostname : f.root-servers.net || ip addresses : 192.5.5.241, 2001:500:2f::f || operator : Internet Systems Consortium, Inc.",
+        "hostname : g.root-servers.net || ip addresses : 192.112.36.4, 2001:500:12::d0d || operator : US Department of Defense (NIC)",
+        "hostname : h.root-servers.net || ip addresses : 198.97.190.53, 2001:500:1::53 || operator : US Army (Research Lab)",
+        "hostname : i.root-servers.net || ip addresses : 192.36.148.17, 2001:7fe::53 || operator : Netnod",
+        "hostname : j.root-servers.net || ip addresses : 192.58.128.30, 2001:503:c27::2:30 || operator : Verisign, Inc.",
+        "hostname : k.root-servers.net || ip addresses : 193.0.14.129, 2001:7fd::1 || operator : RIPE NCC",
+        "hostname : l.root-servers.net || ip addresses : 199.7.83.42, 2001:500:9f::42 || operator : ICANN",
+        "hostname : m.root-servers.net || ip addresses : 202.12.27.33, 2001:dc3::35 || operator : WIDE Project"
+    ]
+}

@@ -1,7 +1,7 @@
 <template>
 <div class="row">
     <div class="col-sm-4 text-start">
-        Level 1 of 15
+        Progress
         <div class="progress">
             <div class="progress-bar" role="progressbar" :style="{width : finishedProgressPercent + '%'}" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
             <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" :style="{width : currentProgressPercent + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -14,7 +14,7 @@
 
     <div class="col-sm-4 text-end">
         <div v-if="startTimer">
-            Time Left : {{Math.round(timeLeft)}}s
+            Time Left : {{timeLeftStr}}
         </div>
         <div v-else>
             Timer Paused
@@ -53,6 +53,17 @@ export default {
     setup(props, context) {
         const timeLeft = ref(props.timeLimit);
         const percentTimeLeft = computed(() => Math.floor(100.0 * timeLeft.value / props.timeLimit));
+        const timeLeftStr = computed(() => {
+            let h = Math.floor(timeLeft.value/3600);
+            let m = Math.floor((timeLeft.value - h*3600)/60);
+            let s = timeLeft.value - h*3600 - m*60;
+
+            h = (h).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+            m = (m).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
+            s = (s).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
+
+            return h + ":" + m + ":" + s;
+        });
         let refreshIntervalId = null;
 
         const startTimer = function () {
@@ -97,6 +108,7 @@ export default {
 
         return {
             timeLeft,
+            timeLeftStr,
             percentTimeLeft
         };
     },

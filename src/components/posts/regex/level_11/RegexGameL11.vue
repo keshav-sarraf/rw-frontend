@@ -1,29 +1,29 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="👀 Simple Search" :timeLimit=300 :finishedProgressPercent=0 :currentProgressPercent=100*1/16 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
+    <regex-game-header title="The Alternation |" :timeLimit=60*5 :finishedProgressPercent=100*10/16 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
 
     <div v-if="levelFinished">
         <div class="alert alert-success" role="alert">
-            Thank You Agent Brown, this was helpful. We'll contact you once we have analyzed the laptop.
+            Let's see if we can recover and enhance these images.
         </div>
 
-        <button type="button" @click="$router.push('regex-game-l2')" class="btn btn-success mb-3">Next Level</button>
+        <button type="button" @click="$router.push('regex-game-l12')" class="btn btn-success mb-3">Next Level</button>
     </div>
 
-    <regex-game-l-1-lesson v-if="!levelStarted" />
-    <regex-game-l-1-mission v-if="levelStarted" @level-finished="onLevelFinished" />
-
+    <regex-game-l-11-lesson v-if="!levelStarted"/>    
+    <regex-game-l-11-mission v-if="levelStarted" @level-finished="onLevelFinished" />
+    <br>
     <button v-if="!levelFinished" type="button" @click="levelStarted = !levelStarted" class="btn mb-3" :class="{ 'btn-dark': levelStarted, 'btn-primary' : !levelStarted}">{{levelStarted ? "Pause Level" : "Start Level"}}</button>
     <br>
-    <button v-if="levelStarted" type="button" @click="$router.push('regex-game-l2')" class="btn btn-danger mb-3">Skip to next level</button>
+    <button v-if="levelStarted" type="button" @click="$router.push('regex-game-l12')" class="btn btn-danger mb-3">Skip to next level</button>
 </div>
 </template>
 
 <script>
 import RegexGameHeader from '../RegexGameHeader.vue';
-import RegexGameL1Lesson from './RegexGameL1Lesson.vue';
-import RegexGameL1Mission from './RegexGameL1Mission.vue';
+import RegexGameL11Lesson from './RegexGameL11Lesson.vue';
+import RegexGameL11Mission from './RegexGameL11Mission.vue';
 
 import {
     ref
@@ -32,8 +32,8 @@ import {
 export default {
     components: {
         RegexGameHeader,
-        RegexGameL1Lesson,
-        RegexGameL1Mission
+        RegexGameL11Lesson,
+        RegexGameL11Mission
     },
     setup() {
         const resetTimer = ref(false);
@@ -58,7 +58,7 @@ export default {
             levelFinished.value = false;
         };
 
-        return {
+        return {            
             onTimeElapse,
             onTimerRestart,
             onLevelFinished,

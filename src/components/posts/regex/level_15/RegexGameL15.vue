@@ -1,29 +1,29 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="👀 Simple Search" :timeLimit=300 :finishedProgressPercent=0 :currentProgressPercent=100*1/16 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
+    <regex-game-header title="The Message" :timeLimit=60*5 :finishedProgressPercent=100*14/16 :currentProgressPercent=100*1/16 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
 
     <div v-if="levelFinished">
         <div class="alert alert-success" role="alert">
-            Thank You Agent Brown, this was helpful. We'll contact you once we have analyzed the laptop.
+            Thank You Agent Brown, looks like Agent White won't be able to help for sometime. We'll have to figure this one out ourselves.
         </div>
 
-        <button type="button" @click="$router.push('regex-game-l2')" class="btn btn-success mb-3">Next Level</button>
+        <button type="button" @click="$router.push('regex-game-l16')" class="btn btn-success mb-3">Next Level</button>
     </div>
 
-    <regex-game-l-1-lesson v-if="!levelStarted" />
-    <regex-game-l-1-mission v-if="levelStarted" @level-finished="onLevelFinished" />
-
+    <regex-game-l-15-lesson v-if="!levelStarted"/>    
+    <regex-game-l-15-mission v-if="levelStarted" @level-finished="onLevelFinished" />
+    
     <button v-if="!levelFinished" type="button" @click="levelStarted = !levelStarted" class="btn mb-3" :class="{ 'btn-dark': levelStarted, 'btn-primary' : !levelStarted}">{{levelStarted ? "Pause Level" : "Start Level"}}</button>
     <br>
-    <button v-if="levelStarted" type="button" @click="$router.push('regex-game-l2')" class="btn btn-danger mb-3">Skip to next level</button>
+    <button v-if="levelStarted" type="button" @click="$router.push('regex-game-l16')" class="btn btn-danger mb-3">Skip to next level</button>
 </div>
 </template>
 
 <script>
 import RegexGameHeader from '../RegexGameHeader.vue';
-import RegexGameL1Lesson from './RegexGameL1Lesson.vue';
-import RegexGameL1Mission from './RegexGameL1Mission.vue';
+import RegexGameL15Lesson from './RegexGameL15Lesson.vue';
+import RegexGameL15Mission from './RegexGameL15Mission.vue';
 
 import {
     ref
@@ -32,23 +32,15 @@ import {
 export default {
     components: {
         RegexGameHeader,
-        RegexGameL1Lesson,
-        RegexGameL1Mission
+        RegexGameL15Lesson,
+        RegexGameL15Mission
     },
     setup() {
         const resetTimer = ref(false);
         const levelStarted = ref(false);
         const levelFinished = ref(false);
 
-        const onLevelFinished = () => {
-            levelFinished.value = true;
-            window.scroll({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        };
-
+        const onLevelFinished = () => levelFinished.value = true;
         const onTimerRestart = () => resetTimer.value = false;
 
         const onTimeElapse = function () {
@@ -58,7 +50,7 @@ export default {
             levelFinished.value = false;
         };
 
-        return {
+        return {            
             onTimeElapse,
             onTimerRestart,
             onLevelFinished,
