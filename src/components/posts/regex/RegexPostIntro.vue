@@ -2,7 +2,7 @@
 <div class="container">
     <h2>🕵🏽‍♂️ Expressions, Regular Expressions</h2>
     <h6>Published on 9th October 2021</h6>
-    <h6>2 minutes read</h6>
+    <h6>2 minutes read, 10-20 mintues play</h6>
     <hr>
     <p>
         If you already know what regular expressions are, feel free to skip ahead. For those who are still reading this, in simple terms: regular expressions are a simple programming language used for searching text within a document. As an example- If you are looking for all the phone numbers/email ids in a document, then Ctrl/Cmd + F won't help you. In such situations, regular expressions are the tool to use.
