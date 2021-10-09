@@ -14,7 +14,9 @@
     <regex-game-l-8-lesson v-if="!levelStarted" />
     <regex-game-l-8-mission v-if="levelStarted" @level-finished="onLevelFinished" />
     <br>
-    <button v-if="!levelFinished" type="button" @click="levelStarted = !levelStarted" class="btn mb-3" :class="{ 'btn-danger': levelStarted, 'btn-primary' : !levelStarted}">{{levelStarted ? "Pause Level" : "Start Level"}}</button>
+    <button v-if="!levelFinished" type="button" @click="levelStarted = !levelStarted" class="btn mb-3" :class="{ 'btn-dark': levelStarted, 'btn-primary' : !levelStarted}">{{levelStarted ? "Pause Level" : "Start Level"}}</button>
+    <br>
+    <button v-if="levelStarted" type="button" @click="$router.push('regex-game-l9')" class="btn btn-danger mb-3">Skip to next level</button>
 </div>
 </template>
 
@@ -46,7 +48,7 @@ export default {
                 behavior: 'smooth'
             });
         };
-        
+
         const onTimerRestart = () => resetTimer.value = false;
 
         const onTimeElapse = function () {

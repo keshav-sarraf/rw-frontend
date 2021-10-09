@@ -10,7 +10,7 @@
         </div> -->
 
         <div class="col-sm-4 text-start">
-            <h2>✉️ The unexpected email</h2>
+            <h2>✉️ The expected email</h2>
         </div>
 
         <!-- <div class="col-sm-4 text-end">
@@ -38,15 +38,6 @@
         <p>
             It's been some days since our last conversation. The Group was keeping us busy. We were able to intercept an attack in Singapore. Soon after that, agent White helped us in gathering legal evidence and we were able to capture few key members of The Group as well. With this we conclude the mission. We thank you for your help.
         </p>
-
-        <div class="row">
-            <div class="col-sm-2 p-1">
-                <button type="button" @click="$router.push('regex-game-l1')" class="btn btn-primary">Accept Mission</button>
-            </div>
-            <div class="col-sm-2 p-1">
-                <button type="button" @click="$router.push('regex-post-intro')" class="btn btn-danger">Reject Mission</button>
-            </div>
-        </div>
 
     </div>
 </div>
