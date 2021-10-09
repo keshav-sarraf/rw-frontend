@@ -3,11 +3,11 @@
     <h4>Mission</h4>
 
     <p>
-        The number plates on the cars are fake so it'd be sligtly difficult to track the people driving them. Our operatives on the ground found one of the cars abandoned in a parking lot. On searching it, they found couple of old supermarket invoices. They are faded so we only have partial information visible on them. We hope to use these invoices to talk to the departmental store and see if we can find more information on the person driving the car.
+        The number plates on the cars are fake so it'd be slightly difficult to track the people driving them. Our operatives on the ground found one of the cars abandoned in a parking lot. On searching it, they found couple of old supermarket invoices. They are faded so we only have partial information visible on them. We hope to use these invoices to talk to the departmental store and see if we can find more information on the person driving the car.
     </p>
 
     <p>
-        We have 2 invoices from 2 different stores. Both the stores have agreed to help us by giving us their CCTV footage. As you can see that date and time on the invoices are faded howeve the amount is intact. These footages span over several days. We can't scan through all of it. One possible solution is to check the store records for sales that were made for the given amount in these receipts and see if we can id the person.
+        We have 2 invoices from 2 different stores. Both the stores have agreed to help us by giving us their CCTV footage. As you can see that date and time on the invoices are faded however the amount is intact. These footages span over several days. We can't scan through all of it. One possible solution is to check the store records for sales that were made for the given amount in these receipts and see if we can id the person.
     </p>
 
     <p>
