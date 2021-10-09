@@ -21,7 +21,7 @@
         {
             "id" : 3,
             "title" : "🕵🏽‍♂️ Expressions, Regular Expressions",
-            "description" : "Regular Expressions (Regex) are a nifty tool for searching and manipulating tons of text. This post aims to teach regex by means of a game. See you on the other side",
+            "description" : "Regular Expressions (Regex) are a nifty tool for searching tons of text very quickly. This post aims to teach regex by means of a game. See you on the other side",
             "date" : "9th October 2021",
             "read_duration" : "2 minutes read",
             "labels" : ["NLP", "Computers"],
