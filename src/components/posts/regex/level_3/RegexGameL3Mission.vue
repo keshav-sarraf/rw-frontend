@@ -3,7 +3,7 @@
     <h4>Mission</h4>
 
     <p>
-        We have figured out the Group's plans. They want to overwhelm the DNS infrastructure of the internet. DNS stands for Domain Name System. In simple terms, it is like a phone book (or the contacts app) for our computers. Whenever we ask our computer / phone to take us to "www.reinveingwheel.com", our devices rely on DNS to find the IP address of the server where the website is hosted. Once our browser know's the IP address, it can then establish a connection. If the DNS infrastructure is down, then even though all the websites would be fully functional, our computers won't be able to connect to them.
+        We have figured out The Group's plans. They want to overwhelm the DNS infrastructure of the internet. DNS stands for Domain Name System. In simple terms, it is like a phone book (or the contacts app) for our computers. Whenever we ask our computer / phone to take us to "www.reinveingwheel.com", our devices rely on DNS to find the IP address of the server where the website is hosted. Once our browser know's the IP address, it can then establish a connection. If the DNS infrastructure is down, then even though all the websites would be fully functional, our computers won't be able to connect to them.
     </p>
 
     <p>

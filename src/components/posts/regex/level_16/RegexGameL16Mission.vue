@@ -3,7 +3,7 @@
     <h4>Mission</h4>
 
     <p>
-        As far the submarine cables go, a good thing is that there is a lot of redundancy built in, there are multiple ways to connect 2 locations and even if  couple of connections get damaged, then there would not be much harm to the connectivity. These cables span more than a million kilometers in length. It is almost impossible to guard each and every location. To catch the Group in action, we have to identify few probable locations where the attack could take place. We have compiled a list of top 10 locations where the maximum number of cables intersect. If someone has to create havoc, then these locations seem more probable.
+        As far the submarine cables go, a good thing is that there is a lot of redundancy built in, there are multiple ways to connect 2 locations and even if  couple of connections get damaged, then there would not be much harm to the connectivity. These cables span more than a million kilometers in length. It is almost impossible to guard each and every location. To catch The Group in action, we have to identify few probable locations where the attack could take place. We have compiled a list of top 10 locations where the maximum number of cables intersect. If someone has to create havoc, then these locations seem more probable.
     </p>
 
     <p>

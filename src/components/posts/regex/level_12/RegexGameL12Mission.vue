@@ -3,7 +3,7 @@
     <h4>Mission</h4>
 
     <p>
-        We think we have cracked the Group's next plan. When we cross referenced the documents, images and the coordinates, one thing stood out. A non profit organization called ICANN. Its purpose is to manage DNS infrastructure including it's security. If you remember from our previous conversations about root servers, all of them fall under ICANN's purview. ICANN itself only manages 1 of them and has allocated rest of them to other organisations.
+        We think we have cracked The Group's next plan. When we cross referenced the documents, images and the coordinates, one thing stood out. A non profit organization called ICANN. Its purpose is to manage DNS infrastructure including it's security. If you remember from our previous conversations about root servers, all of them fall under ICANN's purview. ICANN itself only manages 1 of them and has allocated rest of them to other organisations.
     </p>
     <p>
 

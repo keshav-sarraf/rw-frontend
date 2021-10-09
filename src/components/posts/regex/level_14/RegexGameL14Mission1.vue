@@ -7,7 +7,7 @@
     </p>
 
     <p>
-        We have 2 invoices from 2 different stores. Both the stores have agreed to help us by giving us their CCTV footage. As you can see that date and time on the invoices are faded. So add to our misery, these footages span over several days. We can't scan through all of it. One possible solution is to check the store records for sales that were made for the given amount in these receipts and see if we can id the person.
+        We have 2 invoices from 2 different stores. Both the stores have agreed to help us by giving us their CCTV footage. As you can see that date and time on the invoices are faded howeve the amount is intact. These footages span over several days. We can't scan through all of it. One possible solution is to check the store records for sales that were made for the given amount in these receipts and see if we can id the person.
     </p>
 
     <p>
@@ -45,14 +45,14 @@
             </div>
         </div>
 
-        <h6>List of Websites</h6>
+        <h6>Invoice #1</h6>
         <div class="row my-2 border-top">
             <div class="col-sm-12" v-for="number in invoice1ItemsList" :key="number">
                 {{number}}
             </div>
         </div>
 
-        <user-help v-if="!levelFinished" btnText="hint" helpText="you can use shorthand to make the regex slightly easier to read or you can go via character sets. If you use {} then things will get slighly easier" />
+        <user-help v-if="!levelFinished" btnText="hint" helpText="Remember $ is a metacharacter in itself, you'd have to use \$ for selecting it. Also $ sign preceeds 1 or more numbers, we can use the symbol + here" />
     </div>
 
     <!-- <div class="footer border-top">

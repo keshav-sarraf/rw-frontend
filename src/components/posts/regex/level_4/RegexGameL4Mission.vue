@@ -3,7 +3,7 @@
     <h4>Mission</h4>
 
     <p>
-        DNS infrastructure functions like a chain. In simple terms, whenever our computers asks the DNS network about IP address of a website, a computer in that DNS network checks if it knows the answer, if it knows, then it replies back immediately, otherwise it asks another computer in the chain and the sequence goes on till the answer is found. Within this chain the below mentioned 13 IP addresses play an important role. These IP addresses belong to something called root servers. Almost all the chain of queries in the DNS network end up encountering one of these 13 root servers. Although there are only 13 IP addresses, they are hosted by hundreds of computers spread over the world. In order for the Group to bring the whole DNS system down, they'd have to take down majority of these servers.
+        DNS infrastructure functions like a chain. In simple terms, whenever our computers asks the DNS network about IP address of a website, a computer in that DNS network checks if it knows the answer, if it knows, then it replies back immediately, otherwise it asks another computer in the chain and the sequence goes on till the answer is found. Within this chain the below mentioned 13 IP addresses play an important role. These IP addresses belong to something called root servers. Almost all the chain of queries in the DNS network end up encountering one of these 13 root servers. Although there are only 13 IP addresses, they are hosted by hundreds of computers spread over the world. In order for The Group to bring the whole DNS system down, they'd have to take down majority of these servers.
     </p>
 
     <p>

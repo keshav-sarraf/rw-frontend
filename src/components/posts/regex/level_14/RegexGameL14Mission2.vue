@@ -30,14 +30,14 @@
         </div>
     </div>
 
-    <h6>List of Websites</h6>
+    <h6>Invoice #2</h6>
     <div class="row my-2 border-top">
         <div class="col-sm-12" v-for="number in invoice2ItemsList" :key="number">
             {{number}}
         </div>
     </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="you can use shorthand to make the regex slightly easier to read or you can go via character sets. If you use {} then things will get slighly easier" />
+    <user-help v-if="!levelFinished" btnText="hint" helpText="This is quite similar to one of the examples in the lesson" />
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>

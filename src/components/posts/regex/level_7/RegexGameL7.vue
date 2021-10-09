@@ -1,7 +1,7 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="The Plus +" :timeLimit=300 :finishedProgressPercent=100*6/16 :currentProgressPercent=100*1/16 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
+    <regex-game-header title="The Plus +" :timeLimit=60*5 :finishedProgressPercent=100*6/16 :currentProgressPercent=100*1/16 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
 
     <div v-if="levelFinished">
         <div class="alert alert-success" role="alert">
