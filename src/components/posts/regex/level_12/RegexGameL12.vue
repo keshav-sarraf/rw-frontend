@@ -1,7 +1,7 @@
 <template>
 <div class="container">
 
-    <regex-game-header title="Begin and End" :timeLimit=300 :finishedProgressPercent=100*11/16 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
+    <regex-game-header title="The Begining and The End" :timeLimit=15*60 :finishedProgressPercent=100*11/16 :currentProgressPercent=100*1/15 :startTimer="levelStarted && !levelFinished" @time-elapsed="onTimeElapse" @timer-restarted="onTimerRestart" :resetTimer="resetTimer" />
 
     <div v-if="levelFinished">
         <div class="alert alert-success" role="alert">
@@ -13,7 +13,6 @@
 
     <regex-game-l-12-lesson v-if="!levelStarted"/>    
     <regex-game-l-12-mission v-if="levelStarted" @level-finished="onLevelFinished" />
-    
     <button v-if="!levelFinished" type="button" @click="levelStarted = !levelStarted" class="btn mb-3" :class="{ 'btn-danger': levelStarted, 'btn-primary' : !levelStarted}">{{levelStarted ? "Pause Level" : "Start Level"}}</button>
 </div>
 </template>
@@ -38,7 +37,15 @@ export default {
         const levelStarted = ref(false);
         const levelFinished = ref(false);
 
-        const onLevelFinished = () => levelFinished.value = true;
+        const onLevelFinished = () => {
+            levelFinished.value = true;
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        };
+
         const onTimerRestart = () => resetTimer.value = false;
 
         const onTimeElapse = function () {

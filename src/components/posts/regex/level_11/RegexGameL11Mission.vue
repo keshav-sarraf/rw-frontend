@@ -3,50 +3,51 @@
     <h4>Mission</h4>
 
     <p>
-        We are getting closer, we need more help with the same list of files. 
+        We are getting closer, we need more help with the same list of files.
     </p>
 
     <p>
         in the previous list, can you provide all .jpg and .jpeg files. Please ensure that the file names are captured
     </p>
-
-    <div class="row" v-if="!levelFinished">
-        <div class="col-sm-4">
-            <div class="input-group mb-3">
-                <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+    <div class="border border-3 p-2 rounded">
+        <div class="row" v-if="!levelFinished">
+            <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
-        {{regexErrorMessage}}
-    </div>
+        <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
+            {{regexErrorMessage}}
+        </div>
 
-    <div class="mb-3">
-        <h6>Results matching the Regex</h6>
+        <div class="mb-3">
+            <h6>Results matching the Regex</h6>
 
-        <div v-if="matchedFileList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-4" v-for="(number, idx) in matchedFileList" :key="number">
-                {{idx+1}}. <span v-html="number.formattedString"></span>
-                <span> --> subgroups : </span> {{number.groups}}
+            <div v-if="matchedFileList.length > 0" class="row mb-4 border-top border-bottom">
+                <div class="col-sm-4" v-for="(number, idx) in matchedFileList" :key="number">
+                    {{idx+1}}. <span v-html="number.formattedString"></span>
+                    <span> --> subgroups : </span> {{number.groups}}
+                </div>
+            </div>
+            <div v-else>
+                0 results to show
             </div>
         </div>
-        <div v-else>
-            0 results to show
-        </div>
-    </div>
 
-    <h6>List of Websites</h6>
-    <div class="row my-2 border-top">
-        <div class="col-sm-2" v-for="(number, idx) in fileList" :key="number">
-            {{idx+1}}. {{number}}
+        <h6>List of Websites</h6>
+        <div class="row my-2 border-top">
+            <div class="col-sm-2" v-for="(number, idx) in fileList" :key="number">
+                {{idx+1}}. {{number}}
+            </div>
         </div>
-    </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="We have to achieve 2 things here, finding all pdf documents and capture the name of the document. Searching for pdf documents should be easy, the new challenge is capturing just the name of the file" />
+        <user-help v-if="!levelFinished" btnText="hint" helpText="try breaking down the filename into 1. name, 2. the dot and 3. the extention. Now we have two patterns available for the extension" />
+    </div>
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
@@ -81,9 +82,9 @@ export default {
         targetGroups = targetGroups.flat();
 
         const checkAnswer = function () {
-            return targetMatches.length == matchedFileList.value.length
-                && matchedFileList.value.every(v => targetMatches.includes(v.originalString))
-                && matchedFileList.value.every(v => v.groups.some(w => targetGroups.includes(w)));
+            return targetMatches.length == matchedFileList.value.length &&
+                matchedFileList.value.every(v => targetMatches.includes(v.originalString)) &&
+                matchedFileList.value.every(v => v.groups.some(w => targetGroups.includes(w)));
         }
 
         const executeRegex = function () {
@@ -111,7 +112,7 @@ export default {
                     matchedFileList.value.push(regexResult);
             }
 
-            if (checkAnswer()){
+            if (checkAnswer()) {
                 levelFinished.value = true;
                 context.emit('levelFinished');
             }
