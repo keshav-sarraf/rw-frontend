@@ -15,43 +15,44 @@
             <li>Followed by 3 alphabets of either uppercase or lowercase</li>
         </ol>
     </p>
-
-    <div class="row" v-if="!levelFinished">
-        <div class="col-sm-4">
-            <div class="input-group mb-3">
-                <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+    <div class="border border-3 p-2 rounded">
+        <div class="row" v-if="!levelFinished">
+            <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <input type="text" v-model="userProvidedRegex" @keydown.enter="executeRegex" class="form-control" placeholder="Enter regex" aria-label="Input Regex">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" @click="executeRegex">Execute RegEx</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
-        {{regexErrorMessage}}
-    </div>
+        <div v-if="regexErrorMessage" class="alert alert-danger" role="alert">
+            {{regexErrorMessage}}
+        </div>
 
-    <div class="mb-3">
-        <h6>Results matching the Regex</h6>
+        <div class="mb-3">
+            <h6>Results matching the Regex</h6>
 
-        <div v-if="matchedVehicleList.length > 0" class="row mb-4 border-top border-bottom">
-            <div class="col-sm-4" v-for="(number, idx) in matchedVehicleList" :key="number">
-                {{idx+1}}. <span v-html="number.formattedString"></span>
+            <div v-if="matchedVehicleList.length > 0" class="row mb-4 border-top border-bottom">
+                <div class="col-sm-4" v-for="(number, idx) in matchedVehicleList" :key="number">
+                    {{idx+1}}. <span v-html="number.formattedString"></span>
+                </div>
+            </div>
+            <div v-else>
+                0 results to show
             </div>
         </div>
-        <div v-else>
-            0 results to show
-        </div>
-    </div>
 
-    <h6>List of Websites</h6>
-    <div class="row my-2 border-top">
-        <div class="col-sm-4" v-for="(number, idx) in vehicleList" :key="number">
-            {{idx+1}}. {{number}}
+        <h6>List of Websites</h6>
+        <div class="row my-2 border-top">
+            <div class="col-sm-4" v-for="(number, idx) in vehicleList" :key="number">
+                {{idx+1}}. {{number}}
+            </div>
         </div>
-    </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="you can use shorthand to make the regex slightly easier to read or you can go via character sets. If you use {} then things will get slighly easier" />
+        <user-help v-if="!levelFinished" btnText="hint" helpText="you can use shorthand to make the regex a bit easier to read or you can go via character sets. If you use {} then things will get slighly easier" />
+    </div>
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
