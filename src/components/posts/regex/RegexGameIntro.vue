@@ -36,13 +36,13 @@
             Agent Brown,
         </p>
         <p>
-            The agency is in dire need of your help. We are working on capturing a secret organization called "The Group". They want to take down the internet and bring chaos to the world. Your old partner - Agent White was successful in infiltrating The Group's inner circle as an undercover agent, but before she could extract meaningful information, her cover was blown. She was successful in escaping but her current whereabouts are unknown and we have lost all contact.
+            The agency is in dire need of your help. We are working on capturing a secret organization called "The Group". They want to take down the internet and bring chaos to the world. They are pretty elusive and have been operating undetected for sometime now. After months of preparation, your old partner - Agent White was successful in infiltrating The Group's an undercover agent, but before she could extract meaningful information, her cover was blown. She was successful in escaping but her current whereabouts are unknown and we have lost all contact.
         </p>
         <p>
             Her last message has led us to a laptop. But we don't have the experts to help us comb through the data. Time is of the essence. With your experience in RegEx, we may just be able to extract critical pieces of information in limited amount of time.
         </p>
         <p>
-            Your mission, should you choose to accept it would be to analyze the documents present in the laptop and figure out The Group's next plan.
+            Your mission, should you choose to accept it would be to analyze the documents present in the laptop and prevent The Group from destroying the internet.
         </p>
 
         <div class="row">

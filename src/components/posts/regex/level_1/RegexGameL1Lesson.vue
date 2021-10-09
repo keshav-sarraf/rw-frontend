@@ -3,7 +3,7 @@
     <h4>Objective</h4>
 
     <p>
-        You'd be given a block of text and a corresponding target to find something in it. Your task is to to provide a regular expression that provides the information that we are looking for. Remember the laptop is rigged to self destruct after sometime, so beware Agent Brown. Goodluck and godspeed 🏁.
+        You'd be given a block of text and a corresponding target to find something in it. Your task is to to provide a regular expression that extracts the information that we are looking for. Also, the laptop is rigged to self destruct after sometime, so be cautious of the time. Good luck and godspeed 🏁.
     </p>
 
     <h4>Lesson</h4>

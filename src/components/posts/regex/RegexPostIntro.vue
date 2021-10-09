@@ -13,7 +13,7 @@
     </p>
 
     <p>
-        If you are not familiar with RegEx at all then don't worry, each level is preceeded by a lesson to help you. And trust me when I say this, you don't have to memorize all the concepts / features at all. Once you are aware of the possibilities, then you can always look stuff up over the internet.
+        If you are not familiar with RegEx at all then don't worry, each level is preceeded by a lesson to help you. And trust me when I say this, you don't have to memorize all the concepts at all. Once you are aware of the possibilities, then you can always look stuff up over the internet. Even in the game, if you are unsure, just look at the hints at the bottom or pause the game and re-review the lesson. 
     </p>
 
     <p>

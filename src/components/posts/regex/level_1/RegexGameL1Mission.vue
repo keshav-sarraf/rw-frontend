@@ -3,7 +3,7 @@
     <h4>Mission</h4>
 
     <p>
-        Agent Brown, the retrieved laptop is password protected. In her last message, Agent White gave us a clue.
+        Agent Brown, the retrieved laptop is password protected. However, in her last message, Agent White gave us a clue.
     </p>
 
     <p class="border p-3">

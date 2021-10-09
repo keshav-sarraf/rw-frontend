@@ -3,7 +3,7 @@
     <h4>Lesson</h4>
 
     <h5>ShortHand</h5>
-    <p>There are a number of convenient shorthands for commonly used character sets/ regular expressions:</p>
+    <p>There are a number of convenient shorthands for commonly used character sets/ regular expressions. We can use them to make our regexes easier to read by other human beings.</p>
     <div class="p-2">
 
         <table class="table table-striped">
