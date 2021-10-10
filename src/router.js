@@ -2,8 +2,11 @@ import {createRouter, createWebHistory} from 'vue-router';
 import Landing from './components/Landing';
 const About = () => import('./components/About.vue');
 const ContactUs = () => import('./components/ContactUs.vue');
+const Error404 = () => import('./components/404ErrorPage.vue');
+
 const RandNumGen = () => import('./components/posts/random_number_gen/RandNumGen.vue');
 const Puzzle1 = () => import('./components/posts/puzzle_1/Puzzle1.vue');
+
 const RegexPostIntro = () => import('./components/posts/regex/RegexPostIntro.vue');
 const RegexGameIntro = () => import('./components/posts/regex/RegexGameIntro.vue');
 const RegexGameL1 = () => import('./components/posts/regex/level_1/RegexGameL1.vue');
@@ -54,6 +57,10 @@ const routes = [
     { path: '/regex-game-l15', component: RegexGameL15},
     { path: '/regex-game-l16', component: RegexGameL16},
     { path: '/regex-game-outro', component: RegexGameOutro},
+    
+    //Error Page
+    { path: '/page-not-found', component: Error404},
+    { path: '/:pathMatch(.*)*', redirect: '/page-not-found'}
   ];
 
 const router = createRouter({
