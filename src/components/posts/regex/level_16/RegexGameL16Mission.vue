@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="you can use shorthand to make the regex slightly easier to read or you can go via character sets. If you use {} then things will get slighly easier" />
+    <user-help v-if="!levelFinished" btnText="hint" helpText="try to think in terms of lookbacks and lookaheads" />
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
