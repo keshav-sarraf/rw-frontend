@@ -5,7 +5,7 @@
 
     <div v-if="levelFinished">
         <div class="alert alert-success" role="alert">
-            Thanks for the help. We'll see what details we can get on these vehicles.
+            Thanks for the help. Let's see what or who turns up.
         </div>
 
         <button type="button" @click="$router.push('regex-game-l15')" class="btn btn-success mb-3">Next Level</button>
