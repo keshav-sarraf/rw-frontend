@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="This is quite similar to one of the examples in the lesson" />
+    <user-help v-if="!levelFinished" btnText="hint" helpText="This is quite similar to one of the examples in the lesson for lookahead" />
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
