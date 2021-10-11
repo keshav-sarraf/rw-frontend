@@ -23,7 +23,7 @@
         The actual keys are stored in a tamper proof device which can only be operated under complete supervision of ICANN employees. However, to plan for extreme circumstances like destruction of these tamper proof boxes, ICANN stores a copy of the keys in a secure locker within it's facilities. That locker in turn can only be accessed by a select few internet security experts. We have a list of those people below.
     </p>
     <p>
-        Your task is to provide the name and country code of these people so that we can ensure their safety. Additionally we need your regex to be able to capture names of these experts as well. As usual your provided regex would be matched with these strings individually.
+        Your task is to provide a regex that matches with the name and country of these experts. Withing this match, the name must be captured. As usual your provided regex would be matched with these strings individually.
     </p>
 
     <div class="border border-3 p-2 rounded">
@@ -56,10 +56,10 @@
             </div>
         </div>
 
-        <h6>List of Websites</h6>
+        <h6>List of Keyholders</h6>
         <div class="row my-2 border-top">
-            <div class="col-sm-12" v-for="(number, idx) in peopleList" :key="number">
-                {{idx+1}}. {{number}}
+            <div class="col-sm-12" v-for="number in peopleList" :key="number">
+                {{number}}
             </div>
         </div>
 

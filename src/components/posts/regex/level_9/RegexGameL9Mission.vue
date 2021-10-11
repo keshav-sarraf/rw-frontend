@@ -39,10 +39,10 @@
             </div>
         </div>
 
-        <h6>List of Websites</h6>
+        <h6>List of Numbers</h6>
         <div class="row my-2 border-top">
-            <div class="col-sm-12" v-for="(number, idx) in numberList" :key="number">
-                {{idx+1}}. {{number}}
+            <div class="col-sm-12" v-for="number in numberList" :key="number">
+                {{number}}
             </div>
         </div>
 

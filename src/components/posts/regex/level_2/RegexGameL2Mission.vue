@@ -43,8 +43,8 @@
 
         <h6>List of Emails found in the laptop</h6>
         <div class="row my-2 border-top">
-            <div class="col-sm-4" v-for="(location, idx) in emailList" :key="location">
-                {{idx+1}}. {{location}}
+            <div class="col-sm-12" v-for="location in emailList" :key="location">
+                {{location}}
             </div>
         </div>
 

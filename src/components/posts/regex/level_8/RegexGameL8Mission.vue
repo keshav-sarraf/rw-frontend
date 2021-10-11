@@ -41,8 +41,8 @@
 
         <h6>List of Websites</h6>
         <div class="row my-2 border-top">
-            <div class="col-sm-12" v-for="(location, idx) in websiteList" :key="location">
-                {{idx+1}}. <a v-bind:href="location">{{location}}</a>
+            <div class="col-sm-12" v-for="location in websiteList" :key="location">
+                <a v-bind:href="location">{{location}}</a>
             </div>
         </div>
 
