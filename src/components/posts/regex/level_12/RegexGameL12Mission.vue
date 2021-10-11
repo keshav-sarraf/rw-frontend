@@ -23,7 +23,7 @@
         The actual keys are stored in a tamper proof device which can only be operated under complete supervision of ICANN employees. However, to plan for extreme circumstances like destruction of these tamper proof boxes, ICANN stores a copy of the keys in a secure locker within it's facilities. That locker in turn can only be accessed by a select few internet security experts. We have a list of those people below.
     </p>
     <p>
-        Your task is to provide a regex that matches with the name and country of these experts. Withing this match, the name must be captured. As usual your provided regex would be matched with these strings individually.
+        Your task is to provide a regex that matches with the name and country of these experts. Withing this match, the name and country must be separately captured as well. As usual your provided regex would be matched with these strings individually.
     </p>
 
     <div class="border border-3 p-2 rounded">
@@ -100,9 +100,15 @@ export default {
         targetGroups = targetGroups.flat();
 
         const checkAnswer = function () {
-            return targetMatches.length == matchedPeopleList.value.length &&
-                matchedPeopleList.value.every(v => targetMatches.includes(v.originalString)) &&
-                matchedPeopleList.value.every(v => v.groups.every(w => targetGroups.includes(w)));
+
+            let listMatch = targetMatches.length == matchedPeopleList.value.length &&
+                matchedPeopleList.value.every(v => targetMatches.includes(v.originalString))
+            
+            let matchedGroups = matchedPeopleList.value.map(v => v.groups).flat();
+            let groupMatch = targetGroups.length <= matchedGroups.length &&
+                            targetGroups.every(v => matchedGroups.includes(v));
+            
+            return listMatch && groupMatch;
         }
 
         const executeRegex = function () {
