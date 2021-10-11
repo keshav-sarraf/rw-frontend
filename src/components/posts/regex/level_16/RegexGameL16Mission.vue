@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <user-help v-if="!levelFinished" btnText="hint" helpText="try to think in terms of lookbacks and lookaheads" />
+    <user-help v-if="!levelFinished" btnText="hint" helpText="try to think in terms of lookaheads and lookbehinds, PS: If you are using safari to run this, then lookbehinds don't work :(" />
 
     <!-- <div class="footer border-top">
         <h6>Credits:</h6>
@@ -75,12 +75,14 @@ export default {
         const matchedCityList = ref([]);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
-        const targetRegex = new RegExp("(?<=:\\s)([\\w,\\s]+)(?=,)", "g");
-        const targetMatches = cityList.value.filter(n => regExUtil.matchRegexAndFormatInput(n, targetRegex) != null);
+        //const targetRegex = new RegExp("(?<=:\\s)([\\w,\\s]+)(?=,)", "g");
+        const targetRegex = new RegExp("([\\w,\\s]+)(?=,)", "g");
+        let targetMatches = cityList.value.filter(n => regExUtil.matchRegexAndFormatInput(n, targetRegex) != null);
+        targetMatches = targetMatches.map(n => regExUtil.matchRegexAndFormatInput(n, targetRegex).formattedString);
 
         const checkAnswer = function () {
             return targetMatches.length == matchedCityList.value.length &&
-                matchedCityList.value.every(v => targetMatches.includes(v.originalString));
+                matchedCityList.value.every(v => targetMatches.includes(v.formattedString));
         }
 
         const executeRegex = function () {
