@@ -11,7 +11,7 @@
         <br>
         Lookaheads can be further classified into two classes. One is called positive lookahead and the other is called negative lookahead.
     </p>
-    <h7><u>Positive Lookahead</u></h7>
+    <h6><u>Positive Lookahead</u></h6>
     <p>
         Positive Lookahead means we are looking for targets that are succeded by a lookahead expression, i.e. first part of the expression must be followed by the lookahead expression. The returned match only contains the text that is matched by the first part of the expression.
         <br>
@@ -34,7 +34,7 @@
         </ol>
     </p>
 
-    <h7><u>Negative Lookahead</u></h7>
+    <h6><u>Negative Lookahead</u></h6>
     <p>
         Negative lookaheads are used when we need to get all matches from an input string that are not followed by a certain pattern. A negative lookahead is written the same way as a positive lookahead. The only difference is, instead of an equals sign =, we use an exclamation mark <code>!</code> to indicate negation i.e. <code>(?!lookahead expression)</code>. Let's take a look at the following regular expression <code>(T|t)he(?!\smat)</code> which means: get all <code>The or the</code> words from the input string <code>that are not followed by a space character and the word mat</code>.
         <br>
@@ -47,7 +47,7 @@
         Lookbehinds are similar to lookahead with an exception that in this case the lookbehind expression must come before the primary expression.
     </p>
 
-    <h7><u>Positive Lookbehind</u></h7>
+    <h6><u>Positive Lookbehind</u></h6>
     <p>
         It is denoted by <code>(?&lt;=lookbehind expression)target expression</code>
         <br>
@@ -56,7 +56,7 @@
         </code>
     </p>
 
-    <h7><u>Negative Lookbehind</u></h7>
+    <h6><u>Negative Lookbehind</u></h6>
     <p>
         Similar to the lookahead case, in the regex <code>=</code> is replaced by <code>!</code>. It is denoted by <code>(?&lt;!lookbehind expression)target expression</code>
     </p>
