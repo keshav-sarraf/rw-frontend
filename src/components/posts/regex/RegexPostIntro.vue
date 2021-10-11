@@ -37,7 +37,7 @@
                     You are even encouraged to maybe break the whole game into multiple small sessions, each level can be skipped so that when you come back next time, you can start from where you left off.
                 </li>
                 <li>
-                    You don't have to memorize all the concepts at all. Once you are aware of the possibilities, then you can always look stuff up over the internet. Purpose of this is to get you familiarised with the idea.
+                    You don't have to memorize all the concepts at all. Once you are aware of the possibilities, then you can always look stuff up over the internet. Purpose of this is to get you familiarized with the idea.
                 </li>
             </ul>
 

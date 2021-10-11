@@ -41,8 +41,8 @@
 
         <h6>List of Root Servers</h6>
         <div class="row my-2 border-top">
-            <div class="col-sm-4" v-for="(location, idx) in rootServerList" :key="location">
-                {{idx+1}}. {{location}}
+            <div class="col-sm-12" v-for="location in rootServerList" :key="location">
+                {{location}}
             </div>
         </div>
 

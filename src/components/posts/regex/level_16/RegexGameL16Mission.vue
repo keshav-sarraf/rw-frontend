@@ -38,10 +38,10 @@
         </div>
     </div>
 
-    <h6>List of Websites</h6>
+    <h6>List of Hubs</h6>
     <div class="row my-2 border-top">
-        <div class="col-sm-12" v-for="(number, idx) in cityList" :key="number">
-            {{idx+1}}. {{number}}
+        <div class="col-sm-12" v-for="number in cityList" :key="number">
+            {{number}}
         </div>
     </div>
 

@@ -41,12 +41,12 @@
 
         <h6>List of Root Servers</h6>
         <div class="row my-2 border-top">
-            <div class="col-sm-12" v-for="(location, idx) in rootServerList" :key="location">
-                {{idx+1}}. {{location}}
+            <div class="col-sm-12" v-for="location in rootServerList" :key="location">
+                {{location}}
             </div>
         </div>
 
-        <user-help v-if="!levelFinished" btnText="hint" helpText="try to match the pattern .1x8 where x is any character except '2'" />
+        <user-help v-if="!levelFinished" btnText="hint" helpText="try to match the pattern .1x8 where x is any character except '2'. You can use [^] for negation." />
     </div>
 
     <!-- <div class="footer border-top">

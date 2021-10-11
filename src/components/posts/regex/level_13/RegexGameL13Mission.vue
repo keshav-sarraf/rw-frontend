@@ -44,10 +44,10 @@
             </div>
         </div>
 
-        <h6>List of Websites</h6>
+        <h6>List of Registrations</h6>
         <div class="row my-2 border-top">
-            <div class="col-sm-4" v-for="(number, idx) in vehicleList" :key="number">
-                {{idx+1}}. {{number}}
+            <div class="col-sm-12" v-for="number in vehicleList" :key="number">
+                {{number}}
             </div>
         </div>
 

@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <user-help v-if="!levelFinished" btnText="hint" helpText="Remember $ is a metacharacter in itself, you'd have to use \$ for selecting it. Also $ sign preceeds 1 or more numbers, we can use the symbol + here" />
+        <user-help v-if="!levelFinished" btnText="hint" helpText="Remember $ is a metacharacter in itself, you'd have to use \$ for selecting it. Also $ sign preceeds 1 or more numbers, we can use the symbol + here. If you still feel stuck, refer to the lesson" />
     </div>
 
     <!-- <div class="footer border-top">
