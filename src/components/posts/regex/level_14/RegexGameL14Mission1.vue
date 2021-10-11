@@ -79,16 +79,20 @@ export default {
     emits: ["levelFinished"],
     setup(props, context) {
         const levelFinished = ref(false);
-        const invoice1ItemsList = ref(invoice1["items"].sort(() => Math.random() - 0.5));
+        const invoice1ItemsList = ref(invoice1["items"]);
         const matchedAmountsInvoice1 = ref([]);
         const userProvidedRegex = ref("");
         const regexErrorMessage = ref("");
-        const targetRegex = new RegExp("(?<=\\$)\\d+", "g");
-        const targetMatches = invoice1ItemsList.value.filter(n => regExUtil.matchRegexAndFormatInput(n, targetRegex) != null);
 
         const checkAnswer = function () {
+
+            const targetRegex = new RegExp("\\d+", "g");
+            let targetMatches = invoice1ItemsList.value.filter(n => regExUtil.matchRegexAndFormatInput(n, targetRegex) != null);
+
+            targetMatches = targetMatches.map(n => regExUtil.matchRegexAndFormatInput(n, targetRegex).formattedString);
+
             return targetMatches.length == matchedAmountsInvoice1.value.length &&
-                matchedAmountsInvoice1.value.every(v => targetMatches.includes(v.originalString));
+                matchedAmountsInvoice1.value.every(v => targetMatches.includes(v.formattedString));
         }
 
         const executeRegex = function () {

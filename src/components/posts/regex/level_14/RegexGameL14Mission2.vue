@@ -69,10 +69,11 @@ export default {
         const regexErrorMessage = ref("");
         const targetRegex = new RegExp("[\\d.]+(?=\\sUSD)", "g");
         const targetMatches = invoice2ItemsList.value.filter(n => regExUtil.matchRegexAndFormatInput(n, targetRegex) != null);
+        const formattedTargetMatches = targetMatches.map(n => regExUtil.matchRegexAndFormatInput(n, targetRegex).formattedString);
 
         const checkAnswer = function () {
-            return targetMatches.length == matchedAmountsInvoice2.value.length &&
-                matchedAmountsInvoice2.value.every(v => targetMatches.includes(v.originalString));
+            return formattedTargetMatches.length == matchedAmountsInvoice2.value.length &&
+                matchedAmountsInvoice2.value.every(v => formattedTargetMatches.includes(v.formattedString));
         }
 
         const executeRegex = function () {
