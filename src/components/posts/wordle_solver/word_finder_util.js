@@ -21,4 +21,9 @@ const yellowFilter = (wordList, yellowCharsArr) => {
     return(filteredWords2);
 }
 
-export {getFirstWordSuggestions, grayFilter, yellowFilter};
+const greenFilter = (wordList, greenCharsArr) => {
+    let filteredWords = wordList.filter(word => [0,1,2,3,4].every(idx => (greenCharsArr[idx] == "") || greenCharsArr[idx].toLowerCase() == word[idx].toLowerCase()));
+    return(filteredWords);
+}
+
+export {getFirstWordSuggestions, grayFilter, yellowFilter, greenFilter};
