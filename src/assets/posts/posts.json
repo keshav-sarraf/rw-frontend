@@ -26,6 +26,15 @@
             "read_duration" : "2 minutes read",
             "labels" : ["NLP", "Computers"],
             "router_link" : "/regex-post-intro"
+        },
+        {
+            "id" : 4,
+            "title" : "🔎 Wordle Solver",
+            "description" : "Wordle is a word guessing game that has taken the internet by storm. In this post, we attempt to create an app that can help us in solving the wordle puzzles",
+            "date" : "28th January 2022",
+            "read_duration" : "2 minutes read",
+            "labels" : ["Puzzle"],
+            "router_link" : "/wordle-solver"
         }
     ]
 }
