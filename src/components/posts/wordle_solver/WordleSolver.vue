@@ -105,6 +105,10 @@
                     </div>
                 </div>
 
+                <div class="col-md-12">
+                    <p>If 2 different letters appear at the same position in different turns, write both of them at the same position</p>
+                    </div>
+
             </div>
 
             <div class="row border my-2 py-2">
@@ -157,7 +161,7 @@
 
             </div>
 
-            <div class="row border my-2 py-2">
+            <div class="row my-2 py-2">
                 <div class="col-sm-4">
                     <button type="button" class="btn btn-danger" @click="resetState">Reset Filters</button>
                 </div>
