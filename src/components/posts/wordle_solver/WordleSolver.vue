@@ -1,9 +1,13 @@
 <template>
 <div class="container">
     <h2>🔎 Wordle Solver</h2>
-    <h6>Published on 30th January 2022</h6>
-    <h6>3 minutes read</h6>
+    <h6>Published on 28th January 2022</h6>
+    <h6>2 minutes read</h6>
     <hr>
+
+<div>
+    <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> is a trending phenomena today. There's a nice <a href="https://www.nytimes.com/2022/01/03/technology/wordle-word-game-creator.html">NY times article</a> on it describing its origins. Frankly it's quite fun to play as well, but for people like me who are challenged in vocabulary, it's not exactly a piece of cake. So here's an app to help. Although I'd recommend not using this and instead playing the game in the sporting fashion it was meant to be played in.
+</div>
 
     <div class="row my-2 py-2">
         <h3>I am not able to think of a word, suggest me something </h3>
