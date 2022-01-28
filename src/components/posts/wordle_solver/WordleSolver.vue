@@ -5,9 +5,11 @@
     <h6>2 minutes read</h6>
     <hr>
 
-<div>
-    <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> is a trending phenomena today. There's a nice <a href="https://www.nytimes.com/2022/01/03/technology/wordle-word-game-creator.html">NY times article</a> on it describing its origins. Frankly it's quite fun to play as well, but for people like me who are challenged in vocabulary, it's not exactly a piece of cake. So here's an app to help. Although I'd recommend not using this and instead playing the game in the sporting fashion it was meant to be played in.
-</div>
+    <div>
+        <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> is a trending phenomena today. There's a nice <a href="https://www.nytimes.com/2022/01/03/technology/wordle-word-game-creator.html">NY times article</a> on it describing its origins. Frankly it's quite fun to play as well, but for people like me who are challenged in vocabulary, it's not exactly a piece of cake. So here's an app to help. Although I'd recommend not using this and instead playing the game in the sporting fashion it was meant to be played in.
+    </div>
+
+    <hr>
 
     <div class="row my-2 py-2">
         <h3>I am not able to think of a word, suggest me something </h3>
@@ -25,6 +27,7 @@
             <h2 class="align-middle">{{randUniqueLetteredWord}}</h2>
         </div>
     </div>
+
     <div class="row border my-2 py-2">
         <div class="col-sm-10">
             <p>
@@ -38,128 +41,145 @@
     </div>
 
     <div class="row my-2 py-2">
-        <h3>I am in the middle of a game, suggest possible next words </h3>
+        <h3>I am in the middle of a game, suggest me some possible next words </h3>
     </div>
 
-    <div class="row border my-2 py-2">
-        <div class="col-sm-2">
-            <h3 class="text-secondary">Grays</h3>
+    <!-- New -->
+
+    <div class="row my-2 py-2">
+        <div class="col-md-6">
+            <div class="row border my-2 py-2">
+                <div class="col-sm-2">
+                    <h3 class="text-secondary">Grays</h3>
+                </div>
+                <div class="col-10 col-md-12 align-self-end p-2">
+                    <!-- <label for="inputGrayLetters" class="form-label">Gray Letters</label> -->
+                    <input id="inputGrayLetters" style="text-transform: uppercase;" class="form-control bg-secondary text-white" aria-describedby="grayHelperBlock" v-model="grays">
+                    <div id="grayHelperBlock" class="form-text">
+                        Enter all the gray letters that you have seen so far. For e.g CSDEF
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border my-2 py-2">
+                <div class="col-sm-2">
+                    <h3 class="text-warning">Yellows</h3>
+                </div>
+                <div class="col-2 col-md-2 p-2">
+                    <!-- <label for="inputYellowLetter1" class="form-label">Yellow Letters</label> -->
+                    <input id="inputYellowLetter1" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow1HelperBlock" v-model="y0">
+                    <div id="yellow1HelperBlock" class="form-text">
+                        first position
+                    </div>
+                </div>
+
+                <div class="col-2 col-md-2 p-2">
+                    <!-- <label for="inputYellowLetter2" class="form-label"></label> -->
+                    <input id="inputYellowLetter2" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow2HelperBlock" v-model="y1">
+                    <div id="yellow2HelperBlock" class="form-text">
+                        second position
+                    </div>
+                </div>
+
+                <div class="col-2 col-md-2 p-2">
+                    <!-- <label for="inputYellowLetter3" class="form-label"></label> -->
+                    <input id="inputYellowLetter3" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow3HelperBlock" v-model="y2">
+                    <div id="yellow3HelperBlock" class="form-text">
+                        third position
+                    </div>
+                </div>
+
+                <div class="col-2 col-md-2 p-2">
+                    <!-- <label for="inputYellowLetter4" class="form-label"></label> -->
+                    <input id="inputYellowLetter4" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow4HelperBlock" v-model="y3">
+                    <div id="yellow4HelperBlock" class="form-text">
+                        fourth position
+                    </div>
+                </div>
+
+                <div class="col-2 col-md-2 p-2">
+                    <!-- <label for="inputYellowLetter5" class="form-label"></label> -->
+                    <input id="inputYellowLetter5" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow5HelperBlock" v-model="y4">
+                    <div id="yellow5HelperBlock" class="form-text">
+                        fifth position
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row border my-2 py-2">
+                <div class="col-sm-2">
+                    <h3 class="text-success">Greens</h3>
+                </div>
+                <div class="col-2 col-md-2 p-2">
+                    <!-- <label for="inputgreenLetter1" class="form-label">green Letters</label> -->
+                    <input id="inputgreenLetter1" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green1HelperBlock" v-model="g0">
+                    <div id="green1HelperBlock" class="form-text">
+                        first position
+                    </div>
+                </div>
+
+                <div class="col-2 col-md-2 p-2">
+                    <!-- <label for="inputgreenLetter2" class="form-label"></label> -->
+                    <input id="inputgreenLetter2" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green2HelperBlock" v-model="g1">
+                    <div id="green2HelperBlock" class="form-text">
+                        second position
+                    </div>
+                </div>
+
+                <div class="col-2 col-md-2 p-2">
+                    <!-- <label for="inputgreenLetter3" class="form-label"></label> -->
+                    <input id="inputgreenLetter3" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green3HelperBlock" v-model="g2">
+                    <div id="green3HelperBlock" class="form-text">
+                        third position
+                    </div>
+                </div>
+
+                <div class="col-2 col-md-2 p-2">
+                    <!-- <label for="inputgreenLetter4" class="form-label"></label> -->
+                    <input id="inputgreenLetter4" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green4HelperBlock" v-model="g3">
+                    <div id="green4HelperBlock" class="form-text">
+                        fourth position
+                    </div>
+                </div>
+
+                <div class="col-2 col-md-2 p-2">
+                    <!-- <label for="inputgreenLetter5" class="form-label"></label> -->
+                    <input id="inputgreenLetter5" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green5HelperBlock" v-model="g4">
+                    <div id="green5HelperBlock" class="form-text">
+                        fifth position
+                    </div>
+                </div>
+
+                <div v-if="greenErrorMsg" class="col-sm-2">
+                    <p class="text-danger">{{greenErrorMsg}}</p>
+                </div>
+
+            </div>
+
+            <div class="row border my-2 py-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-danger" @click="resetState">Reset Filters</button>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-5 align-self-end p-2">
-            <!-- <label for="inputGrayLetters" class="form-label">Gray Letters</label> -->
-            <input id="inputGrayLetters" style="text-transform: uppercase;" class="form-control bg-secondary text-white" aria-describedby="grayHelperBlock" v-model="grays">
-            <div id="grayHelperBlock" class="form-text">
-                Enter all the gray letters that you have seen so far. For e.g CSDEF
+
+        <div class="col-md-6">
+            <div class="row border my-2 py-2">
+                <div class="col-sm-2 col-md-6">
+                    <h3>Suggestions</h3>
+                </div>
+
+                <div class="col-sm-10 col-md-22">
+                    <span v-for="(suggestion,index) in suggestions" :key="index" class="badge bg-primary m-1">
+                        {{suggestion.toUpperCase()}}
+                    </span>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="row border my-2 py-2">
-        <div class="col-sm-2">
-            <h3 class="text-warning">Yellows</h3>
-        </div>
-        <div class="col-sm-1 p-2">
-            <!-- <label for="inputYellowLetter1" class="form-label">Yellow Letters</label> -->
-            <input id="inputYellowLetter1" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow1HelperBlock" v-model="y0">
-            <div id="yellow1HelperBlock" class="form-text">
-                Enter all the yellow letters at the first position
-            </div>
-        </div>
-
-        <div class="col-sm-1 p-2">
-            <!-- <label for="inputYellowLetter2" class="form-label"></label> -->
-            <input id="inputYellowLetter2" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow2HelperBlock" v-model="y1">
-            <div id="yellow2HelperBlock" class="form-text">
-                Enter all the yellow letters at the second position
-            </div>
-        </div>
-
-        <div class="col-sm-1 p-2">
-            <!-- <label for="inputYellowLetter3" class="form-label"></label> -->
-            <input id="inputYellowLetter3" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow3HelperBlock" v-model="y2">
-            <div id="yellow3HelperBlock" class="form-text">
-                Enter all the yellow letters at the third position
-            </div>
-        </div>
-
-        <div class="col-sm-1 p-2">
-            <!-- <label for="inputYellowLetter4" class="form-label"></label> -->
-            <input id="inputYellowLetter4" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow4HelperBlock" v-model="y3">
-            <div id="yellow4HelperBlock" class="form-text">
-                Enter all the yellow letters at the fourth position
-            </div>
-        </div>
-
-        <div class="col-sm-1 p-2">
-            <!-- <label for="inputYellowLetter5" class="form-label"></label> -->
-            <input id="inputYellowLetter5" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow5HelperBlock" v-model="y4">
-            <div id="yellow5HelperBlock" class="form-text">
-                Enter all the yellow letters at the fifth position
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row border my-2 py-2">
-        <div class="col-sm-2">
-            <h3 class="text-success">Greens</h3>
-        </div>
-        <div class="col-sm-1 p-2">
-            <!-- <label for="inputgreenLetter1" class="form-label">green Letters</label> -->
-            <input id="inputgreenLetter1" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green1HelperBlock" v-model="g0">
-            <div id="green1HelperBlock" class="form-text">
-                Enter all the green letters at the first position
-            </div>
-        </div>
-
-        <div class="col-sm-1 p-2">
-            <!-- <label for="inputgreenLetter2" class="form-label"></label> -->
-            <input id="inputgreenLetter2" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green2HelperBlock" v-model="g1">
-            <div id="green2HelperBlock" class="form-text">
-                Enter all the green letters at the second position
-            </div>
-        </div>
-
-        <div class="col-sm-1 p-2">
-            <!-- <label for="inputgreenLetter3" class="form-label"></label> -->
-            <input id="inputgreenLetter3" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green3HelperBlock" v-model="g2">
-            <div id="green3HelperBlock" class="form-text">
-                Enter all the green letters at the third position
-            </div>
-        </div>
-
-        <div class="col-sm-1 p-2">
-            <!-- <label for="inputgreenLetter4" class="form-label"></label> -->
-            <input id="inputgreenLetter4" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green4HelperBlock" v-model="g3">
-            <div id="green4HelperBlock" class="form-text">
-                Enter all the green letters at the fourth position
-            </div>
-        </div>
-
-        <div class="col-sm-1 p-2">
-            <!-- <label for="inputgreenLetter5" class="form-label"></label> -->
-            <input id="inputgreenLetter5" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green5HelperBlock" v-model="g4">
-            <div id="green5HelperBlock" class="form-text">
-                Enter all the green letters at the fifth position
-            </div>
-        </div>
-
-        <div v-if="greenErrorMsg" class="col-sm-2">
-            <p class="text-danger">{{greenErrorMsg}}</p>
-        </div>
-
-    </div>
-
-    <div class="row border my-2 py-2">
-        <div class="col-sm-2">
-            <h3>Suggestions</h3>
-        </div>
-
-        <div class="col-sm-10 text-start m-auto">
-            <span v-for="(suggestion,index) in suggestions" :key="index" class="badge bg-primary m-1">
-                {{suggestion.toUpperCase()}}
-            </span>
-        </div>
+    <div>
     </div>
 
 </div>
@@ -193,6 +213,20 @@ export default {
         const g3 = ref("");
         const g4 = ref("");
         const greenErrorMsg = ref("");
+
+        const resetState = () => {
+            grays.value = "";
+            y0.value = "";
+            y1.value = "";
+            y2.value = "";
+            y3.value = "";
+            y4.value = "";
+            g0.value = "";
+            g1.value = "";
+            g2.value = "";
+            g3.value = "";
+            g4.value = "";
+        }
 
         watch(grays, (n, o) => {
             console.log("Gray changed from : " + o + " to : " + n);
@@ -240,17 +274,26 @@ export default {
 
         const suggestions = computed(() => {
             //checks
-            //TODO: same letter can't be in all 3 colors
+            let yellowArr = [y0.value.toLowerCase(), y1.value.toLowerCase(), y2.value.toLowerCase(), y3.value.toLowerCase(), y4.value.toLowerCase()];
+            yellowArr = yellowArr.join("").split("");
+
+            let greenArr = [g0.value.toLowerCase(), g1.value.toLowerCase(), g2.value.toLowerCase(), g3.value.toLowerCase(), g4.value.toLowerCase()];
+
+            let graysArr = grays.value.toLowerCase().split("");
+            graysArr = graysArr.filter(letter => !yellowArr.includes(letter) && !greenArr.includes(letter));
+            let grayStr = graysArr.join(""); //done for double letters where 1 is gray and 1 is yellow
+
+            console.log("grayStr " + grayStr);
 
             let result = wordList;
 
-            if (grays.value != "")
-                result = word_finder_util.grayFilter(result, grays.value);
+            if (graysArr.some(el => el != ""))
+                result = word_finder_util.grayFilter(result, grayStr);
 
-            if (y0.value != "" || y1.value != "" || y2.value != "" || y3.value != "" || y4.value != "")
+            if (yellowArr.some(el => el != ""))
                 result = word_finder_util.yellowFilter(result, [y0.value, y1.value, y2.value, y3.value, y4.value]);
 
-            if (g0.value != "" || g1.value != "" || g2.value != "" || g3.value != "" || g4.value != "")
+            if (greenArr.some(el => el != ""))
                 result = word_finder_util.greenFilter(result, [g0.value, g1.value, g2.value, g3.value, g4.value]);
 
             shuffleArr(result);
@@ -290,6 +333,7 @@ export default {
             randWord,
             getRandomUniqueLetteredWord,
             getRandomWord,
+            resetState,
             suggestions
         }
     },
