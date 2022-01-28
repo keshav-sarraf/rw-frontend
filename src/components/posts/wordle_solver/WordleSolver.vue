@@ -302,6 +302,10 @@ export default {
 
             shuffleArr(result);
 
+            let uniqWords = word_finder_util.getFirstWordSuggestions(result);
+            let remainingWords = result.filter(word => !uniqWords.includes(word));
+            result = uniqWords.concat(remainingWords);
+
             if (result.length > 200)
                 return result.slice(0, 200);
 
