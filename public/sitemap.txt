@@ -22,3 +22,4 @@ https://www.reinventingwheel.com/regex-game-l14
 https://www.reinventingwheel.com/regex-game-l15
 https://www.reinventingwheel.com/regex-game-l16
 https://www.reinventingwheel.com/regex-game-outro
+https://www.reinventingwheel.com/wordle-solver
