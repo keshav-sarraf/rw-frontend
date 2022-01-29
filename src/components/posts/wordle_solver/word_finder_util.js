@@ -10,6 +10,8 @@ const grayFilter = (wordList, grayChars) => {
 }
 
 const yellowFilter = (wordList, yellowCharsArr) => {
+    yellowCharsArr = yellowCharsArr.map(letters => letters.replace(/\W+/g, "").replace(/\d+/g, ""));
+    console.log(yellowCharsArr);
     let allYellowChars = yellowCharsArr.join("").toLowerCase();
     let yellowSet = new Set(allYellowChars);
     let yellowChars = [...yellowSet];
@@ -22,6 +24,7 @@ const yellowFilter = (wordList, yellowCharsArr) => {
 }
 
 const greenFilter = (wordList, greenCharsArr) => {
+    greenCharsArr = greenCharsArr.map(letters => letters.replace(/\W+/g, "").replace(/\d+/g, ""));
     let filteredWords = wordList.filter(word => [0,1,2,3,4].every(idx => (greenCharsArr[idx] == "") || greenCharsArr[idx].toLowerCase() == word[idx].toLowerCase()));
     return(filteredWords);
 }

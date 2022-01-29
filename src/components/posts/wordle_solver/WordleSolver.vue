@@ -42,6 +42,15 @@
 
     <div class="row my-2 py-2">
         <h3>I am in the middle of a game, suggest me some possible next words </h3>
+        <p>Enter status of your game below. For example when you are playing the game, you'll see the letters classified as gray, yellow or green. Please enter those in the section below.</p>
+        <ul>
+            <li> In the gray section, enter all the gray letters that you see without any separators. for e.g. "BHSE"</li>
+            <li> In the yellow section, enter all the yellow letters that you see in the positions you see them. For example if you a yellow letter in position 3, then enter that letter in the 3rd position. There is a possibility that you may encounter 2 different Yellow letters at the same position. In that case enter both of them without any separator. For e.g. "CM" </li>
+            <li> In the green section, enter all the green letters that you see in the positions you see them. For example if you a green letter in position 4, then enter that letter in the 4th position </li>
+            <li> In the green section, enter all the green letters that you see in the position you see them. For example if you a green letter in position 4, then enter that letter in the 4th position </li>
+            <li>The suggestions will keep on updating automatically as you keep modifying the state of your game
+            </li>
+        </ul>
     </div>
 
     <!-- New -->
@@ -54,7 +63,7 @@
                 </div>
                 <div class="col-10 col-md-12 align-self-end p-2">
                     <!-- <label for="inputGrayLetters" class="form-label">Gray Letters</label> -->
-                    <input id="inputGrayLetters" style="text-transform: uppercase;" class="form-control bg-secondary text-white" aria-describedby="grayHelperBlock" v-model="grays">
+                    <input id="inputGrayLetters" style="text-transform: uppercase;" class="form-control bg-secondary text-white" aria-describedby="grayHelperBlock" v-model.trim="grays">
                     <div id="grayHelperBlock" class="form-text">
                         Enter all the gray letters that you have seen so far. For e.g CSDEF
                     </div>
@@ -67,7 +76,7 @@
                 </div>
                 <div class="col-2 col-md-2 p-2">
                     <!-- <label for="inputYellowLetter1" class="form-label">Yellow Letters</label> -->
-                    <input id="inputYellowLetter1" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow1HelperBlock" v-model="y0">
+                    <input id="inputYellowLetter1" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow1HelperBlock" v-model.trim="y0">
                     <div id="yellow1HelperBlock" class="form-text">
                         first position
                     </div>
@@ -75,7 +84,7 @@
 
                 <div class="col-2 col-md-2 p-2">
                     <!-- <label for="inputYellowLetter2" class="form-label"></label> -->
-                    <input id="inputYellowLetter2" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow2HelperBlock" v-model="y1">
+                    <input id="inputYellowLetter2" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow2HelperBlock" v-model.trim="y1">
                     <div id="yellow2HelperBlock" class="form-text">
                         second position
                     </div>
@@ -83,7 +92,7 @@
 
                 <div class="col-2 col-md-2 p-2">
                     <!-- <label for="inputYellowLetter3" class="form-label"></label> -->
-                    <input id="inputYellowLetter3" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow3HelperBlock" v-model="y2">
+                    <input id="inputYellowLetter3" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow3HelperBlock" v-model.trim="y2">
                     <div id="yellow3HelperBlock" class="form-text">
                         third position
                     </div>
@@ -91,7 +100,7 @@
 
                 <div class="col-2 col-md-2 p-2">
                     <!-- <label for="inputYellowLetter4" class="form-label"></label> -->
-                    <input id="inputYellowLetter4" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow4HelperBlock" v-model="y3">
+                    <input id="inputYellowLetter4" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow4HelperBlock" v-model.trim="y3">
                     <div id="yellow4HelperBlock" class="form-text">
                         fourth position
                     </div>
@@ -99,15 +108,15 @@
 
                 <div class="col-2 col-md-2 p-2">
                     <!-- <label for="inputYellowLetter5" class="form-label"></label> -->
-                    <input id="inputYellowLetter5" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow5HelperBlock" v-model="y4">
+                    <input id="inputYellowLetter5" style="text-transform: uppercase;" class="form-control bg-warning text-darkr" aria-describedby="yellow5HelperBlock" v-model.trim="y4">
                     <div id="yellow5HelperBlock" class="form-text">
                         fifth position
                     </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12 form-text">
                     <p>If 2 different letters appear at the same position in different turns, write both of them at the same position</p>
-                    </div>
+                </div>
 
             </div>
 
@@ -117,7 +126,7 @@
                 </div>
                 <div class="col-2 col-md-2 p-2">
                     <!-- <label for="inputgreenLetter1" class="form-label">green Letters</label> -->
-                    <input id="inputgreenLetter1" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green1HelperBlock" v-model="g0">
+                    <input id="inputgreenLetter1" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green1HelperBlock" v-model.trim="g0">
                     <div id="green1HelperBlock" class="form-text">
                         first position
                     </div>
@@ -125,7 +134,7 @@
 
                 <div class="col-2 col-md-2 p-2">
                     <!-- <label for="inputgreenLetter2" class="form-label"></label> -->
-                    <input id="inputgreenLetter2" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green2HelperBlock" v-model="g1">
+                    <input id="inputgreenLetter2" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green2HelperBlock" v-model.trim="g1">
                     <div id="green2HelperBlock" class="form-text">
                         second position
                     </div>
@@ -133,7 +142,7 @@
 
                 <div class="col-2 col-md-2 p-2">
                     <!-- <label for="inputgreenLetter3" class="form-label"></label> -->
-                    <input id="inputgreenLetter3" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green3HelperBlock" v-model="g2">
+                    <input id="inputgreenLetter3" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green3HelperBlock" v-model.trim="g2">
                     <div id="green3HelperBlock" class="form-text">
                         third position
                     </div>
@@ -141,7 +150,7 @@
 
                 <div class="col-2 col-md-2 p-2">
                     <!-- <label for="inputgreenLetter4" class="form-label"></label> -->
-                    <input id="inputgreenLetter4" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green4HelperBlock" v-model="g3">
+                    <input id="inputgreenLetter4" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green4HelperBlock" v-model.trim="g3">
                     <div id="green4HelperBlock" class="form-text">
                         fourth position
                     </div>
@@ -149,7 +158,7 @@
 
                 <div class="col-2 col-md-2 p-2">
                     <!-- <label for="inputgreenLetter5" class="form-label"></label> -->
-                    <input id="inputgreenLetter5" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green5HelperBlock" v-model="g4">
+                    <input id="inputgreenLetter5" style="text-transform: uppercase;" class="form-control bg-success text-white" aria-describedby="green5HelperBlock" v-model.trim="g4">
                     <div id="green5HelperBlock" class="form-text">
                         fifth position
                     </div>
@@ -276,6 +285,8 @@ export default {
             }
         }
 
+        shuffleArr(wordList);
+
         const suggestions = computed(() => {
             //checks
             let yellowArr = [y0.value.toLowerCase(), y1.value.toLowerCase(), y2.value.toLowerCase(), y3.value.toLowerCase(), y4.value.toLowerCase()];
@@ -300,14 +311,16 @@ export default {
             if (greenArr.some(el => el != ""))
                 result = word_finder_util.greenFilter(result, [g0.value, g1.value, g2.value, g3.value, g4.value]);
 
-            shuffleArr(result);
+            //shuffleArr(result);
 
             let uniqWords = word_finder_util.getFirstWordSuggestions(result);
             let remainingWords = result.filter(word => !uniqWords.includes(word));
             result = uniqWords.concat(remainingWords);
 
-            if (result.length > 200)
-                return result.slice(0, 200);
+            if (result.length > 100)
+                result = result.slice(0, 100);
+
+            //shuffleArr(result);
 
             return (result);
         });
