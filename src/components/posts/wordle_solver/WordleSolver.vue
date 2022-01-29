@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="row my-2 py-2">
+    <div class="row m-2 p-2">
         <h3>I am in the middle of a game, suggest me some possible next words </h3>
         <p>Enter status of your game below. For example when you are playing the game, you'll see the letters classified as gray, yellow or green. Please enter those in the section below.</p>
         <ul>
