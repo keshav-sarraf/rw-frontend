@@ -46,7 +46,6 @@
         <ul>
             <li> In the gray section, enter all the gray letters that you see without any separators. for e.g. "BHSE"</li>
             <li> In the yellow section, enter all the yellow letters that you see in the positions you see them. For example if you a yellow letter in position 3, then enter that letter in the 3rd position. There is a possibility that you may encounter 2 different Yellow letters at the same position. In that case enter both of them without any separator. For e.g. "CM" </li>
-            <li> In the green section, enter all the green letters that you see in the positions you see them. For example if you a green letter in position 4, then enter that letter in the 4th position </li>
             <li> In the green section, enter all the green letters that you see in the position you see them. For example if you a green letter in position 4, then enter that letter in the 4th position </li>
             <li>The suggestions will keep on updating automatically as you keep modifying the state of your game
             </li>
